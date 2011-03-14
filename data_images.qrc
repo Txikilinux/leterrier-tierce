@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/data_images">
+        <file>data/images/background-1024x600.png</file>
+        <file>data/images/quit-24x24.png</file>
+        <file>data/images/pagefold-50x45.png</file>
+        <file>data/images/new-24x24.png</file>
+        <file>data/images/redo.png</file>
+    </qresource>
+</RCC>

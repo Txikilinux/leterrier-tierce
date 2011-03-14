@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Tierce</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget#centralWidget {	
+	background-image: url(:/data_images/data/images/background-1024x600.png);
+	background-repeat: repeat-no;
+   	background-position: top right;
+}
+
+QLabel { background-color : green; color : yellow }
+
+QTextEdit#tedAffiche {background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 255, 50, 255), stop:1 rgba(255, 255, 255, 255));
+	border-radius : 8px;
+	background-image: url(:/data_images/data/images/pagefold-50x45.png);
+	background-repeat: repeat-no;
+   	background-position: top right;
+}
+
+ *[flat=&quot;true&quot;]{ 
+	color : red; 
+	background-color : 	yellow; 
+	border-radius : 8px; 
+	border-width : 2px;
+	border-style : solid ;
+	border-color : black;
+ }
+ *[flat=&quot;true&quot;]:hover{ 
+	color : red; 
+	background-color : yellow; 
+	border-radius : 8px; 
+	border-width : 2px;
+	border-style : solid ;
+	border-color : white;
+ }
+
+QPushButton#btnNouveau {
+			background-color : rgba(200, 255, 100, 255); 
+	background-image: url(:/data_images/data/images/new-24x24.png);
+			background-repeat: repeat-no;
+   			background-position: center;
+			border-radius : 8px; 
+						border-width : 2px;
+						border-style : solid ;
+						border-color : black; }
+QPushButton#btnNouveau:hover { 
+			background-color : rgba(200, 255, 100, 255); 
+	background-image: url(:/data_images/data/images/new-24x24.png);
+			background-repeat: repeat-no;
+   			background-position: center;
+			border-radius : 8px; 
+						border-width : 2px;
+						border-style : solid ;
+						border-color : white; }
+QPushButton#btnRecommencer {
+			background-color : rgba(200, 255, 100, 255); 
+	background-image: url(:/data_images/data/images/redo.png);
+			background-repeat: repeat-no;
+   			background-position: center;
+			border-radius : 8px; 
+						border-width : 2px;
+						border-style : solid ;
+						border-color : black; }
+QPushButton#btnRecommencer:hover { 
+			background-color : rgba(200, 255, 100, 255); 
+	background-image: url(:/data_images/data/images/redo.png);
+			background-repeat: repeat-no;
+   			background-position: center;
+			border-radius : 8px; 
+						border-width : 2px;
+						border-style : solid ;
+						border-color : white; }
+QPushButton#btnQuitter {
+			background-color : rgba(200, 255, 100, 255); 
+	background-image: url(:/data_images/data/images/quit-24x24.png);
+			background-repeat: repeat-no;
+   			background-position: center;
+			border-radius : 8px; 
+						border-width : 2px;
+						border-style : solid ;
+						border-color : black; }
+QPushButton#btnQuitter:hover { 
+			background-color : rgba(200, 255, 100, 255); 
+	background-image: url(:/data_images/data/images/quit-24x24.png);
+			background-repeat: repeat-no;
+   			background-position: center;
+			border-radius : 8px; 
+						border-width : 2px;
+						border-style : solid ;
+						border-color : white; }</string>
+   </property>
+   <widget class="QPushButton" name="btnRecommencer">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>350</y>
+      <width>101</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Recommencer</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="tedAffiche">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>220</y>
+      <width>221</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnNouveau">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>350</y>
+      <width>111</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Nouveau</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnQuitter">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>450</y>
+      <width>221</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>Quitter</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuDimensions">
+    <property name="title">
+     <string>Dimensions</string>
+    </property>
+    <addaction name="action3x4"/>
+    <addaction name="action3x5"/>
+    <addaction name="action4x6"/>
+    <addaction name="action5x6"/>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuDimensions"/>
+  </widget>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+  </action>
+  <action name="action3x4">
+   <property name="text">
+    <string>3x4</string>
+   </property>
+  </action>
+  <action name="action3x5">
+   <property name="text">
+    <string>3x5</string>
+   </property>
+  </action>
+  <action name="action4x6">
+   <property name="text">
+    <string>4x6</string>
+   </property>
+  </action>
+  <action name="action5x6">
+   <property name="text">
+    <string>5x6</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionQuitter</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btnQuitter</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>930</x>
+     <y>495</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,97 @@
+/**
+  * Tierce (le terrier d'AbulEdu)
+  *
+  * @warning aucun traitement d'erreur n'est pour l'instant implémenté
+  * @see https://redmine.ryxeo.com/projects/
+  * @author 2011 Andre Connes <andre dot connes at wanadoo dot fr>
+  * @see The GNU Public License (GPL)
+  */
+
+/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QDebug>
+#include <QPushButton>
+#include <QList>
+#include "btncase.h"
+#include "abuleduaproposv0.h"
+
+const int LARGEUR = 1024-100;
+const int HAUTEUR = 600-100;
+const int DW = 20;          // décalage colonne de gauche
+const int DH = 40;          // décalage ligne du haut
+
+
+namespace Ui {
+    class MainWindow;
+}
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+    QString getMBtnClique();
+
+private:
+    Ui::MainWindow *ui;
+    void initGrille();
+    void initValeurs();
+    void verifier3();
+    void verifierTout();
+    void _deleteBtnCases();
+
+    // le produit lignes x colonnes doit être multiple de 3
+    int m_nLignes;
+    int m_nColonnes;
+    QString m_btnClique;
+    QList<BtnCase *> m_btnCases;
+    QList<int> m_3btnCases; // indice des 3 boutons sélectionnés
+
+    /**
+      fontes utilisées
+    */
+    QFont fontBIG; // 35
+    QFont fontMEDIUM; // 25
+    QFont fontMINUS; //10
+
+signals:
+    /**
+      signal émis lorsque on clique sur un bouton
+      */
+    void signalBtnCase(QString);
+
+private slots:
+    /**
+      retrouver le btnCase qui a émis le signal et traiter ce signal
+      */
+    void on_action5x6_triggered();
+    void on_action4x6_triggered();
+    void on_action3x5_triggered();
+    void on_action3x4_triggered();
+    void on_btnNouveau_clicked();
+    void on_btnRecommencer_clicked();
+    void attraperBtnCase();
+};
+
+#endif // MAINWINDOW_H
