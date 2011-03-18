@@ -136,6 +136,7 @@ void MainWindow::initValeurs() {
     m_listeCouplesSauve = m_listeCouples;
 
     m_3btnCases.clear();
+    ui->btnAide->setDisabled(false);
     ui->tedAffiche->setText(trUtf8("Un pion rose est\nsomme des deux pions jaunes.\n\nChoisis les pions par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul."));
 }
 
