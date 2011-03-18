@@ -76,12 +76,18 @@ void MainWindow::initValeurs() {
 
     int nBtn = m_nLignes * m_nColonnes;
     int encore = nBtn;
+    QList<int> listeTirage; // ensemble des valeurs v1 et v2 pour éviter les répétitions dans somme = v1 + v2
+    m_listeSommes.clear();
+    m_listeCouples.clear();
     while (encore > 0) {
         int n1, v1;
         do {
             n1 = rand() % nBtn;
         } while (m_btnCases[n1]->getMValeur() > -1);
-        v1 = 1+rand() %nBtn;
+        do {
+            v1 = 1+rand() %nBtn;
+        } while (listeTirage.contains(v1));
+        listeTirage << v1;
         m_btnCases[n1]->setMValeur(v1);
         m_btnCases[n1]->setMSauve();
         m_btnCases[n1]->setText(QString::number(v1));
@@ -90,12 +96,16 @@ void MainWindow::initValeurs() {
         m_btnCases[n1]->setDisabled(false);
         m_btnCases[n1]->setMChoisi(false);
         m_btnCases[n1]->setStyleSheet("background-color: "+NORMALBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
+        m_listeCouples << v1;
         encore--;
         int n2, v2;
         do {
             n2 = rand() % nBtn;
         } while (m_btnCases[n2]->getMValeur() > -1);
-        v2 = 1+rand() %nBtn;
+        do {
+            v2 = 1+rand() %nBtn;
+        } while (listeTirage.contains(v2));
+        listeTirage << v2;
         m_btnCases[n2]->setMValeur(v2);
         m_btnCases[n2]->setMSauve();
         m_btnCases[n2]->setText(QString::number(v2));
@@ -104,6 +114,7 @@ void MainWindow::initValeurs() {
         m_btnCases[n2]->setDisabled(false);
         m_btnCases[n2]->setMChoisi(false);
         m_btnCases[n2]->setStyleSheet("background-color: "+NORMALBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
+        m_listeCouples << v2;
         encore--;
         int n;
         do {
@@ -117,8 +128,12 @@ void MainWindow::initValeurs() {
         m_btnCases[n]->setDisabled(false);
         m_btnCases[n]->setMChoisi(false);
         m_btnCases[n]->setStyleSheet("background-color: "+SUMBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
+        m_listeSommes << v1+v2;
         encore--;
     }
+    // sauvegarde des listes "coup de pouce" pour pouvoir aider avec RECOMMENCER
+    m_listeSommesSauve = m_listeSommes;
+    m_listeCouplesSauve = m_listeCouples;
 
     m_3btnCases.clear();
     ui->tedAffiche->setText(trUtf8("Un pion rose est\nsomme des deux pions jaunes.\n\nChoisis les pions par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul."));
@@ -136,19 +151,24 @@ void MainWindow::attraperBtnCase()
 }
 
 void MainWindow::verifier3() {
-    qDebug() << "verifier3" << m_3btnCases;
+//    qDebug() << "verifier3" << m_3btnCases;
     QList<int> v; // liste des valeurs des 3 boutons
     for (int i = 0; i < 3; i++)
         v << m_btnCases[m_3btnCases[i]]->getMValeur();
     qSort(v.begin(), v.end());
-    qDebug() << "valeurs " << v;
     if (v[0]+v[1]==v[2]) {
+//        qDebug() << "j'enleve" << v[2] << v[0] << v[1];
         for (int i = 0; i < 3; i++) { // annuler les boutons
             m_btnCases[m_3btnCases[i]]->setFont(fontMINUS);
             m_btnCases[m_3btnCases[i]]->setDisabled(true);
             m_btnCases[m_3btnCases[i]]->setMChoisi(true);
             m_btnCases[m_3btnCases[i]]->setStyleSheet("background-color: "+NEUTRALBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
         }
+        // mettre à jour les listes "coup de pouce"
+        m_listeSommes.removeOne(v[2]);
+        m_listeCouples.removeOne(v[0]);
+        m_listeCouples.removeOne(v[1]);
+
         m_3btnCases.clear();
         verifierTout();
     } else {
@@ -164,9 +184,10 @@ void MainWindow::verifierTout() {
     int n = m_nLignes * m_nColonnes;
     for (int i = 0; i < m_nLignes * m_nColonnes; i++)
         if (m_btnCases[i]->getMChoisi()) n--;
-    if (n == 0)
+    if (n == 0) {
+        ui->btnAide->setDisabled(true);
         ui->tedAffiche->setText(trUtf8("Bravo, maintenant tu peux :\n\n- recommencer ;\n- choisir une nouvelle grille ;\n- modifier les dimensions de la grille."));
-    else
+    } else
         ui->tedAffiche->setText("\n\n"+trUtf8("Encore ")+QString::number(n/3));
 }
 
@@ -184,7 +205,10 @@ void MainWindow::on_btnRecommencer_clicked()
             m_btnCases[i]->setStyleSheet("background-color: "+NORMALBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
         }
     }
+    m_listeCouples = m_listeCouplesSauve;
+    m_listeSommes = m_listeSommesSauve;
     m_3btnCases.clear();
+    ui->btnAide->setDisabled(false);
 }
 
 void MainWindow::on_btnNouveau_clicked()
@@ -194,6 +218,7 @@ void MainWindow::on_btnNouveau_clicked()
     }
     initValeurs();
     m_3btnCases.clear();
+    ui->btnAide->setDisabled(false);
 }
 
 void MainWindow::_deleteBtnCases() {
@@ -236,4 +261,71 @@ void MainWindow::on_action5x6_triggered()
     m_nColonnes = 6;
     initGrille();
     initValeurs();
+}
+
+void MainWindow::on_btnAide_clicked()
+{
+//    qDebug() << "=== A l'aide ! ===" << m_listeSommes << m_listeCouples;
+    if (m_listeSommes.size() <= m_listeSommesSauve.size()/2) { // pas d'aide si peu de sommes à chercher
+        ui->tedAffiche->setText("\n\n"+trUtf8("Désolé, termine sans aide..."));
+        return;
+    }
+    QList<int> listeSommes;
+    QList<int> listeCouples;
+    listeSommes = m_listeSommes;
+    listeCouples = m_listeCouples;
+    int v0, v1, v2; // valeurs solutions v2 = v0 + v1
+    m_coupDePouce.clear();
+    int nSommes = listeSommes.size();
+    int k = 0; //degré de résolution (de 0 à n-1)
+    bool possible2 = true;  // résolution possible
+    // on veut : !possible ou k = nSommes
+    while (possible2 && k < nSommes) {
+        v2 = listeSommes[0];
+//        qDebug() << "possible2 ? " << k << v2 << listeSommes << listeCouples;
+        //
+        // je cherche v2
+        //
+//        qDebug() << "je cherche v2 (start)" << v2;
+        bool trouve = false;
+        int nCouples = listeCouples.size();
+        int v0, v1;
+        int i = 0;
+        // on veut trouve ou i >= nCouples
+        while(!trouve && i < nCouples-1) {
+            v0 = listeCouples[i];
+//            qDebug() << "rechercher complement a" << v0 << "pour" << v2;
+            int j = i+1;
+            while (!trouve && j < nCouples) {
+                v1 = listeCouples[j];
+//                qDebug() << "  " << v0 << "+" << v1 << "?" << v2;
+                trouve =  (v2 == v0 + v1);
+                if (trouve) {
+                    m_coupDePouce << v2 << v0 << v1;
+//                    qDebug() << "\n++++++ trouve" << m_coupDePouce << "\n";
+                }
+                j++;
+            }
+            i++;
+        }
+
+        // trouve ?
+        if (trouve) {
+            listeSommes.removeOne(v2);
+            listeCouples.removeOne(v0);
+            listeCouples.removeOne(v1);
+//            qDebug() << "listes apres remove" << listeSommes << listeCouples;
+            k++;
+        } else {
+            possible2 = false;
+        }
+    }
+    //
+    // conclusion
+    //
+    if (possible2) {
+        ui->tedAffiche->setText("\n\n"+trUtf8("Essaye ")+QString::number(m_coupDePouce[0])+" = "+QString::number(m_coupDePouce[1])+" + "+QString::number(m_coupDePouce[2]));
+    } else {
+        ui->tedAffiche->setText("\n\n"+trUtf8("Recommence ...\n\nCar impossible de faire ")+QString::number(listeSommes.last()));
+    }
 }

@@ -68,6 +68,14 @@ private:
     QList<BtnCase *> m_btnCases;
     QList<int> m_3btnCases; // indice des 3 boutons sélectionnés
 
+    // pour le coup de pouce : Somme = X + Y
+    QList<int> m_listeSommes;  // Somme
+    QList<int> m_listeSommesSauve;
+    QList<int> m_listeCouples; // liste des entiers X et Y (pas les couples)
+    QList<int> m_listeCouplesSauve;
+
+    QList<int> m_coupDePouce; // une solution particulière
+
     /**
       fontes utilisées
     */
@@ -85,6 +93,7 @@ private slots:
     /**
       retrouver le btnCase qui a émis le signal et traiter ce signal
       */
+    void on_btnAide_clicked();
     void on_action5x6_triggered();
     void on_action4x6_triggered();
     void on_action3x5_triggered();

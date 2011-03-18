@@ -25,7 +25,9 @@ FORMS    += mainwindow.ui \
 OTHER_FILES += \
     images/background-1024x600.png \
     images/pagefold-50x45.png \
-    data/images/redo.png
+    data/images/redo.png \
+    data/images/help60x42.png \
+    data/images/help.png
 
 RESOURCES += \
     data_images.qrc

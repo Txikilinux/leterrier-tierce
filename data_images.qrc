@@ -5,5 +5,6 @@
         <file>data/images/pagefold-50x45.png</file>
         <file>data/images/new-24x24.png</file>
         <file>data/images/redo.png</file>
+        <file>data/images/help.png</file>
     </qresource>
 </RCC>
