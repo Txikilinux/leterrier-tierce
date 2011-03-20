@@ -327,6 +327,7 @@ void MainWindow::on_btnAide_clicked()
     if (possible2) {
         ui->tedAffiche->setText("\n\n"+trUtf8("Essaye ")+QString::number(m_coupDePouce[0])+" = "+QString::number(m_coupDePouce[1])+" + "+QString::number(m_coupDePouce[2]));
     } else {
-        ui->tedAffiche->setText("\n\n"+trUtf8("Recommence ...\n\nCar impossible de faire ")+QString::number(listeSommes.last()));
+//        qDebug() << "Impossible " << listeSommes;
+        ui->tedAffiche->setText("\n\n"+trUtf8("Recommence ...\n\nCar impossible de faire ")+QString::number(listeSommes.first()));
     }
 }
