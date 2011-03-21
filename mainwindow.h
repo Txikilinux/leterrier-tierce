@@ -55,6 +55,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void actionDIMxDIM(int nLignes, int nColonnes);
     void initGrille();
     void initValeurs();
     void verifier3();

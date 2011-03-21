@@ -210,6 +210,7 @@ void MainWindow::on_btnRecommencer_clicked()
     m_listeSommes = m_listeSommesSauve;
     m_3btnCases.clear();
     ui->btnAide->setDisabled(false);
+    ui->tedAffiche->setText(trUtf8("Un pion rose est\nsomme des deux pions jaunes.\n\nChoisis les pions par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul."));
 }
 
 void MainWindow::on_btnNouveau_clicked()
@@ -227,55 +228,31 @@ void MainWindow::_deleteBtnCases() {
         m_btnCases[i]->deleteLater();
     m_btnCases.clear();
 }
-
-void MainWindow::on_action3x4_triggered()
-{
-    _deleteBtnCases();
-    m_nLignes = 3;
-    m_nColonnes = 4;
+void MainWindow::actionDIMxDIM(int nLignes, int nColonnes) {
+//    _deleteBtnCases();
+    m_nLignes = nLignes;
+    m_nColonnes = nColonnes;
     initGrille();
     initValeurs();
 }
 
-void MainWindow::on_action3x5_triggered()
-{
-    _deleteBtnCases();
-    m_nLignes = 3;
-    m_nColonnes = 5;
-    initGrille();
-    initValeurs();
-}
-
-void MainWindow::on_action4x6_triggered()
-{
-    _deleteBtnCases();
-    m_nLignes = 4;
-    m_nColonnes = 6;
-    initGrille();
-    initValeurs();
-}
-
-void MainWindow::on_action5x6_triggered()
-{
-    _deleteBtnCases();
-    m_nLignes = 5;
-    m_nColonnes = 6;
-    initGrille();
-    initValeurs();
-}
+void MainWindow::on_action3x4_triggered() { _deleteBtnCases(); actionDIMxDIM(3,4); }
+void MainWindow::on_action3x5_triggered() { _deleteBtnCases(); actionDIMxDIM(3,5); }
+void MainWindow::on_action4x6_triggered() { _deleteBtnCases(); actionDIMxDIM(4,6); }
+void MainWindow::on_action5x6_triggered() { _deleteBtnCases(); actionDIMxDIM(5,6); }
 
 void MainWindow::on_btnAide_clicked()
 {
 //    qDebug() << "=== A l'aide ! ===" << m_listeSommes << m_listeCouples;
-    if (m_listeSommes.size() <= m_listeSommesSauve.size()/2) { // pas d'aide si peu de sommes à chercher
-        ui->tedAffiche->setText("\n\n"+trUtf8("Désolé, termine sans aide..."));
-        return;
-    }
+//    if (m_listeSommes.size() <= m_listeSommesSauve.size()/2) { // pas d'aide si peu de sommes à chercher
+//        ui->tedAffiche->setText("\n\n"+trUtf8("Désolé, termine sans aide..."));
+//        return;
+//    }
     QList<int> listeSommes;
     QList<int> listeCouples;
     listeSommes = m_listeSommes;
     listeCouples = m_listeCouples;
-    int v0, v1, v2; // valeurs solutions v2 = v0 + v1
+    int v2; // solution v2 = v0 + v1
     m_coupDePouce.clear();
     int nSommes = listeSommes.size();
     int k = 0; //degré de résolution (de 0 à n-1)
@@ -325,7 +302,11 @@ void MainWindow::on_btnAide_clicked()
     // conclusion
     //
     if (possible2) {
-        ui->tedAffiche->setText("\n\n"+trUtf8("Essaye ")+QString::number(m_coupDePouce[0])+" = "+QString::number(m_coupDePouce[1])+" + "+QString::number(m_coupDePouce[2]));
+        if (m_listeSommes.size() <= m_listeSommesSauve.size()/2) { // pas d'aide si peu de sommes à chercher
+            ui->tedAffiche->setText("\n\n"+trUtf8("Désolé, termine sans aide..."));
+        } else {
+            ui->tedAffiche->setText("\n\n"+trUtf8("Essaye ")+QString::number(m_coupDePouce[0])+" = "+QString::number(m_coupDePouce[1])+" + "+QString::number(m_coupDePouce[2]));
+        }
     } else {
 //        qDebug() << "Impossible " << listeSommes;
         ui->tedAffiche->setText("\n\n"+trUtf8("Recommence ...\n\nCar impossible de faire ")+QString::number(listeSommes.first()));
