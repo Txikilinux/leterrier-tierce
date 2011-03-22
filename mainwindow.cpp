@@ -307,7 +307,7 @@ void MainWindow::on_btnAide_clicked()
         }
     } else {
 //        qDebug() << "Impossible " << listeSommes;
-        ui->tedAffiche->setText("\n\n"+trUtf8("Recommence ...\n\nCar impossible de faire ")+QString::number(listeSommes.first()));
+        ui->tedAffiche->setText("\n\n"+trUtf8("Peux-tu faire ")+QString::number(listeSommes.first())+trUtf8(" ?\n\nSi tu ne peux pas, recommence."));
     }
 }
 
