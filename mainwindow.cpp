@@ -42,6 +42,8 @@ MainWindow::MainWindow(QWidget *parent) :
     fontMINUS.setPointSize(10);
 
     // défaut
+    m_niveau = 0;
+    m_niveauMAX = 3;
     m_nLignes = 3;
     m_nColonnes = 4;
 
@@ -229,25 +231,21 @@ void MainWindow::_deleteBtnCases() {
     m_btnCases.clear();
 }
 void MainWindow::actionDIMxDIM(int nLignes, int nColonnes) {
-//    _deleteBtnCases();
+    _deleteBtnCases();
     m_nLignes = nLignes;
     m_nColonnes = nColonnes;
     initGrille();
     initValeurs();
 }
 
-void MainWindow::on_action3x4_triggered() { _deleteBtnCases(); actionDIMxDIM(3,4); }
-void MainWindow::on_action3x5_triggered() { _deleteBtnCases(); actionDIMxDIM(3,5); }
-void MainWindow::on_action4x6_triggered() { _deleteBtnCases(); actionDIMxDIM(4,6); }
-void MainWindow::on_action5x6_triggered() { _deleteBtnCases(); actionDIMxDIM(5,6); }
+void MainWindow::on_action3x4_triggered() { actionDIMxDIM(3,4); }
+void MainWindow::on_action3x5_triggered() { actionDIMxDIM(3,5); }
+void MainWindow::on_action4x6_triggered() { actionDIMxDIM(4,6); }
+void MainWindow::on_action5x6_triggered() { actionDIMxDIM(5,6); }
 
 void MainWindow::on_btnAide_clicked()
 {
 //    qDebug() << "=== A l'aide ! ===" << m_listeSommes << m_listeCouples;
-//    if (m_listeSommes.size() <= m_listeSommesSauve.size()/2) { // pas d'aide si peu de sommes à chercher
-//        ui->tedAffiche->setText("\n\n"+trUtf8("Désolé, termine sans aide..."));
-//        return;
-//    }
     QList<int> listeSommes;
     QList<int> listeCouples;
     listeSommes = m_listeSommes;
@@ -311,4 +309,25 @@ void MainWindow::on_btnAide_clicked()
 //        qDebug() << "Impossible " << listeSommes;
         ui->tedAffiche->setText("\n\n"+trUtf8("Recommence ...\n\nCar impossible de faire ")+QString::number(listeSommes.first()));
     }
+}
+
+void MainWindow::_changeNiveau() {
+    switch (m_niveau) {
+        case 0 : actionDIMxDIM(3,4); break;
+        case 1 : actionDIMxDIM(3,5); break;
+        case 2 : actionDIMxDIM(4,6); break;
+        case 3 : actionDIMxDIM(5,6); break;
+    }
+}
+
+void MainWindow::on_btnUp_clicked()
+{
+    if (m_niveau < m_niveauMAX) m_niveau++;
+    _changeNiveau();
+}
+
+void MainWindow::on_btnDown_clicked()
+{
+    if (m_niveau > 0) m_niveau--;
+    _changeNiveau();
 }

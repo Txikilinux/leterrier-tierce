@@ -28,7 +28,9 @@ OTHER_FILES += \
     data/images/redo.png \
     data/images/help60x42.png \
     data/images/help.png \
-    data/images/help.png
+    data/images/help.png \
+    data/images/up.png \
+    data/images/down.png
 
 RESOURCES += \
     data_images.qrc

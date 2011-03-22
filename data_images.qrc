@@ -6,5 +6,7 @@
         <file>data/images/new-24x24.png</file>
         <file>data/images/redo.png</file>
         <file>data/images/help.png</file>
+        <file>data/images/up.png</file>
+        <file>data/images/down.png</file>
     </qresource>
 </RCC>

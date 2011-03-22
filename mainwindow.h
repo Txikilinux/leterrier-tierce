@@ -56,6 +56,7 @@ public:
 private:
     Ui::MainWindow *ui;
     void actionDIMxDIM(int nLignes, int nColonnes);
+    void _changeNiveau();
     void initGrille();
     void initValeurs();
     void verifier3();
@@ -65,6 +66,8 @@ private:
     // le produit lignes x colonnes doit être multiple de 3
     int m_nLignes;
     int m_nColonnes;
+    int m_niveau; // 0 = 3x4, 1 = 3x5, 2 = 4x6, 3 = 5x6
+    int m_niveauMAX;
     QString m_btnClique;
     QList<BtnCase *> m_btnCases;
     QList<int> m_3btnCases; // indice des 3 boutons sélectionnés
@@ -94,6 +97,8 @@ private slots:
     /**
       retrouver le btnCase qui a émis le signal et traiter ce signal
       */
+    void on_btnDown_clicked();
+    void on_btnUp_clicked();
     void on_btnAide_clicked();
     void on_action5x6_triggered();
     void on_action4x6_triggered();
