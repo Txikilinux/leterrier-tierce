@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     qApp->setApplicationName("leterrier-tierce");
-    qApp->setApplicationVersion("1.0.4");
+    qApp->setApplicationVersion("1.0.5");
     qApp->setOrganizationDomain("abuledu.org");
     qApp->setOrganizationName("leterrier");
 
