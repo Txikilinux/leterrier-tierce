@@ -31,6 +31,8 @@
 #include <QDebug>
 #include <QPushButton>
 #include <QList>
+#include <QTranslator>
+#include <QLibraryInfo>
 #include "btncase.h"
 #include "abuleduaproposv0.h"
 
@@ -62,6 +64,10 @@ private:
     void verifier3();
     void verifierTout();
     void _deleteBtnCases();
+
+    //le traducteur d'interface
+    QTranslator qtTranslator;
+    QTranslator myappTranslator;
 
     // le produit lignes x colonnes doit être multiple de 3
     int m_nLignes;

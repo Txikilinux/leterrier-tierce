@@ -4,6 +4,7 @@
   * @warning aucun traitement d'erreur n'est pour l'instant implémenté
   * @see https://redmine.ryxeo.com/projects/
   * @author 2011 Andre Connes <andre dot connes at wanadoo dot fr>
+  * @author 2011 Eric Seigne <eric.seigne@ryxeo.com> (qtranslator)
   * @see The GNU Public License (GPL)
   */
 
@@ -33,6 +34,20 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    //Langue
+    QString locale = QLocale::system().name();
+
+    //Un 1er qtranslator pour prendre les traductions QT Systeme
+    //c'est d'ailleur grace a ca qu'on est en RTL
+    qtTranslator.load("qt_" + locale,
+            QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    qApp->installTranslator(&qtTranslator);
+
+    //Et un second qtranslator pour les traductions specifiques du
+    //logiciel
+    myappTranslator.load("tierce_" + locale, "lang");
+    qApp->installTranslator(&myappTranslator);
+
     ui->setupUi(this);
 
     AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
