@@ -29,7 +29,7 @@
 
 //-------------------Nom visible de l'application---------------------
 //
-extern const QString abeApplicationLongName="Leterrier d'AbulEdu - Tierce";
+extern const QString abeApplicationLongName=QObject::trUtf8("Leterrier d'AbulEdu - Tierce");
 //
 //--------------------------------------------------------------------
 
