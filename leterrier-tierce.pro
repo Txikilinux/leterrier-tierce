@@ -6,7 +6,7 @@
 
 QT       += core gui script xml network
 
-TARGET = Tierce
+TARGET = leterrier-tierce
 TEMPLATE = app
 
 
