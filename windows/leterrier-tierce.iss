@@ -5,10 +5,9 @@
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-; Exemple AppId={{62974C2F-0013-4262-AF5E-7F46C992672E}
 AppId={{1D47790F-4FF8-43AF-B204-47B0001D1418}
 AppName=Le Terrier d'AbulEdu - Tierce
-AppVersion=1.0.5
+AppVersion=LAVERSION
 AppPublisher=RyXéo SARL
 AppPublisherURL=http://www.abuledu.org/leterrier/
 AppSupportURL=http://www.abuledu.org/leterrier/
@@ -17,7 +16,8 @@ DefaultDirName={pf}\AbulEdu\Tierce
 DefaultGroupName=Le Terrier d'AbulEdu
 LicenseFile=../gpl-2.0.txt
 OutputDir=.
-OutputBaseFilename=leterrier-tierce-1.0.5-setup
+OutputBaseFilename=leterrier-tierce-LAVERSION-setup
+; SetupIconFile=leterrier-tierce.ico
 Compression=lzma
 SolidCompression=yes
 SignTool=ryxeo /d $qPackage d'installation$q $f
@@ -34,13 +34,16 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "..\release\leterrier-tierce.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
-;Source: "..\conf\*"; DestDir: "{app}\conf"; Flags: ignoreversion recursesubdirs createallsubdirs
-;Source: "../lang/*.qm"; DestDir: "{app}\lang"; Flags: ignoreversion
+Source: "..\conf\*"; DestDir: "{app}\conf"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "../lang/*.qm"; DestDir: "{app}\lang"; Flags: ignoreversion
 Source: "C:/code/quazip.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:/code/exiv2/bin/libexiv2-12.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:/QtSDK/mingw/bin/libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/mingw/bin/mingwm10.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/mingw/bin/libgcc_s_dw2-1.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/libeay32.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/libssl32.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/ssleay32.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/QtScript4.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/QtNetwork4.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/QtGUI4.dll"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -61,8 +64,8 @@ Source: "C:/QtSDK/Desktop/Qt/4.8.1/mingw/bin/phonon4.dll"; DestDir: "{app}"; Fla
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\Tierce"; Filename: "{app}\leterrier-tierce.exe"; WorkingDir: "{app}"
-Name: "{commondesktop}\Tierce"; Filename: "{app}\leterrier-tierce.exe"; Tasks: desktopicon; WorkingDir: "{app}"
+; Name: "{group}\Tierce"; Filename: "{app}\leterrier-tierce.exe"; WorkingDir: "{app}"
+; Name: "{commondesktop}\Tierce"; Filename: "{app}\leterrier-tierce.exe"; Tasks: desktopicon; WorkingDir: "{app}"
 
 [Run]
-Filename: "{app}\leterrier-tierce.exe"; Description: "{cm:LaunchProgram,Tierce}"; Flags: nowait postinstall skipifsilent
+; Filename: "{app}\leterrier-tierce.exe"; Description: "{cm:LaunchProgram,Tierce}"; Flags: nowait postinstall skipifsilent
