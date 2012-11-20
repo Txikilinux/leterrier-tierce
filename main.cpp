@@ -24,23 +24,14 @@
  */
 
 
-#include <QtGui/QApplication>
+#include "version.h"
 #include "mainwindow.h"
-
-//-------------------Nom visible de l'application---------------------
-//
-extern const QString abeApplicationLongName=QObject::trUtf8("Leterrier d'AbulEdu - Tierce");
-//
-//--------------------------------------------------------------------
+#include "abuleduapplicationv1.h"
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-
-    qApp->setApplicationName("leterrier-tierce");
-    qApp->setApplicationVersion("1.0.5");
-    qApp->setOrganizationDomain("abuledu.org");
-    qApp->setOrganizationName("leterrier");
+    AbulEduApplicationV1 a(argc, argv,VER_INTERNALNAME_STR, VER_PRODUCTVERSION_STR, VER_COMPANYDOMAIN_STR, VER_COMPANYNAME_STR);
+    a.setAbeApplicationLongName(QObject::trUtf8(VER_FILEDESCRIPTION_STR));
 
     MainWindow w;
     w.setFixedSize(1024, 600);

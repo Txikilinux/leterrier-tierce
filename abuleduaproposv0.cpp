@@ -34,15 +34,14 @@
 #include <QtXml/QtXml>
 #include <QHostInfo>
 #include <QNetworkProxy>
-
-extern const QString abeApplicationLongName;
+#include "abuleduapplicationv1.h"
 
 AbulEduAproposV0::AbulEduAproposV0(QWidget *parent) :
         QDialog(parent),
         ui(new Ui::AbulEduAproposV0)
 {
     ui->setupUi(this);
-    this->setWindowTitle(trUtf8("A propos de")+" "+abeApplicationLongName+" "+qApp->applicationVersion());
+    this->setWindowTitle(trUtf8("A propos de")+" "+ abeApp->getAbeApplicationLongName() +" "+qApp->applicationVersion());
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
     installeMenu(); //Installe le menu Aide dans la menuBar
@@ -112,7 +111,7 @@ AbulEduAproposV0::~AbulEduAproposV0()
 
 void AbulEduAproposV0::installeMenu()
 {
-    QString titreAbout=trUtf8("<center>%1 %2</center>").arg(abeApplicationLongName) 
+    QString titreAbout=trUtf8("<center>%1 %2</center>").arg(abeApp->getAbeApplicationLongName())
                        .arg(qApp->applicationVersion());
     ui->textAbout->setHtml(titreAbout+" "+ui->textAbout->toHtml());         // Ajoute Nom application et Version en haut de la page
 
