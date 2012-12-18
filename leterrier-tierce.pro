@@ -8,12 +8,6 @@ QT       += core gui webkit sql svg
 system(ccache -V):QMAKE_CXX = ccache g++
 
 CONFIG += debug
-#a activer ou pas si on souhaite compiler pour tablette
-tablette {
-    DEFINES += __ABULEDUTABLETTEV1__MODE__=1
-    #AbulEduVirtualKeyboardV1
-    include(lib/abuleduvirtualkeyboardv1/abuleduvirtualkeyboardv1.pri)
-}
 
 TARGET = leterrier-tierce
 TEMPLATE = app

@@ -35,7 +35,13 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.setFixedSize(1024, 600);
+
+    // ça sert à rien vu qu'il y a un fixedSize() au dimension de la tablette
+#ifdef __ABULEDUTABLETTEV1__MODE__
+    w.showFullScreen();
+#else
     w.show();
+#endif
 
     return a.exec();
 }

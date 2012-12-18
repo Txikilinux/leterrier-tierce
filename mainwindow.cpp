@@ -64,6 +64,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     initGrille();
     initValeurs();
+
+#ifdef __ABULEDUTABLETTEV1__MODE__
+    ui->menuBar->hide();
+#endif
 }
 
 MainWindow::~MainWindow()
