@@ -65,9 +65,71 @@ MainWindow::MainWindow(QWidget *parent) :
     initGrille();
     initValeurs();
 
-#ifdef __ABULEDUTABLETTEV1__MODE__
     ui->menuBar->hide();
+
+    //Une astuce pour eviter de faire 7 boutons * 3 lignes pour activer les icones
+    QList<AbulEduFlatBoutonV1 *> btns = ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>();
+    for(int i = 0; i < btns.count(); i++)
+    {
+        QString composant = btns.at(i)->whatsThis();
+        btns.at(i)->setIconeNormale(QString(":/data/images/%1").arg(composant));
+
+#ifdef __ABULEDUTABLETTEV1__MODE__
+        btns.at(i)->setIconePressed(QString(":/data/images/%1Hover").arg(composant));
+#else
+        btns.at(i)->setIconeSurvol(QString(":/data/images/%1Hover").arg(composant));
 #endif
+        btns.at(i)->setIconeDisabled(QString(":/data/images/%1Disabled").arg(composant));
+        btns.at(i)->setTexteAlignement(Qt::AlignLeft);
+    }
+
+#ifdef __ABULEDUTABLETTEV1__MODE__
+    /// 15/01/2012 Icham -> mode tablette, pas de tooltips (pas de survol en mode tactile, et puis ça faisait des trucs bizarres parfois)
+    /// 15/01/2013 iCHAM -> icones survol = icones normales
+    // on cherche tous les enfants, et on leur met une chaine vide en tooltips (= desactivation)
+    foreach (QWidget *obj, findChildren<QWidget*>()) {
+        obj->setToolTip("");
+//        if(dynamic_cast<AbulEduFlatBoutonV1*>(obj)){
+//            dynamic_cast<AbulEduFlatBoutonV1*>(obj)->setIconeSurvol(dynamic_cast<AbulEduFlatBoutonV1*>(obj)->getIconeNormale());
+//        }
+    }
+#endif
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        enfant->setCouleurFondPressed(QColor(255,255,255,50));
+        enfant->setCouleurTexteSurvol(Qt::red);
+        enfant->setCouleurTexteNormale(Qt::white);
+        enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
+        enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
+    }
+
+    /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
+//    ui->frmNiveau->move(ui->frmIcones->x()-ui->frmNiveau->width()+8,ui->frmIcones->y()+24);
+//    ui->frmChoixNombres->move(ui->frmIcones->x()-ui->frmChoixNombres->width()+8,ui->frmIcones->y()+314);
+//    ui->frmNiveau->setVisible(false);
+//    ui->frmChoixNombres->setVisible(false);
+
+
+    setWindowFlags(Qt::CustomizeWindowHint);
+
+    ui->vl_widgetContainer->removeWidget(ui->frmButtons);
+    ui->frmButtons->move(0,38);
+    ui->frmButtons->setVisible(false);
+    ui->frmButtons->adjustSize();
+
+    ui->btnMinimized->setCouleurFondSurvol(QColor(6,109,255));
+    ui->btnMinimized->setCouleurFondNormale(QColor(255,255,255,50));
+    ui->btnMinimized->setAllMargins(8,4,8,12);
+    ui->btnMinimized->setBorderRadius(4);
+    ui->btnFullScreen->setCouleurFondSurvol(QColor(6,109,255));
+    ui->btnFullScreen->setCouleurFondNormale(QColor(255,255,255,50));
+    ui->btnFullScreen->setAllMargins(8,12,8,4);
+    ui->btnFullScreen->setBorderRadius(4);
+
+    QDesktopWidget *widget = QApplication::desktop();
+    int desktop_width = widget->width();
+    int desktop_height = widget->height();
+    this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
 }
 
 MainWindow::~MainWindow()
@@ -83,7 +145,7 @@ void MainWindow::initGrille() {
         for (int j = 0; j < m_nColonnes; j++) {
 //            QString n = QString::number(i*m_nColonnes +j);
             int n = i*m_nColonnes +j;
-            BtnCase *btnCase = new BtnCase(n, ui->centralWidget);
+            BtnCase *btnCase = new BtnCase(n, ui->frmAireDeJeu);
             btnCase->setObjectName(QString::number(n)); // On donne un nom : #
             btnCase->setGeometry(DW+(dimCase+2)*j,DH+(dimCase+2)*i,dimCase,dimCase);
             btnCase->setVisible(true);
@@ -350,3 +412,61 @@ void MainWindow::on_btnDown_clicked()
     if (m_niveau > 0) m_niveau--;
     _changeNiveau();
 }
+
+void MainWindow::on_btnSortie_clicked()
+{
+    close();
+}
+
+void MainWindow::on_btnAideFeuille_clicked()
+{
+//    ui->stackedWidgetContainer->slideInWidget(ui->pageApropos);
+    ui->stackedWidget->setCurrentWidget(ui->pageApropos);
+    on_btnFeuille_clicked();
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+//    ui->stackedWidget->slideInWidget(ui->pagePrincipale);
+    ui->stackedWidget->setCurrentWidget(ui->pagePrincipale);
+}
+void MainWindow::on_btnFeuille_clicked()
+{
+    if (ui->frmButtons->isVisible())
+    {
+        ui->frmButtons->setVisible(false);
+    }
+    else
+    {
+        ui->frmButtons->setVisible(true);
+        ui->frmButtons->raise();
+    }
+//    on_btnNombresFermer_clicked();
+    //    on_btnNiveauAnnuler_clicked();
+}
+
+void MainWindow::paintEvent(QPaintEvent *)
+{
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmButtons->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        enfant->setCouleurTexteSurvol(Qt::red);
+        enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
+        enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
+    }
+    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;border-image:url(':/data_images/leaf');image-position: center;}");
+
+}
+
+#ifndef __ABULEDUTABLETTEV1__MODE__
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+}
+#endif

@@ -33,6 +33,7 @@
 #include <QList>
 #include <QTranslator>
 #include <QLibraryInfo>
+#include <QDesktopWidget>
 #include "btncase.h"
 #include "abuleduaproposv0.h"
 
@@ -54,6 +55,14 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     QString getMBtnClique();
+
+protected:
+    void paintEvent(QPaintEvent *);
+#ifndef __ABULEDUTABLETTEV1__MODE__
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+#endif
 
 private:
     Ui::MainWindow *ui;
@@ -113,6 +122,10 @@ private slots:
     void on_btnNouveau_clicked();
     void on_btnRecommencer_clicked();
     void attraperBtnCase();
+    void on_btnSortie_clicked();
+    void on_btnAideFeuille_clicked();
+    void on_pushButton_clicked();
+    void on_btnFeuille_clicked();
 };
 
 #endif // MAINWINDOW_H

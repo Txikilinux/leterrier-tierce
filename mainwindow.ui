@@ -6,272 +6,941 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>600</height>
+    <width>1071</width>
+    <height>644</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Tierce</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <property name="styleSheet">
-    <string notr="true">QWidget#centralWidget {	
-	background-image: url(:/data_images/data/images/background-1024x600.png);
+   <widget class="QWidget" name="widgetContainer" native="true">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>1024</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>1024</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1024</width>
+      <height>600</height>
+     </size>
+    </property>
+    <layout class="QVBoxLayout" name="vl_widgetContainer">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="frmTop">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/data_images/top);
+background-repeat: repeat-no;
+background-position: top right;
+
+</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <property name="margin">
+         <number>0</number>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="AbulEduFlatBoutonV1" name="btnFeuille">
+          <property name="minimumSize">
+           <size>
+            <width>40</width>
+            <height>39</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>39</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:rgba(6,109,255,255);image-position: center;}:hover{color:rgba(0,0,255,255);background-color:rgba(7,146,235,0);image-position: center;}:pressed{color:rgba(0,0,255,255);background-color:rgba(7,146,235,0);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
+          </property>
+          <property name="CouleurFondNormale" stdset="0">
+           <color>
+            <red>6</red>
+            <green>109</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurFondSurvol" stdset="0">
+           <color alpha="0">
+            <red>7</red>
+            <green>146</green>
+            <blue>235</blue>
+           </color>
+          </property>
+          <property name="CouleurFondPressed" stdset="0">
+           <color alpha="0">
+            <red>7</red>
+            <green>146</green>
+            <blue>235</blue>
+           </color>
+          </property>
+          <property name="iconeNormale" stdset="0">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="AbulEduFlatBoutonV1" name="btnMinimized">
+          <property name="minimumSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="whatsThis">
+           <string>new</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="CouleurTexteNormale" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTexteSurvol" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTextePressed" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurFondPressed" stdset="0">
+           <color alpha="50">
+            <red>6</red>
+            <green>109</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="iconeNormale" stdset="0">
+           <string>:/data/images/showMinimized</string>
+          </property>
+          <property name="IconeSurvol" stdset="0">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="AbulEduFlatBoutonV1" name="btnFullScreen">
+          <property name="minimumSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="whatsThis">
+           <string>new</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="CouleurTexteNormale" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTexteSurvol" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTextePressed" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurFondPressed" stdset="0">
+           <color alpha="50">
+            <red>6</red>
+            <green>109</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="iconeNormale" stdset="0">
+           <string>:/data/images/showMaximized</string>
+          </property>
+          <property name="IconeSurvol" stdset="0">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="lblTitre">
+          <property name="cursor">
+           <cursorShape>ArrowCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+padding-left:20px;
+background-color: qlineargradient( x1:0 y1:0, x2:1 y2:0, stop:0 #066DFF, stop:1 #0D90F6);
+color:white;
+font-size:24px;
+
+}</string>
+          </property>
+          <property name="text">
+           <string>LeTerrier - Tierce</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="4">
+         <widget class="Line" name="topSeparatorLine">
+          <property name="styleSheet">
+           <string notr="true">background-color:transparent;
+color:rgba(129, 198, 251, 255);	</string>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QStackedWidget" name="stackedWidget">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="pagePrincipale">
+        <property name="styleSheet">
+         <string notr="true">QWidget#pagePrincipale {	
+	background-image: url(:/data_images/background);
 	background-repeat: repeat-no;
    	background-position: top right;
-}
-
-QLabel { background-color : green; color : yellow }
-
-QTextEdit#tedAffiche {background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 255, 50, 255), stop:1 rgba(255, 255, 255, 255));
-	border-radius : 8px;
-	background-image: url(:/data_images/data/images/pagefold-50x45.png);
-	background-repeat: repeat-no;
-   	background-position: top right;
-}
-
- *[flat=&quot;true&quot;]{ 
-	color : red; 
-	background-color : 	yellow; 
-	border-radius : 8px; 
-	border-width : 2px;
-	border-style : solid ;
-	border-color : black;
- }
- *[flat=&quot;true&quot;]:hover{ 
-	color : red; 
-	background-color : yellow; 
-	border-radius : 8px; 
-	border-width : 2px;
-	border-style : solid ;
-	border-color : white;
- }
-
-QPushButton#btnAide {
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/help.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : black; }
-QPushButton#btnAide:hover { 
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/help.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : white; }
-QPushButton#btnNouveau {
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/new-24x24.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : black; }
-QPushButton#btnNouveau:hover { 
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/new-24x24.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : white; }
-QPushButton#btnUp {
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/up.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : black; }
-QPushButton#btnUp:hover { 
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/up.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : white; }
-QPushButton#btnDown {
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/down.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : black; }
-QPushButton#btnDown:hover { 
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/down.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : white; }
-QPushButton#btnRecommencer {
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/redo.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : black; }
-QPushButton#btnRecommencer:hover { 
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/redo.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : white; }
-QPushButton#btnQuitter {
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/quit-24x24.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : black; }
-QPushButton#btnQuitter:hover { 
-			background-color : rgba(200, 255, 100, 255); 
-	background-image: url(:/data_images/data/images/quit-24x24.png);
-			background-repeat: repeat-no;
-   			background-position: center;
-			border-radius : 8px; 
-						border-width : 2px;
-						border-style : solid ;
-						border-color : white; }</string>
-   </property>
-   <widget class="QPushButton" name="btnRecommencer">
-    <property name="geometry">
-     <rect>
-      <x>950</x>
-      <y>350</y>
-      <width>61</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Recommencer</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
+}</string>
+        </property>
+        <widget class="QTextEdit" name="tedAffiche">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>10</y>
+           <width>241</width>
+           <height>151</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnQuitter">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>370</y>
+           <width>241</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string>Quitter</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnRecommencer">
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>170</y>
+           <width>61</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string>Recommencer</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnAide">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>160</y>
+           <width>61</width>
+           <height>61</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string>Coup de pouce</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnDown">
+         <property name="geometry">
+          <rect>
+           <x>130</x>
+           <y>210</y>
+           <width>31</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string>Niveau précédent</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnUp">
+         <property name="geometry">
+          <rect>
+           <x>130</x>
+           <y>170</y>
+           <width>31</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="toolTip">
+          <string>Niveau suivant</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QFrame" name="frmIcones">
+         <property name="geometry">
+          <rect>
+           <x>920</x>
+           <y>50</y>
+           <width>100</width>
+           <height>511</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <layout class="QGridLayout" name="layoutIcones">
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <property name="spacing">
+           <number>2</number>
+          </property>
+          <item row="1" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnAbandonner">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>solution</string>
+            </property>
+            <property name="text">
+             <string>Solution</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnVerifier">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>verification</string>
+            </property>
+            <property name="text">
+             <string>Vérification</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnNiveaux">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>niveaux</string>
+            </property>
+            <property name="text">
+             <string>Niveau</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnNombres">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>nombres</string>
+            </property>
+            <property name="text">
+             <string>Nombres</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="AbulEduFlatBoutonV1" name="btnInformation">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string/>
+            </property>
+            <property name="whatsThis">
+             <string>aide</string>
+            </property>
+            <property name="text">
+             <string>Aide</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QFrame" name="frmAireDeJeu">
+         <property name="geometry">
+          <rect>
+           <x>300</x>
+           <y>10</y>
+           <width>611</width>
+           <height>451</height>
+          </rect>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+        <zorder>tedAffiche</zorder>
+        <zorder>btnQuitter</zorder>
+        <zorder>btnRecommencer</zorder>
+        <zorder>btnAide</zorder>
+        <zorder>btnDown</zorder>
+        <zorder>btnUp</zorder>
+        <zorder>frmIcones</zorder>
+        <zorder>frmAireDeJeu</zorder>
+        <zorder>frmButtons</zorder>
+       </widget>
+       <widget class="QWidget" name="pageApropos">
+        <widget class="QPushButton" name="pushButton">
+         <property name="geometry">
+          <rect>
+           <x>720</x>
+           <y>410</y>
+           <width>93</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>OK</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>220</x>
+           <y>100</y>
+           <width>581</width>
+           <height>311</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>Andika Basic</family>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Bientôt ici des informations et des liens concernant ce logiciel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+        <zorder>frmButtons</zorder>
+        <zorder>btnSortie</zorder>
+        <zorder>pushButton</zorder>
+        <zorder>label</zorder>
+       </widget>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="frmButtons">
+       <property name="whatsThis">
+        <string>frmB</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QFrame#frmButtons {
+background-image: url(:/data_images/leafMenu);
+border-radius:10px;
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <property name="horizontalSpacing">
+         <number>10</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="AbulEduFlatBoutonV1" name="btnNouveau">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>92</width>
+            <height>92</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="whatsThis">
+           <string>new</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
+          </property>
+          <property name="text">
+           <string>&amp;Nouveau</string>
+          </property>
+          <property name="CouleurTexteNormale" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTexteSurvol" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTextePressed" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurFondPressed" stdset="0">
+           <color alpha="50">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="iconeNormale" stdset="0">
+           <string>:/data_images/nouveau</string>
+          </property>
+          <property name="IconeSurvol" stdset="0">
+           <string>:/data_images/nouveauHover</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="AbulEduFlatBoutonV1" name="btnAideFeuille">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>92</width>
+            <height>92</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="whatsThis">
+           <string>new</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
+          </property>
+          <property name="text">
+           <string>Aide</string>
+          </property>
+          <property name="CouleurTexteNormale" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTexteSurvol" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTextePressed" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurFondPressed" stdset="0">
+           <color alpha="50">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="iconeNormale" stdset="0">
+           <string>:/data_images/aide</string>
+          </property>
+          <property name="IconeSurvol" stdset="0">
+           <string>:/data_images/aideHover</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="AbulEduFlatBoutonV1" name="btnSortie">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>92</width>
+            <height>92</height>
+           </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="whatsThis">
+           <string>new</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton &gt; *{color:red;}QPushButton{border: none; color:rgba(255,255,255,255);background-repeat: no-repeat;background-color:rgba(0,0,0,0);border-image:url(':/icones/new');image-position: center;}:hover{color:rgba(255,255,255,255);background-color:rgba(0,0,0,0);border-image:url(':/icones/newHover');image-position: center;}:pressed{color:rgba(255,255,255,255);background-color:rgba(255,255,255,50);image-position: center;}:disabled{border: none; color:rgba(160,160,164,255);background-color:rgba(0,0,0,0);image:none;image-position: center;}</string>
+          </property>
+          <property name="text">
+           <string>Sortie</string>
+          </property>
+          <property name="CouleurTexteNormale" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTexteSurvol" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurTextePressed" stdset="0">
+           <color>
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="CouleurFondPressed" stdset="0">
+           <color alpha="50">
+            <red>255</red>
+            <green>255</green>
+            <blue>255</blue>
+           </color>
+          </property>
+          <property name="iconeNormale" stdset="0">
+           <string>:/data_images/sortie</string>
+          </property>
+          <property name="IconeSurvol" stdset="0">
+           <string>:/data_images/sortieHover</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QTextEdit" name="tedAffiche">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>190</y>
-      <width>241</width>
-      <height>151</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnNouveau">
-    <property name="geometry">
-     <rect>
-      <x>840</x>
-      <y>350</y>
-      <width>61</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Nouveau</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnQuitter">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>420</y>
-      <width>241</width>
-      <height>91</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Quitter</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnAide">
-    <property name="geometry">
-     <rect>
-      <x>770</x>
-      <y>350</y>
-      <width>61</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Coup de pouce</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnUp">
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>350</y>
-      <width>31</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Niveau suivant</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="btnDown">
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>390</y>
-      <width>31</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="toolTip">
-     <string>Niveau précédent</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
+   <zorder>widgetContainer</zorder>
+   <zorder>frmButtons</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1024</width>
+     <width>1071</width>
      <height>25</height>
     </rect>
    </property>
@@ -320,6 +989,13 @@ QPushButton#btnQuitter:hover {
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>AbulEduFlatBoutonV1</class>
+   <extends>QPushButton</extends>
+   <header>abuleduflatboutonv1.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
@@ -345,8 +1021,8 @@ QPushButton#btnQuitter:hover {
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>930</x>
-     <y>495</y>
+     <x>200</x>
+     <y>520</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
