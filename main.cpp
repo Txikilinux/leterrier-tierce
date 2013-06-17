@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
     a.setAbeApplicationLongName(QObject::trUtf8(VER_FILEDESCRIPTION_STR));
 
     MainWindow w;
-    w.setFixedSize(1024, 600);
 
     // ça sert à rien vu qu'il y a un fixedSize() au dimension de la tablette
 #ifdef __ABULEDUTABLETTEV1__MODE__

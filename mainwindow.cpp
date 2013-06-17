@@ -61,6 +61,7 @@ MainWindow::MainWindow(QWidget *parent) :
     m_niveauMAX = 3;
     m_nLignes = 3;
     m_nColonnes = 4;
+    m_message = QString();
 
     initGrille();
     initValeurs();
@@ -72,14 +73,14 @@ MainWindow::MainWindow(QWidget *parent) :
     for(int i = 0; i < btns.count(); i++)
     {
         QString composant = btns.at(i)->whatsThis();
-        btns.at(i)->setIconeNormale(QString(":/data/images/%1").arg(composant));
+        btns.at(i)->setIconeNormale(QString(":/data_images/%1").arg(composant));
 
 #ifdef __ABULEDUTABLETTEV1__MODE__
-        btns.at(i)->setIconePressed(QString(":/data/images/%1Hover").arg(composant));
+        btns.at(i)->setIconePressed(QString(":/data_images/%1Hover").arg(composant));
 #else
-        btns.at(i)->setIconeSurvol(QString(":/data/images/%1Hover").arg(composant));
+        btns.at(i)->setIconeSurvol(QString(":/data_images/%1Hover").arg(composant));
 #endif
-        btns.at(i)->setIconeDisabled(QString(":/data/images/%1Disabled").arg(composant));
+        btns.at(i)->setIconeDisabled(QString(":/data_images/%1Disabled").arg(composant));
         btns.at(i)->setTexteAlignement(Qt::AlignLeft);
     }
 
@@ -104,11 +105,8 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
-//    ui->frmNiveau->move(ui->frmIcones->x()-ui->frmNiveau->width()+8,ui->frmIcones->y()+24);
-//    ui->frmChoixNombres->move(ui->frmIcones->x()-ui->frmChoixNombres->width()+8,ui->frmIcones->y()+314);
-//    ui->frmNiveau->setVisible(false);
-//    ui->frmChoixNombres->setVisible(false);
-
+    ui->frmNiveau->move(ui->frmIcones->x()-ui->frmNiveau->width(),ui->frmIcones->y()+123);
+    ui->frmNiveau->setVisible(false);
 
     setWindowFlags(Qt::CustomizeWindowHint);
 
@@ -130,6 +128,8 @@ MainWindow::MainWindow(QWidget *parent) :
     int desktop_width = widget->width();
     int desktop_height = widget->height();
     this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
+
+    ui->btnNiveauBleu->hide();
 }
 
 MainWindow::~MainWindow()
@@ -138,16 +138,16 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::initGrille() {
-    int w = ((LARGEUR-200) / m_nColonnes);   // largeur max des cases
-    int h = (HAUTEUR / m_nLignes);     // hauteur max des cases
-    int dimCase = ((w < h)? w : h)-3;   // dim des cases
+    int w = (ui->frmAireDeJeu->width() / m_nColonnes);   // largeur max des cases
+    int h = (ui->frmAireDeJeu->height() / m_nLignes);     // hauteur max des cases
+    int dimCase = ((w < h)? w : h);   // dim des cases
     for (int i = 0; i < m_nLignes; i++) {
         for (int j = 0; j < m_nColonnes; j++) {
 //            QString n = QString::number(i*m_nColonnes +j);
             int n = i*m_nColonnes +j;
             BtnCase *btnCase = new BtnCase(n, ui->frmAireDeJeu);
             btnCase->setObjectName(QString::number(n)); // On donne un nom : #
-            btnCase->setGeometry(DW+(dimCase+2)*j,DH+(dimCase+2)*i,dimCase,dimCase);
+            btnCase->setGeometry((dimCase)*j,(dimCase)*i,dimCase,dimCase);
             btnCase->setVisible(true);
             m_btnCases.append(btnCase);
             connect(btnCase, SIGNAL(clicked()),this,SLOT(attraperBtnCase())); //on connecte le bouton au slot
@@ -220,7 +220,8 @@ void MainWindow::initValeurs() {
 
     m_3btnCases.clear();
     ui->btnAide->setDisabled(false);
-    ui->tedAffiche->setText(trUtf8("Un pion rose est\nsomme des deux pions jaunes.\n\nChoisis les pions par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul."));
+
+    m_message = trUtf8("Un pion rose est\nsomme des deux pions jaunes.\n\nChoisis les pions par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul.");
 }
 
 void MainWindow::attraperBtnCase()
@@ -270,9 +271,14 @@ void MainWindow::verifierTout() {
         if (m_btnCases[i]->getMChoisi()) n--;
     if (n == 0) {
         ui->btnAide->setDisabled(true);
-        ui->tedAffiche->setText(trUtf8("Bravo, maintenant tu peux :\n\n- recommencer ;\n- choisir une nouvelle grille ;\n- modifier les dimensions de la grille."));
-    } else
-        ui->tedAffiche->setText("\n\n"+trUtf8("Encore ")+QString::number(n/3));
+        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"), trUtf8("Maintenant tu peux recommencer, choisir une nouvelle grille ou modifier les dimensions de la grille."));
+        box->show();
+    }
+    else
+    {
+        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Bien !!"), trUtf8("Encore ")+QString::number(n/3));
+        box->show();
+    }
 }
 
 void MainWindow::on_btnRecommencer_clicked()
@@ -293,7 +299,6 @@ void MainWindow::on_btnRecommencer_clicked()
     m_listeSommes = m_listeSommesSauve;
     m_3btnCases.clear();
     ui->btnAide->setDisabled(false);
-    ui->tedAffiche->setText(trUtf8("Un pion rose est\nsomme des deux pions jaunes.\n\nChoisis les pions par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul."));
 }
 
 void MainWindow::on_btnNouveau_clicked()
@@ -326,69 +331,81 @@ void MainWindow::on_action5x6_triggered() { actionDIMxDIM(5,6); }
 
 void MainWindow::on_btnAide_clicked()
 {
-//    qDebug() << "=== A l'aide ! ===" << m_listeSommes << m_listeCouples;
-    QList<int> listeSommes;
-    QList<int> listeCouples;
-    listeSommes = m_listeSommes;
-    listeCouples = m_listeCouples;
-    int v2; // solution v2 = v0 + v1
-    m_coupDePouce.clear();
-    int nSommes = listeSommes.size();
-    int k = 0; //degré de résolution (de 0 à n-1)
-    bool possible2 = true;  // résolution possible
-    // on veut : !possible ou k = nSommes
-    while (possible2 && k < nSommes) {
-        v2 = listeSommes[0];
-//        qDebug() << "possible2 ? " << k << v2 << listeSommes << listeCouples;
-        //
-        // je cherche v2
-        //
-//        qDebug() << "je cherche v2 (start)" << v2;
-        bool trouve = false;
-        int nCouples = listeCouples.size();
-        int v0, v1;
-        int i = 0;
-        // on veut trouve ou i >= nCouples
-        while(!trouve && i < nCouples-1) {
-            v0 = listeCouples[i];
-//            qDebug() << "rechercher complement a" << v0 << "pour" << v2;
-            int j = i+1;
-            while (!trouve && j < nCouples) {
-                v1 = listeCouples[j];
-//                qDebug() << "  " << v0 << "+" << v1 << "?" << v2;
-                trouve =  (v2 == v0 + v1);
-                if (trouve) {
-                    m_coupDePouce << v2 << v0 << v1;
-//                    qDebug() << "\n++++++ trouve" << m_coupDePouce << "\n";
+    if(m_message.isEmpty())
+    {
+        //    qDebug() << "=== A l'aide ! ===" << m_listeSommes << m_listeCouples;
+        QList<int> listeSommes;
+        QList<int> listeCouples;
+        listeSommes = m_listeSommes;
+        listeCouples = m_listeCouples;
+        int v2; // solution v2 = v0 + v1
+        m_coupDePouce.clear();
+        int nSommes = listeSommes.size();
+        int k = 0; //degré de résolution (de 0 à n-1)
+        bool possible2 = true;  // résolution possible
+        // on veut : !possible ou k = nSommes
+        while (possible2 && k < nSommes) {
+            v2 = listeSommes[0];
+            //        qDebug() << "possible2 ? " << k << v2 << listeSommes << listeCouples;
+            //
+            // je cherche v2
+            //
+            //        qDebug() << "je cherche v2 (start)" << v2;
+            bool trouve = false;
+            int nCouples = listeCouples.size();
+            int v0, v1;
+            int i = 0;
+            // on veut trouve ou i >= nCouples
+            while(!trouve && i < nCouples-1) {
+                v0 = listeCouples[i];
+                //            qDebug() << "rechercher complement a" << v0 << "pour" << v2;
+                int j = i+1;
+                while (!trouve && j < nCouples) {
+                    v1 = listeCouples[j];
+                    //                qDebug() << "  " << v0 << "+" << v1 << "?" << v2;
+                    trouve =  (v2 == v0 + v1);
+                    if (trouve) {
+                        m_coupDePouce << v2 << v0 << v1;
+                        //                    qDebug() << "\n++++++ trouve" << m_coupDePouce << "\n";
+                    }
+                    j++;
                 }
-                j++;
+                i++;
             }
-            i++;
-        }
 
-        // trouve ?
-        if (trouve) {
-            listeSommes.removeOne(v2);
-            listeCouples.removeOne(v0);
-            listeCouples.removeOne(v1);
-//            qDebug() << "listes apres remove" << listeSommes << listeCouples;
-            k++;
+            // trouve ?
+            if (trouve) {
+                listeSommes.removeOne(v2);
+                listeCouples.removeOne(v0);
+                listeCouples.removeOne(v1);
+                //            qDebug() << "listes apres remove" << listeSommes << listeCouples;
+                k++;
+            } else {
+                possible2 = false;
+            }
+        }
+        //
+        // conclusion
+        //
+        if (possible2) {
+            if (m_listeSommes.size() <= m_listeSommesSauve.size()/2) { // pas d'aide si peu de sommes à chercher
+                AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Désolé !!"),trUtf8("Termine sans aide..."));
+                box->show();
+            } else {
+                AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"),trUtf8("Essaye ")+QString::number(m_coupDePouce[0])+" = "+QString::number(m_coupDePouce[1])+" + "+QString::number(m_coupDePouce[2]));
+                box->show();
+            }
         } else {
-            possible2 = false;
+            //        qDebug() << "Impossible " << listeSommes;
+            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"),trUtf8("Peux-tu faire ")+QString::number(listeSommes.first())+trUtf8(" ?\n\nSi tu ne peux pas, recommence."));
+            box->show();
         }
     }
-    //
-    // conclusion
-    //
-    if (possible2) {
-        if (m_listeSommes.size() <= m_listeSommesSauve.size()/2) { // pas d'aide si peu de sommes à chercher
-            ui->tedAffiche->setText("\n\n"+trUtf8("Désolé, termine sans aide..."));
-        } else {
-            ui->tedAffiche->setText("\n\n"+trUtf8("Essaye ")+QString::number(m_coupDePouce[0])+" = "+QString::number(m_coupDePouce[1])+" + "+QString::number(m_coupDePouce[2]));
-        }
-    } else {
-//        qDebug() << "Impossible " << listeSommes;
-        ui->tedAffiche->setText("\n\n"+trUtf8("Peux-tu faire ")+QString::number(listeSommes.first())+trUtf8(" ?\n\nSi tu ne peux pas, recommence."));
+    else
+    {
+        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"), m_message);
+        box->show();
+        m_message = QString();
     }
 }
 
@@ -470,3 +487,55 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
 }
 #endif
+
+void MainWindow::on_btnDebut_clicked()
+{
+
+}
+
+void MainWindow::on_btnAbandonner_clicked()
+{
+    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Solution"),trUtf8("Il faudrait montrer une solution possible"));
+    msg->show();
+}
+
+void MainWindow::on_btnNiveauNoire_clicked()
+{
+    m_niveau = 3;
+    _changeNiveau();
+}
+
+void MainWindow::on_btnNiveauMarron_clicked()
+{
+    m_niveau = 2;
+    _changeNiveau();
+}
+
+void MainWindow::on_btnNiveauOrange_clicked()
+{
+    m_niveau = 1;
+    _changeNiveau();
+}
+
+void MainWindow::on_btnNiveauJaune_clicked()
+{
+    m_niveau = 0;
+    _changeNiveau();
+}
+
+void MainWindow::on_btnNiveaux_clicked()
+{
+    ui->frmNiveau->setVisible(true);
+    ui->frmNiveau->raise();
+    ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("background-color:rgba(0,0,0,0);","border-radius:5px;background-color:#ffffff;"));
+    if (ui->frmButtons->isVisible())
+    {
+        ui->frmButtons->setVisible(false);
+    }
+}
+
+void MainWindow::on_btnNiveauAnnuler_clicked()
+{
+    ui->frmNiveau->setVisible(false);
+    ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("border-radius:5px;background-color:#ffffff;","background-color:rgba(0,0,0,0);"));
+}

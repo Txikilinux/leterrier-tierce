@@ -36,12 +36,7 @@
 #include <QDesktopWidget>
 #include "btncase.h"
 #include "abuleduaproposv0.h"
-
-const int LARGEUR = 1024-100;
-const int HAUTEUR = 600-100;
-const int DW = 20;          // décalage colonne de gauche
-const int DH = 40;          // décalage ligne du haut
-
+#include "abuledumessageboxv1.h"
 
 namespace Ui {
     class MainWindow;
@@ -102,6 +97,8 @@ private:
     QFont fontMEDIUM; // 25
     QFont fontMINUS; //10
 
+    QString m_message;
+
 signals:
     /**
       signal émis lorsque on clique sur un bouton
@@ -126,6 +123,14 @@ private slots:
     void on_btnAideFeuille_clicked();
     void on_pushButton_clicked();
     void on_btnFeuille_clicked();
+    void on_btnDebut_clicked();
+    void on_btnAbandonner_clicked();
+    void on_btnNiveauNoire_clicked();
+    void on_btnNiveauMarron_clicked();
+    void on_btnNiveauOrange_clicked();
+    void on_btnNiveauJaune_clicked();
+    void on_btnNiveaux_clicked();
+    void on_btnNiveauAnnuler_clicked();
 };
 
 #endif // MAINWINDOW_H

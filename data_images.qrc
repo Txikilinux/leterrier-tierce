@@ -18,5 +18,12 @@
         <file alias="nouveau">data/images/nouveau-hover.png</file>
         <file alias="nouveauHover">data/images/nouveau.png</file>
         <file alias="leaf">data/images/feuille.png</file>
+        <file alias="debut">data/images/refaire.png</file>
+        <file alias="debutHover">data/images/refaire-hover.png</file>
+        <file alias="solutionHover">data/images/poubelle-hover.png</file>
+        <file alias="niveauxHover">data/images/niveaux-hover.png</file>
+        <file alias="solution">data/images/poubelle.png</file>
+        <file alias="niveaux">data/images/niveaux.png</file>
+        <file alias="verification">data/images/verificationGris.png</file>
     </qresource>
 </RCC>
