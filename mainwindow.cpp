@@ -437,15 +437,13 @@ void MainWindow::on_btnSortie_clicked()
 
 void MainWindow::on_btnAideFeuille_clicked()
 {
-//    ui->stackedWidgetContainer->slideInWidget(ui->pageApropos);
-    ui->stackedWidget->setCurrentWidget(ui->pageApropos);
+    ui->stackedWidget->slideInWidget(ui->pageApropos);
     on_btnFeuille_clicked();
 }
 
 void MainWindow::on_pushButton_clicked()
 {
-//    ui->stackedWidget->slideInWidget(ui->pagePrincipale);
-    ui->stackedWidget->setCurrentWidget(ui->pagePrincipale);
+    ui->stackedWidget->slideInWidget(ui->pagePrincipale);
 }
 void MainWindow::on_btnFeuille_clicked()
 {

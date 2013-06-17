@@ -37,6 +37,7 @@
 #include "btncase.h"
 #include "abuleduaproposv0.h"
 #include "abuledumessageboxv1.h"
+#include "abuledustackedwidgetv1.h"
 
 namespace Ui {
     class MainWindow;

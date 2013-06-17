@@ -283,7 +283,7 @@ font-size:24px;
       </widget>
      </item>
      <item>
-      <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="AbulEduStackedWidgetV1" name="stackedWidget">
        <property name="currentIndex">
         <number>0</number>
        </property>
@@ -1114,6 +1114,12 @@ border-radius:10px;
    <class>AbulEduFlatBoutonV1</class>
    <extends>QPushButton</extends>
    <header>abuleduflatboutonv1.h</header>
+  </customwidget>
+  <customwidget>
+   <class>AbulEduStackedWidgetV1</class>
+   <extends>QStackedWidget</extends>
+   <header>abuledustackedwidgetv1.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
