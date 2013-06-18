@@ -69,6 +69,7 @@ private:
     void verifier3();
     void verifierTout();
     void _deleteBtnCases();
+    void donneReponse();
 
     //le traducteur d'interface
     QTranslator qtTranslator;
@@ -99,6 +100,10 @@ private:
     QFont fontMINUS; //10
 
     QString m_message;
+
+    /** Position de la souris pour gerer le deplacement de la fenetre */
+    QPoint m_dragPosition;
+    bool   m_isWindowMoving;
 
 signals:
     /**

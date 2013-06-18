@@ -310,6 +310,7 @@ void MainWindow::on_btnRecommencer_clicked()
     m_listeSommes = m_listeSommesSauve;
     m_3btnCases.clear();
     ui->btnAide->setDisabled(false);
+    donneReponse();
 }
 
 void MainWindow::on_btnNouveau_clicked()
@@ -327,6 +328,14 @@ void MainWindow::_deleteBtnCases() {
         m_btnCases[i]->deleteLater();
     m_btnCases.clear();
 }
+
+void MainWindow::donneReponse()
+{
+    qDebug()<<m_listeCouples;
+    qDebug()<<" ** ";
+    qDebug()<<m_listeSommes;
+}
+
 void MainWindow::actionDIMxDIM(int nLignes, int nColonnes) {
     _deleteBtnCases();
     m_nLignes = nLignes;
@@ -486,14 +495,25 @@ void MainWindow::paintEvent(QPaintEvent *)
 #ifndef __ABULEDUTABLETTEV1__MODE__
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
+    if (m_isWindowMoving) {
+        move(event->globalPos() - m_dragPosition);
+        event->accept();
+    }
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
+    if (event->button() == Qt::LeftButton && ui->lblTitre->rect().contains(event->pos())) {
+        m_dragPosition = event->globalPos() - frameGeometry().topLeft();
+        event->accept();
+        m_isWindowMoving = true;
+    }
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
+    Q_UNUSED(event);
+    m_isWindowMoving = false;
 }
 #endif
 
