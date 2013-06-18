@@ -28,6 +28,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "btncase.h"
+#include <QTimer>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -62,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
     m_nLignes = 3;
     m_nColonnes = 4;
     m_message = QString();
+    m_isCanceled = false;
 
     initGrille();
     initValeurs();
@@ -156,12 +158,14 @@ void MainWindow::initGrille() {
 }
 
 void MainWindow::initValeurs() {
-
+    m_isCanceled = false;
     int nBtn = m_nLignes * m_nColonnes;
     int encore = nBtn;
     QList<int> listeTirage; // ensemble des valeurs v1 et v2 pour éviter les répétitions dans somme = v1 + v2
     m_listeSommes.clear();
     m_listeCouples.clear();
+    m_btnCasesNombres.clear();
+    m_btnCasesSommes.clear();
     while (encore > 0) {
         int n1, v1;
         do {
@@ -181,6 +185,7 @@ void MainWindow::initValeurs() {
         m_btnCases[n1]->setIconeNormale(":/data_images/fondNormal");
         m_btnCases[n1]->setCouleurFondPressed(QColor(255,255,255,50));
         m_btnCases[n1]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+        m_btnCasesNombres << m_btnCases[n1];
 
         m_listeCouples << v1;
         encore--;
@@ -202,6 +207,7 @@ void MainWindow::initValeurs() {
         m_btnCases[n2]->setIconeNormale(":/data_images/fondNormal");
         m_btnCases[n2]->setCouleurFondPressed(QColor(255,255,255,50));
         m_btnCases[n2]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+        m_btnCasesNombres << m_btnCases[n2];
         m_listeCouples << v2;
         encore--;
         int n;
@@ -217,6 +223,7 @@ void MainWindow::initValeurs() {
         m_btnCases[n]->setMChoisi(false);
         m_btnCases[n]->setIconeNormale(":/data_images/fondSomme");
         m_btnCases[n]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+        m_btnCasesSommes << m_btnCases[n];
         m_listeSommes << v1+v2;
         encore--;
     }
@@ -276,17 +283,20 @@ void MainWindow::verifierTout() {
     int n = m_nLignes * m_nColonnes;
     for (int i = 0; i < m_nLignes * m_nColonnes; i++)
         if (m_btnCases[i]->getMChoisi()) n--;
-    if (n == 0) {
-        ui->btnAide->setDisabled(true);
-        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"), trUtf8("Maintenant tu peux recommencer, choisir une nouvelle grille ou modifier les dimensions de la grille."));
-        box->setWink();
-        box->show();
-    }
-    else
+    if(!m_isCanceled)
     {
-        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Bien !!"), trUtf8("Encore ")+QString::number(n/3));
-        box->setWink();
-        box->show();
+        if (n == 0) {
+            ui->btnAide->setDisabled(true);
+            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"), trUtf8("Maintenant tu peux recommencer, choisir une nouvelle grille ou modifier les dimensions de la grille."));
+            box->setWink();
+            box->show();
+        }
+        else
+        {
+            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Bien !!"), trUtf8("Encore ")+QString::number(n/3));
+            box->setWink();
+            box->show();
+        }
     }
 }
 
@@ -310,7 +320,6 @@ void MainWindow::on_btnRecommencer_clicked()
     m_listeSommes = m_listeSommesSauve;
     m_3btnCases.clear();
     ui->btnAide->setDisabled(false);
-    donneReponse();
 }
 
 void MainWindow::on_btnNouveau_clicked()
@@ -331,9 +340,68 @@ void MainWindow::_deleteBtnCases() {
 
 void MainWindow::donneReponse()
 {
+    m_isCanceled = true;
     qDebug()<<m_listeCouples;
     qDebug()<<" ** ";
     qDebug()<<m_listeSommes;
+    if(!m_listeSommes.isEmpty() && !m_listeCouples.isEmpty())
+    {
+        montreTierce();
+        QTimer* attendre = new QTimer();
+        attendre->setSingleShot(true);
+        connect(attendre,SIGNAL(timeout()),this,SLOT(donneReponse()));
+        attendre->start(5000);
+    }
+    else
+    {
+        return;
+    }
+}
+
+
+void MainWindow::montreTierce()
+{
+    QTimer::singleShot(1000, trouveBoutonOu(m_listeCouples.at(0)), SLOT(click()));
+    QTimer::singleShot(2000, trouveBoutonOu(m_listeCouples.at(1)), SLOT(click()));
+    QTimer::singleShot(3000, trouveCibleOu(m_listeSommes.at(0)), SLOT(click()));
+}
+
+BtnCase *MainWindow::trouveBoutonOu(int valeur)
+{
+    qDebug()<<" TrouveBoutonOu : "<<valeur;
+    bool trouve = false;
+    BtnCase* leBon = new BtnCase();
+    QListIterator<BtnCase*> iter(m_btnCasesNombres);
+    while(iter.hasNext() && !trouve)
+    {
+        BtnCase* btn = iter.next();
+        if(btn->getMValeur() == valeur)
+        {
+            leBon = btn;
+            trouve = true;
+            m_btnCasesNombres.removeOne(btn);
+        }
+    }
+    return leBon;
+}
+
+BtnCase *MainWindow::trouveCibleOu(int valeur)
+{
+    qDebug()<<" trouveCibleOu : "<<valeur;
+    bool trouve = false;
+    BtnCase* leBon = new BtnCase();
+    QListIterator<BtnCase*> iter(m_btnCasesSommes);
+    while(iter.hasNext() && !trouve)
+    {
+        BtnCase* btn = iter.next();
+        if(btn->getMValeur() == valeur)
+        {
+            leBon = btn;
+            trouve = true;
+            m_btnCasesSommes.removeOne(btn);
+        }
+    }
+    return leBon;
 }
 
 void MainWindow::actionDIMxDIM(int nLignes, int nColonnes) {
@@ -524,8 +592,8 @@ void MainWindow::on_btnDebut_clicked()
 
 void MainWindow::on_btnAbandonner_clicked()
 {
-    AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Solution"),trUtf8("Il faudrait montrer une solution possible"));
-    msg->show();
+    on_btnRecommencer_clicked();
+    donneReponse();
 }
 
 void MainWindow::on_btnNiveauNoire_clicked()
@@ -568,3 +636,4 @@ void MainWindow::on_btnNiveauAnnuler_clicked()
     ui->frmNiveau->setVisible(false);
     ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("border-radius:5px;background-color:#ffffff;","background-color:rgba(0,0,0,0);"));
 }
+

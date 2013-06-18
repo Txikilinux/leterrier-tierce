@@ -564,7 +564,6 @@ font-size:24px;
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <zorder>lblTitre</zorder>
         </widget>
         <widget class="QFrame" name="frmNiveau">
          <property name="geometry">
@@ -779,11 +778,6 @@ border-bottom-left-radius: 5px;</string>
           </item>
          </layout>
         </widget>
-        <zorder>frmIcones</zorder>
-        <zorder>frmAireDeJeu</zorder>
-        <zorder>frmButtons</zorder>
-        <zorder>frmNiveau</zorder>
-        <zorder>horizontalSpacer</zorder>
        </widget>
        <widget class="QWidget" name="pageApropos">
         <widget class="QPushButton" name="pushButton">
@@ -824,10 +818,6 @@ border-bottom-left-radius: 5px;</string>
           <bool>true</bool>
          </property>
         </widget>
-        <zorder>frmButtons</zorder>
-        <zorder>btnSortie</zorder>
-        <zorder>pushButton</zorder>
-        <zorder>label</zorder>
        </widget>
       </widget>
      </item>
@@ -1052,8 +1042,6 @@ border-radius:10px;
      </item>
     </layout>
    </widget>
-   <zorder>widgetContainer</zorder>
-   <zorder>frmButtons</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

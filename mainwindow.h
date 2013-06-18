@@ -69,7 +69,8 @@ private:
     void verifier3();
     void verifierTout();
     void _deleteBtnCases();
-    void donneReponse();
+    BtnCase* trouveBoutonOu(int valeur);
+    BtnCase* trouveCibleOu(int valeur);
 
     //le traducteur d'interface
     QTranslator qtTranslator;
@@ -82,6 +83,8 @@ private:
     int m_niveauMAX;
     QString m_btnClique;
     QList<BtnCase *> m_btnCases;
+    QList<BtnCase *> m_btnCasesNombres;
+    QList<BtnCase *> m_btnCasesSommes;
     QList<int> m_3btnCases; // indice des 3 boutons sélectionnés
 
     // pour le coup de pouce : Somme = X + Y
@@ -89,6 +92,8 @@ private:
     QList<int> m_listeSommesSauve;
     QList<int> m_listeCouples; // liste des entiers X et Y (pas les couples)
     QList<int> m_listeCouplesSauve;
+    QList<int> m_indicesCouples;
+    QList<int> m_indicesSommes;
 
     QList<int> m_coupDePouce; // une solution particulière
 
@@ -104,6 +109,9 @@ private:
     /** Position de la souris pour gerer le deplacement de la fenetre */
     QPoint m_dragPosition;
     bool   m_isWindowMoving;
+
+    bool m_isCanceled;
+    int m_index;
 
 signals:
     /**
@@ -137,6 +145,9 @@ private slots:
     void on_btnNiveauJaune_clicked();
     void on_btnNiveaux_clicked();
     void on_btnNiveauAnnuler_clicked();
+
+    void montreTierce();
+    void donneReponse();
 };
 
 #endif // MAINWINDOW_H
