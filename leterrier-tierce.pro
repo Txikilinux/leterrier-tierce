@@ -45,7 +45,7 @@ win32{
 }
 
 macx {
- ICON = macos/icones/abuledu-alacarte.icns
+ ICON = macos/icones/leterrier-tierce.icns
 }
 
 include(lang/lang.pri)
