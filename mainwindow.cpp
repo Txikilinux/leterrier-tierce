@@ -178,7 +178,10 @@ void MainWindow::initValeurs() {
         m_btnCases[n1]->setFont(fontBIG);
         m_btnCases[n1]->setDisabled(false);
         m_btnCases[n1]->setMChoisi(false);
-        m_btnCases[n1]->setStyleSheet("background-color: "+NORMALBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
+        m_btnCases[n1]->setIconeNormale(":/data_images/fondNormal");
+        m_btnCases[n1]->setCouleurFondPressed(QColor(255,255,255,50));
+        m_btnCases[n1]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+
         m_listeCouples << v1;
         encore--;
         int n2, v2;
@@ -196,7 +199,9 @@ void MainWindow::initValeurs() {
         m_btnCases[n2]->setFont(fontBIG);
         m_btnCases[n2]->setDisabled(false);
         m_btnCases[n2]->setMChoisi(false);
-        m_btnCases[n2]->setStyleSheet("background-color: "+NORMALBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
+        m_btnCases[n2]->setIconeNormale(":/data_images/fondNormal");
+        m_btnCases[n2]->setCouleurFondPressed(QColor(255,255,255,50));
+        m_btnCases[n2]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
         m_listeCouples << v2;
         encore--;
         int n;
@@ -210,7 +215,8 @@ void MainWindow::initValeurs() {
         m_btnCases[n]->setFont(fontBIG);
         m_btnCases[n]->setDisabled(false);
         m_btnCases[n]->setMChoisi(false);
-        m_btnCases[n]->setStyleSheet("background-color: "+SUMBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
+        m_btnCases[n]->setIconeNormale(":/data_images/fondSomme");
+        m_btnCases[n]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
         m_listeSommes << v1+v2;
         encore--;
     }
@@ -221,7 +227,7 @@ void MainWindow::initValeurs() {
     m_3btnCases.clear();
     ui->btnAide->setDisabled(false);
 
-    m_message = trUtf8("Un pion rose est\nsomme des deux pions jaunes.\n\nChoisis les pions par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul.");
+    m_message = trUtf8("Un nombre cible est\nsomme des deux nombres flèches.\n\nChoisis les nombres par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul.");
 }
 
 void MainWindow::attraperBtnCase()
@@ -244,10 +250,11 @@ void MainWindow::verifier3() {
     if (v[0]+v[1]==v[2]) {
 //        qDebug() << "j'enleve" << v[2] << v[0] << v[1];
         for (int i = 0; i < 3; i++) { // annuler les boutons
-            m_btnCases[m_3btnCases[i]]->setFont(fontMINUS);
+            m_btnCases[m_3btnCases[i]]->setFont(fontMEDIUM);
             m_btnCases[m_3btnCases[i]]->setDisabled(true);
             m_btnCases[m_3btnCases[i]]->setMChoisi(true);
-            m_btnCases[m_3btnCases[i]]->setStyleSheet("background-color: "+NEUTRALBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
+            m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondJuste");
+            m_btnCases[m_3btnCases[i]]->setCouleursTexte(QColor(3,151,3,255),QColor(3,151,3,255),QColor(3,151,3,255),QColor(3,151,3,255));
         }
         // mettre à jour les listes "coup de pouce"
         m_listeSommes.removeOne(v[2]);
@@ -272,11 +279,13 @@ void MainWindow::verifierTout() {
     if (n == 0) {
         ui->btnAide->setDisabled(true);
         AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"), trUtf8("Maintenant tu peux recommencer, choisir une nouvelle grille ou modifier les dimensions de la grille."));
+        box->setWink();
         box->show();
     }
     else
     {
         AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Bien !!"), trUtf8("Encore ")+QString::number(n/3));
+        box->setWink();
         box->show();
     }
 }
@@ -289,10 +298,12 @@ void MainWindow::on_btnRecommencer_clicked()
         m_btnCases[i]->setDisabled(false);
         m_btnCases[i]->setMChoisi(false);
         if (m_btnCases[i]->getMSomme()) {
-            m_btnCases[i]->setStyleSheet("background-color: "+SUMBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
+            m_btnCases[i]->setIconeNormale(":/data_images/fondSomme");
+            m_btnCases[i]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
 
         } else {
-            m_btnCases[i]->setStyleSheet("background-color: "+NORMALBTN+"; border-width: 3px; border-style: solid; border-color: grey; border-radius : 8px; color: darkgreen; font-weight: bold");
+            m_btnCases[i]->setIconeNormale(":/data_images/fondNormal");
+            m_btnCases[i]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
         }
     }
     m_listeCouples = m_listeCouplesSauve;

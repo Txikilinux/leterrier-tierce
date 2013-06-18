@@ -27,12 +27,12 @@
 #include "btncase.h"
 
 BtnCase::BtnCase(QWidget *parent) :
-    QPushButton(parent)
+    AbulEduFlatBoutonV1(parent)
 {
 }
 
 BtnCase::BtnCase(int rang, QWidget *parent) :
-    QPushButton(parent)
+    AbulEduFlatBoutonV1(parent)
 {
     m_rang = rang;
     m_valeur = -1;

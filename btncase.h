@@ -30,13 +30,14 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QColor>
+#include "abuleduflatboutonv1.h"
 
-const QString SUMBTN = "#FFB0B0";      //couleur bouton somme
-const QString NORMALBTN = "#FFFF00";   // couleur bouton normal
-const QString NEUTRALBTN = "#B0E0B0";  // couleur bouton neutre
-const QString ERRORBTN = "#F02020";    // couleur bouton erronné
+const QString SUMBTN = "#FFB0B0";      //couleur bouton somme (rose)
+const QString NORMALBTN = "#FFFFF";   // couleur bouton normal(jaune)
+const QString NEUTRALBTN = "#B0E0B0";  // couleur bouton neutre(vert)
+const QString ERRORBTN = "#F02020";    // couleur bouton erronné(rouge)
 
-class BtnCase : public QPushButton
+class BtnCase : public AbulEduFlatBoutonV1
 {
     Q_OBJECT
 public:

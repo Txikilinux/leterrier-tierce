@@ -25,5 +25,8 @@
         <file alias="solution">data/images/poubelle.png</file>
         <file alias="niveaux">data/images/niveaux.png</file>
         <file alias="verification">data/images/verificationGris.png</file>
+        <file alias="fondSomme">data/images/cible.png</file>
+        <file alias="fondJuste">data/images/juste.png</file>
+        <file alias="fondNormal">data/images/fleche.png</file>
     </qresource>
 </RCC>
