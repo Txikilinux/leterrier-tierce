@@ -241,7 +241,11 @@ void MainWindow::attraperBtnCase()
 {
     QObject * btnClique = sender();
     m_btnClique = btnClique->objectName();
-    m_btnCases[m_btnClique.toInt()]->setFont(fontMINUS);
+    m_btnCases[m_btnClique.toInt()]->setFont(fontMEDIUM);
+    if(m_isCanceled)
+    {
+         m_btnCases[m_btnClique.toInt()]->setCouleursTexte(QColor(255,0,255,255),QColor(255,0,255,255),QColor(255,0,255,255),QColor(255,0,255,255));
+    }
     m_btnCases[m_btnClique.toInt()]->setDisabled(true);
     m_3btnCases << m_btnClique.toInt();
     if(m_3btnCases.size() == 3) verifier3();
@@ -341,9 +345,6 @@ void MainWindow::_deleteBtnCases() {
 void MainWindow::donneReponse()
 {
     m_isCanceled = true;
-    qDebug()<<m_listeCouples;
-    qDebug()<<" ** ";
-    qDebug()<<m_listeSommes;
     if(!m_listeSommes.isEmpty() && !m_listeCouples.isEmpty())
     {
         montreTierce();
@@ -361,6 +362,17 @@ void MainWindow::donneReponse()
 
 void MainWindow::montreTierce()
 {
+    QListIterator<BtnCase*> iter(m_btnCasesSommes);
+    bool trouve = false;
+    while(iter.hasNext() && !trouve)
+    {
+        BtnCase* btn = iter.next();
+        if(btn->getMValeur() == m_listeSommes.at(0))
+        {
+            trouve = true;
+            btn->setCouleursTexte(QColor(255,0,255,255),QColor(255,0,255,255),QColor(255,0,255,255),QColor(255,0,255,255));
+        }
+    }
     QTimer::singleShot(1000, trouveBoutonOu(m_listeCouples.at(0)), SLOT(click()));
     QTimer::singleShot(2000, trouveBoutonOu(m_listeCouples.at(1)), SLOT(click()));
     QTimer::singleShot(3000, trouveCibleOu(m_listeSommes.at(0)), SLOT(click()));
@@ -368,7 +380,6 @@ void MainWindow::montreTierce()
 
 BtnCase *MainWindow::trouveBoutonOu(int valeur)
 {
-    qDebug()<<" TrouveBoutonOu : "<<valeur;
     bool trouve = false;
     BtnCase* leBon = new BtnCase();
     QListIterator<BtnCase*> iter(m_btnCasesNombres);
