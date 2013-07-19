@@ -110,6 +110,7 @@ private:
     QPoint m_dragPosition;
     bool   m_isWindowMoving;
 
+    /** Booléen qui détermine si on est dans la demande de solution */
     bool m_isCanceled;
     int m_index;
 

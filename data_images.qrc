@@ -1,11 +1,7 @@
 <RCC>
     <qresource prefix="/data_images">
-        <file>data/images/background-1024x600.png</file>
-        <file>data/images/quit-24x24.png</file>
         <file>data/images/pagefold-50x45.png</file>
-        <file>data/images/new-24x24.png</file>
         <file>data/images/redo.png</file>
-        <file>data/images/help.png</file>
         <file>data/images/up.png</file>
         <file>data/images/down.png</file>
         <file alias="background">data/images/fubuki-fond.jpg</file>
@@ -20,13 +16,21 @@
         <file alias="leaf">data/images/feuille.png</file>
         <file alias="debut">data/images/refaire.png</file>
         <file alias="debutHover">data/images/refaire-hover.png</file>
-        <file alias="solutionHover">data/images/poubelle-hover.png</file>
         <file alias="niveauxHover">data/images/niveaux-hover.png</file>
-        <file alias="solution">data/images/poubelle.png</file>
         <file alias="niveaux">data/images/niveaux.png</file>
         <file alias="verification">data/images/verificationGris.png</file>
         <file alias="fondSomme">data/images/cible.png</file>
         <file alias="fondJuste">data/images/juste.png</file>
         <file alias="fondNormal">data/images/fleche.png</file>
+        <file alias="belt2">data/images/ceinture-bleu.png</file>
+        <file alias="belt0">data/images/ceinture-jaune.png</file>
+        <file alias="belt3">data/images/ceinture-marron.png</file>
+        <file alias="belt4">data/images/ceinture-noire.png</file>
+        <file alias="belt1">data/images/ceinture-orange.png</file>
+        <file alias="solutionDisabled">data/images/soluce-gris.png</file>
+        <file alias="solutionHover">data/images/soluce-hover.png</file>
+        <file alias="solution">data/images/soluce.png</file>
+        <file alias="niveauxDisabled">data/images/niveaux-gris.png</file>
+        <file alias="nombresDisabled">data/images/nombres-gris.png</file>
     </qresource>
 </RCC>

@@ -567,7 +567,7 @@ void MainWindow::paintEvent(QPaintEvent *)
         enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
         enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
     }
-    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;border-image:url(':/data_images/leaf');image-position: center;}");
+    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;}");
 
 }
 
