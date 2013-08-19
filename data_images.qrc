@@ -20,10 +20,9 @@
         <file alias="niveaux">data/images/niveaux.png</file>
         <file alias="verification">data/images/verificationGris.png</file>
         <file alias="fondNormal">data/images/fleche.png</file>
-        <file alias="belt2">data/images/ceinture-bleu.png</file>
         <file alias="belt0">data/images/ceinture-jaune.png</file>
-        <file alias="belt3">data/images/ceinture-marron.png</file>
-        <file alias="belt4">data/images/ceinture-noire.png</file>
+        <file alias="belt2">data/images/ceinture-marron.png</file>
+        <file alias="belt3">data/images/ceinture-noire.png</file>
         <file alias="belt1">data/images/ceinture-orange.png</file>
         <file alias="solutionDisabled">data/images/soluce-gris.png</file>
         <file alias="solutionHover">data/images/soluce-hover.png</file>

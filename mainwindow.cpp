@@ -545,6 +545,8 @@ void MainWindow::_changeNiveau() {
         case 2 : actionDIMxDIM(4,6); break;
         case 3 : actionDIMxDIM(5,6); break;
     }
+    ui->lblLevel->setPixmap(QPixmap(":/data_images/belt"+QString::number(m_niveau)));
+    on_btnNiveauAnnuler_clicked();
 }
 
 void MainWindow::on_btnUp_clicked()
