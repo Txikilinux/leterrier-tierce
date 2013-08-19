@@ -50,6 +50,12 @@ MainWindow::MainWindow(QWidget *parent) :
     qApp->installTranslator(&myappTranslator);
 
     ui->setupUi(this);
+    qDebug()<<"fin setupui";
+    qDebug()<<ui->frmAireDeJeu->styleSheet();
+    ui->frmAireDeJeu->setStyleSheet("QFrame#frmAireDeJeu {	\nbackground-image: url(:/data_images/cadreNombres);\nbackground-repeat: repeat-no;\nbackground-position: top right;\n}");
+    ui->btnMinimized->setIconeNormale(":/data_images/showMinimized");
+    ui->btnFullScreen->setIconeNormale(":/data_images/showMaximized");
+    ui->verticalSpacer->changeSize(20,3,QSizePolicy::Fixed,QSizePolicy::Fixed);
 
     AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
 
@@ -64,8 +70,12 @@ MainWindow::MainWindow(QWidget *parent) :
     m_nColonnes = 4;
     m_message = QString();
     m_isCanceled = false;
-
+    qDebug()<<"avant initgrille";
+    qDebug()<<ui->frmAireDeJeu->pos();
     initGrille();
+    qDebug()<<"fin initgrille";
+    ui->frmAireDeJeu->move(280,30);
+    qDebug()<<ui->frmAireDeJeu->pos();
     initValeurs();
 
     ui->menuBar->hide();
@@ -117,14 +127,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->frmButtons->setVisible(false);
     ui->frmButtons->adjustSize();
 
-    ui->btnMinimized->setCouleurFondSurvol(QColor(6,109,255));
-    ui->btnMinimized->setCouleurFondNormale(QColor(255,255,255,50));
+#ifdef __ABULEDUTABLETTEV1__MODE__
+    ui->btnMinimized->setVisible(false);
+    ui->btnFullScreen->setVisible(false);
+#else
+    ui->btnMinimized->setCouleurFondSurvol(QColor(252,152,41));
+    ui->btnMinimized->setCouleurFondPressed(QColor(252,152,41));
+    ui->btnMinimized->setCouleurFondNormale(QColor(203,106,89));
     ui->btnMinimized->setAllMargins(8,4,8,12);
     ui->btnMinimized->setBorderRadius(4);
-    ui->btnFullScreen->setCouleurFondSurvol(QColor(6,109,255));
-    ui->btnFullScreen->setCouleurFondNormale(QColor(255,255,255,50));
+    ui->btnFullScreen->setCouleurFondSurvol(QColor(252,152,41));
+    ui->btnFullScreen->setCouleurFondPressed(QColor(252,152,41));
+    ui->btnFullScreen->setCouleurFondNormale(QColor(203,106,89));
     ui->btnFullScreen->setAllMargins(8,12,8,4);
     ui->btnFullScreen->setBorderRadius(4);
+#endif
 
     QDesktopWidget *widget = QApplication::desktop();
     int desktop_width = widget->width();
@@ -143,13 +160,15 @@ void MainWindow::initGrille() {
     int w = (ui->frmAireDeJeu->width() / m_nColonnes);   // largeur max des cases
     int h = (ui->frmAireDeJeu->height() / m_nLignes);     // hauteur max des cases
     int dimCase = ((w < h)? w : h);   // dim des cases
+    dimCase = 100;
     for (int i = 0; i < m_nLignes; i++) {
         for (int j = 0; j < m_nColonnes; j++) {
 //            QString n = QString::number(i*m_nColonnes +j);
             int n = i*m_nColonnes +j;
             BtnCase *btnCase = new BtnCase(n, ui->frmAireDeJeu);
             btnCase->setObjectName(QString::number(n)); // On donne un nom : #
-            btnCase->setGeometry((dimCase)*j,(dimCase)*i,dimCase,dimCase);
+            /* Les décalages ci-dessous sont dûs aux bordures "solides" à l'intérieur de la grille. Ces nombres sont en dur (comme d'ailleurs dimCase), pour faire simple puisqu'on ne redimensionne pas !! */
+            btnCase->setGeometry(130+(dimCase+20)*j,17+(dimCase+20)*i,dimCase,dimCase);
             btnCase->setVisible(true);
             m_btnCases.append(btnCase);
             connect(btnCase, SIGNAL(clicked()),this,SLOT(attraperBtnCase())); //on connecte le bouton au slot
@@ -184,9 +203,9 @@ void MainWindow::initValeurs() {
         m_btnCases[n1]->setMChoisi(false);
         m_btnCases[n1]->setIconeNormale(":/data_images/fondNormal");
         m_btnCases[n1]->setCouleurFondPressed(QColor(255,255,255,50));
-        m_btnCases[n1]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+        m_btnCases[n1]->setCouleursTexte(QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255));
+//        m_btnCases[n1]->setStyleSheet("border:1px solid blue");
         m_btnCasesNombres << m_btnCases[n1];
-
         m_listeCouples << v1;
         encore--;
         int n2, v2;
@@ -206,7 +225,8 @@ void MainWindow::initValeurs() {
         m_btnCases[n2]->setMChoisi(false);
         m_btnCases[n2]->setIconeNormale(":/data_images/fondNormal");
         m_btnCases[n2]->setCouleurFondPressed(QColor(255,255,255,50));
-        m_btnCases[n2]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+        m_btnCases[n2]->setCouleursTexte(QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255));
+//        m_btnCases[n2]->setStyleSheet("border:1px solid blue");
         m_btnCasesNombres << m_btnCases[n2];
         m_listeCouples << v2;
         encore--;
@@ -222,7 +242,8 @@ void MainWindow::initValeurs() {
         m_btnCases[n]->setDisabled(false);
         m_btnCases[n]->setMChoisi(false);
         m_btnCases[n]->setIconeNormale(":/data_images/fondSomme");
-        m_btnCases[n]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+        m_btnCases[n]->setCouleursTexte(QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255));
+//        m_btnCases[n]->setStyleSheet("border:1px solid blue");
         m_btnCasesSommes << m_btnCases[n];
         m_listeSommes << v1+v2;
         encore--;
@@ -244,7 +265,7 @@ void MainWindow::attraperBtnCase()
     m_btnCases[m_btnClique.toInt()]->setFont(fontMEDIUM);
     if(m_isCanceled)
     {
-         m_btnCases[m_btnClique.toInt()]->setCouleursTexte(QColor(255,0,255,255),QColor(255,0,255,255),QColor(255,0,255,255),QColor(255,0,255,255));
+         m_btnCases[m_btnClique.toInt()]->setCouleursTexte(QColor(0,108,192,255),QColor(0,108,192,255),QColor(0,108,192,255),QColor(0,108,192,255));
     }
     m_btnCases[m_btnClique.toInt()]->setDisabled(true);
     m_3btnCases << m_btnClique.toInt();
@@ -264,8 +285,15 @@ void MainWindow::verifier3() {
             m_btnCases[m_3btnCases[i]]->setFont(fontMEDIUM);
             m_btnCases[m_3btnCases[i]]->setDisabled(true);
             m_btnCases[m_3btnCases[i]]->setMChoisi(true);
-            m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondJuste");
-            m_btnCases[m_3btnCases[i]]->setCouleursTexte(QColor(3,151,3,255),QColor(3,151,3,255),QColor(3,151,3,255),QColor(3,151,3,255));
+            if(m_isCanceled)
+            {
+                m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondCorrection");
+            }
+            else
+            {
+                m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondJuste");
+            }
+            m_btnCases[m_3btnCases[i]]->setCouleursTexte(QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255));
         }
         // mettre à jour les listes "coup de pouce"
         m_listeSommes.removeOne(v[2]);
@@ -306,6 +334,7 @@ void MainWindow::verifierTout() {
 
 void MainWindow::on_btnRecommencer_clicked()
 {
+    m_isCanceled = false;
     for (int i = 0; i < m_nLignes * m_nColonnes; i++) {
         m_btnCases[i]->restaure();
         m_btnCases[i]->setFont(fontBIG);
@@ -313,11 +342,11 @@ void MainWindow::on_btnRecommencer_clicked()
         m_btnCases[i]->setMChoisi(false);
         if (m_btnCases[i]->getMSomme()) {
             m_btnCases[i]->setIconeNormale(":/data_images/fondSomme");
-            m_btnCases[i]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+            m_btnCases[i]->setCouleursTexte(QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255));
 
         } else {
             m_btnCases[i]->setIconeNormale(":/data_images/fondNormal");
-            m_btnCases[i]->setCouleursTexte(QColor(0,108,192,255),QColor(0,0,255,255),QColor(0,0,255,255),QColor(0,0,255,255));
+            m_btnCases[i]->setCouleursTexte(QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255));
         }
     }
     m_listeCouples = m_listeCouplesSauve;
@@ -370,7 +399,8 @@ void MainWindow::montreTierce()
         if(btn->getMValeur() == m_listeSommes.at(0))
         {
             trouve = true;
-            btn->setCouleursTexte(QColor(255,0,255,255),QColor(255,0,255,255),QColor(255,0,255,255),QColor(255,0,255,255));
+            btn->setCouleursTexte(QColor(0,108,192,255),QColor(0,108,192,255),QColor(0,108,192,255),QColor(0,108,192,255));
+
         }
     }
     QTimer::singleShot(1000, trouveBoutonOu(m_listeCouples.at(0)), SLOT(click()));
@@ -648,3 +678,30 @@ void MainWindow::on_btnNiveauAnnuler_clicked()
     ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("border-radius:5px;background-color:#ffffff;","background-color:rgba(0,0,0,0);"));
 }
 
+
+void MainWindow::on_btnMinimized_clicked()
+{
+    showMinimized();
+}
+
+void MainWindow::on_btnFullScreen_clicked()
+{
+    if(isFullScreen())
+    {
+        showNormal();
+        ui->centralWidget->move(0,0);
+        ui->widgetContainer->move(0,0);
+        ui->btnFullScreen->setIconeNormale(":/data_images/showMaximized");
+    }
+    else
+    {
+        QDesktopWidget *widget = QApplication::desktop();
+        int desktop_width = widget->width();
+        int desktop_height = widget->height();
+//        this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
+        ui->centralWidget->move((desktop_width-ui->centralWidget->width())/2, (desktop_height-ui->centralWidget->height())/2);
+        ui->widgetContainer->move((desktop_width-ui->widgetContainer->width())/2, (desktop_height-ui->widgetContainer->height())/2);
+        showFullScreen();
+        ui->btnFullScreen->setIconeNormale(":/data_images/showNormal");
+    }
+}

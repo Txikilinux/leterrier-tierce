@@ -19,8 +19,6 @@
         <file alias="niveauxHover">data/images/niveaux-hover.png</file>
         <file alias="niveaux">data/images/niveaux.png</file>
         <file alias="verification">data/images/verificationGris.png</file>
-        <file alias="fondSomme">data/images/cible.png</file>
-        <file alias="fondJuste">data/images/juste.png</file>
         <file alias="fondNormal">data/images/fleche.png</file>
         <file alias="belt2">data/images/ceinture-bleu.png</file>
         <file alias="belt0">data/images/ceinture-jaune.png</file>
@@ -32,5 +30,13 @@
         <file alias="solution">data/images/soluce.png</file>
         <file alias="niveauxDisabled">data/images/niveaux-gris.png</file>
         <file alias="nombresDisabled">data/images/nombres-gris.png</file>
+        <file alias="cadreNombres">data/images/cadre-tierce.png</file>
+        <file alias="fondSomme">data/images/fond-sommes.png</file>
+        <file alias="showMinimized">data/images/fenetreReduit.png</file>
+        <file alias="showNormal">data/images/fenetreMoyen.png</file>
+        <file alias="showMaximized">data/images/fenetreGrand.png</file>
+        <file alias="fondNormal">data/images/fond-element.png</file>
+        <file alias="fondJuste">data/images/juste.png</file>
+        <file alias="fondCorrection">data/images/correction.png</file>
     </qresource>
 </RCC>

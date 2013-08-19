@@ -122,7 +122,7 @@ background-position: top right;
           </property>
          </widget>
         </item>
-        <item row="1" column="2">
+        <item row="1" column="4">
          <widget class="AbulEduFlatBoutonV1" name="btnMinimized">
           <property name="minimumSize">
            <size>
@@ -180,14 +180,53 @@ background-position: top right;
            </color>
           </property>
           <property name="iconeNormale" stdset="0">
-           <string>:/data/images/showMinimized</string>
+           <string notr="true">:/data_images/showMinimized</string>
           </property>
           <property name="IconeSurvol" stdset="0">
-           <string/>
+           <string notr="true">:/data_images/showMinimized</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="3">
+        <item row="1" column="1">
+         <widget class="QLabel" name="lblTitre">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="cursor">
+           <cursorShape>ArrowCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+padding-left:20px;
+color:white;
+font-size:24px;
+
+}</string>
+          </property>
+          <property name="text">
+           <string>LeTerrier - Tierce</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>3</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="5">
          <widget class="AbulEduFlatBoutonV1" name="btnFullScreen">
           <property name="minimumSize">
            <size>
@@ -252,41 +291,43 @@ background-position: top right;
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QLabel" name="lblTitre">
-          <property name="font">
-           <font>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="cursor">
-           <cursorShape>ArrowCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QLabel {
-padding-left:20px;
-color:white;
-font-size:24px;
-
-}</string>
-          </property>
-          <property name="text">
-           <string>LeTerrier - Tierce</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <spacer name="verticalSpacer">
+        <item row="1" column="3">
+         <spacer name="horizontalSpacer_2">
           <property name="orientation">
-           <enum>Qt::Vertical</enum>
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>20</width>
-            <height>3</height>
+            <width>25</width>
+            <height>20</height>
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="1" column="2">
+         <widget class="AbulEduFlatBoutonV1" name="btnLanguages">
+          <property name="minimumSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>40</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -613,11 +654,16 @@ font-size:24px;
         <widget class="QFrame" name="frmAireDeJeu">
          <property name="geometry">
           <rect>
-           <x>300</x>
-           <y>10</y>
-           <width>611</width>
-           <height>451</height>
+           <x>380</x>
+           <y>30</y>
+           <width>500</width>
+           <height>377</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">	background-image: url(:/data_images/cadreNombres);
+	background-repeat: repeat-no;
+   	background-position: top right;</string>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -625,8 +671,6 @@ font-size:24px;
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <zorder>frmButtons</zorder>
-         <zorder>frmButtons</zorder>
         </widget>
         <widget class="QFrame" name="frmNiveau">
          <property name="geometry">
@@ -857,11 +901,6 @@ border-bottom-left-radius: 5px;</string>
           <pixmap resource="data_images.qrc">:/data_images/belt0</pixmap>
          </property>
         </widget>
-        <zorder>frmIcones</zorder>
-        <zorder>frmAireDeJeu</zorder>
-        <zorder>frmNiveau</zorder>
-        <zorder>lblLevel</zorder>
-        <zorder>frmButtons</zorder>
        </widget>
        <widget class="QWidget" name="pageApropos">
         <widget class="QPushButton" name="pushButton">

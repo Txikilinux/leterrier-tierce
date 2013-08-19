@@ -149,6 +149,8 @@ private slots:
 
     void montreTierce();
     void donneReponse();
+    void on_btnMinimized_clicked();
+    void on_btnFullScreen_clicked();
 };
 
 #endif // MAINWINDOW_H
