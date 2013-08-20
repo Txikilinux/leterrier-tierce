@@ -33,7 +33,7 @@
 #include "abuleduflatboutonv1.h"
 
 const QString SUMBTN = "#FFB0B0";      //couleur bouton somme (rose)
-const QString NORMALBTN = "#FFFFF";   // couleur bouton normal(jaune)
+const QString NORMALBTN = "#FFFFFF";   // couleur bouton normal(jaune)
 const QString NEUTRALBTN = "#B0E0B0";  // couleur bouton neutre(vert)
 const QString ERRORBTN = "#F02020";    // couleur bouton erronné(rouge)
 

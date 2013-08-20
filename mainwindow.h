@@ -71,6 +71,7 @@ private:
     void _deleteBtnCases();
     BtnCase* trouveBoutonOu(int valeur);
     BtnCase* trouveCibleOu(int valeur);
+    /** Adapte le fond du cadre d'aire de jeu au niveau */
 
     //le traducteur d'interface
     QTranslator qtTranslator;
@@ -124,8 +125,9 @@ private slots:
     /**
       retrouver le btnCase qui a émis le signal et traiter ce signal
       */
+    /* A priori scories à détruire
     void on_btnDown_clicked();
-    void on_btnUp_clicked();
+    void on_btnUp_clicked();*/
     void on_btnAide_clicked();
     void on_action5x6_triggered();
     void on_action4x6_triggered();
@@ -151,6 +153,18 @@ private slots:
     void donneReponse();
     void on_btnMinimized_clicked();
     void on_btnFullScreen_clicked();
+    void on_btnLanguages_clicked();
+    void on_btnFr_clicked();
+    void on_btnEn_clicked();
+    void on_btnEs_clicked();
+    void on_btnIt_clicked();
+    void on_btnDe_clicked();
+    void on_btnOc_clicked();
+    void on_btnLangueAnnuler_clicked();
+    void slotChangeLangue();
+
+    /** Permet d'un seul appel de rendre tous les boutons de l'interface actifs ou inactifs */
+    void setAllButtonsEnabled(bool trueFalse);
 };
 
 #endif // MAINWINDOW_H

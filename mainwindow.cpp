@@ -72,9 +72,12 @@ MainWindow::MainWindow(QWidget *parent) :
     m_isCanceled = false;
     qDebug()<<"avant initgrille";
     qDebug()<<ui->frmAireDeJeu->pos();
+    ui->frmAireDeJeu->raise();
     initGrille();
     qDebug()<<"fin initgrille";
-    ui->frmAireDeJeu->move(280,30);
+//    ui->frmAireDeJeu->move(280,30);
+    ui->frmAireDeJeu->setGeometry(400,20,500,480);
+
     qDebug()<<ui->frmAireDeJeu->pos();
     initValeurs();
 
@@ -123,9 +126,21 @@ MainWindow::MainWindow(QWidget *parent) :
     setWindowFlags(Qt::CustomizeWindowHint);
 
     ui->vl_widgetContainer->removeWidget(ui->frmButtons);
-    ui->frmButtons->move(0,38);
+    ui->frmButtons->move(9,40);
     ui->frmButtons->setVisible(false);
     ui->frmButtons->adjustSize();
+
+    ui->btnLanguages->setIconeNormale(":/data_flags/fr");
+    ui->frmChoixLangues->move(790,0);
+    ui->frmChoixLangues->setVisible(false);
+    ui->btnEs->setVisible(false);
+    ui->btnIt->setVisible(false);
+    ui->btnDe->setVisible(false);
+    ui->btnOc->setVisible(false);
+    foreach(AbulEduFlatBoutonV1* btn, ui->frmChoixLangues->findChildren<AbulEduFlatBoutonV1*>())
+    {
+        connect(btn, SIGNAL(clicked()),SLOT(slotChangeLangue()),Qt::UniqueConnection);
+    }
 
 #ifdef __ABULEDUTABLETTEV1__MODE__
     ui->btnMinimized->setVisible(false);
@@ -157,10 +172,11 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::initGrille() {
-    int w = (ui->frmAireDeJeu->width() / m_nColonnes);   // largeur max des cases
-    int h = (ui->frmAireDeJeu->height() / m_nLignes);     // hauteur max des cases
-    int dimCase = ((w < h)? w : h);   // dim des cases
-    dimCase = 100;
+    ui->lblGrid->setPixmap(":/data_images/cadreNombres"+QString::number(m_niveau));
+    ui->lblGrid->adjustSize();
+    int dimCase = (475 / m_nColonnes);   // largeur max des cases
+    qDebug()<<"Init grille";
+    qDebug()<<dimCase;
     for (int i = 0; i < m_nLignes; i++) {
         for (int j = 0; j < m_nColonnes; j++) {
 //            QString n = QString::number(i*m_nColonnes +j);
@@ -168,7 +184,7 @@ void MainWindow::initGrille() {
             BtnCase *btnCase = new BtnCase(n, ui->frmAireDeJeu);
             btnCase->setObjectName(QString::number(n)); // On donne un nom : #
             /* Les décalages ci-dessous sont dûs aux bordures "solides" à l'intérieur de la grille. Ces nombres sont en dur (comme d'ailleurs dimCase), pour faire simple puisqu'on ne redimensionne pas !! */
-            btnCase->setGeometry(130+(dimCase+20)*j,17+(dimCase+20)*i,dimCase,dimCase);
+            btnCase->setGeometry(-7+(dimCase)*j,30+(dimCase)*i,dimCase,dimCase);
             btnCase->setVisible(true);
             m_btnCases.append(btnCase);
             connect(btnCase, SIGNAL(clicked()),this,SLOT(attraperBtnCase())); //on connecte le bouton au slot
@@ -255,7 +271,7 @@ void MainWindow::initValeurs() {
     m_3btnCases.clear();
     ui->btnAide->setDisabled(false);
 
-    m_message = trUtf8("Un nombre cible est\nsomme des deux nombres flèches.\n\nChoisis les nombres par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul.");
+    m_message = trUtf8("Un nombre cible (foncé) est\nsomme des deux nombres clairs.\n\nChoisis les nombres par\ngroupe de trois de sorte\nqu'il n'en reste plus un seul.");
 }
 
 void MainWindow::attraperBtnCase()
@@ -276,8 +292,17 @@ void MainWindow::attraperBtnCase()
 void MainWindow::verifier3() {
 //    qDebug() << "verifier3" << m_3btnCases;
     QList<int> v; // liste des valeurs des 3 boutons
+    BtnCase* sum;
+    int maxi = -1;
     for (int i = 0; i < 3; i++)
+    {
+        if(m_btnCases[m_3btnCases[i]]->getMValeur() > maxi)
+        {
+            maxi = m_btnCases[m_3btnCases[i]]->getMValeur();
+            sum = m_btnCases[m_3btnCases[i]];
+        }
         v << m_btnCases[m_3btnCases[i]]->getMValeur();
+    }
     qSort(v.begin(), v.end());
     if (v[0]+v[1]==v[2]) {
 //        qDebug() << "j'enleve" << v[2] << v[0] << v[1];
@@ -287,11 +312,25 @@ void MainWindow::verifier3() {
             m_btnCases[m_3btnCases[i]]->setMChoisi(true);
             if(m_isCanceled)
             {
-                m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondCorrection");
+                if(m_btnCases[m_3btnCases[i]] == sum)
+                {
+                    m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondCorrectionSomme");
+                }
+                else
+                {
+                    m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondCorrection");
+                }
             }
             else
             {
-                m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondJuste");
+                if(m_btnCases[m_3btnCases[i]] == sum)
+                {
+                    m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondJuste");
+                }
+                else
+                {
+                    m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondJusteSomme");
+                }
             }
             m_btnCases[m_3btnCases[i]]->setCouleursTexte(QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255),QColor(255,255,255,255));
         }
@@ -376,6 +415,7 @@ void MainWindow::donneReponse()
     m_isCanceled = true;
     if(!m_listeSommes.isEmpty() && !m_listeCouples.isEmpty())
     {
+        setAllButtonsEnabled(false);
         montreTierce();
         QTimer* attendre = new QTimer();
         attendre->setSingleShot(true);
@@ -384,6 +424,7 @@ void MainWindow::donneReponse()
     }
     else
     {
+        setAllButtonsEnabled(true);
         return;
     }
 }
@@ -549,6 +590,7 @@ void MainWindow::_changeNiveau() {
     on_btnNiveauAnnuler_clicked();
 }
 
+/* A priori scories à détruire
 void MainWindow::on_btnUp_clicked()
 {
     if (m_niveau < m_niveauMAX) m_niveau++;
@@ -559,7 +601,7 @@ void MainWindow::on_btnDown_clicked()
 {
     if (m_niveau > 0) m_niveau--;
     _changeNiveau();
-}
+} */
 
 void MainWindow::on_btnSortie_clicked()
 {
@@ -705,5 +747,84 @@ void MainWindow::on_btnFullScreen_clicked()
         ui->widgetContainer->move((desktop_width-ui->widgetContainer->width())/2, (desktop_height-ui->widgetContainer->height())/2);
         showFullScreen();
         ui->btnFullScreen->setIconeNormale(":/data_images/showNormal");
+    }
+}
+
+void MainWindow::on_btnLanguages_clicked()
+{
+    ui->frmChoixLangues->setVisible(true);
+    ui->frmChoixLangues->raise();
+}
+
+void MainWindow::on_btnFr_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data_flags/fr");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnEn_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data_flags/en");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnEs_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data_flags/es");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnIt_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data_flags/it");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnDe_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data_flags/de");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnOc_clicked()
+{
+    ui->btnLanguages->setIconeNormale(":/data_flags/oc");
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::on_btnLangueAnnuler_clicked()
+{
+    ui->frmChoixLangues->setVisible(false);
+}
+
+void MainWindow::slotChangeLangue()
+{
+    QString lang = static_cast<AbulEduFlatBoutonV1*>(sender())->whatsThis();
+    qApp->removeTranslator(&qtTranslator);
+    qApp->removeTranslator(&myappTranslator);
+
+    //Un 1er qtranslator pour prendre les traductions QT Systeme
+    //c'est d'ailleur grace a ca qu'on est en RTL
+    qtTranslator.load("qt_" + lang, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    qApp->installTranslator(&qtTranslator);
+
+    //foreach (QWidget *widget, QApplication::allWidgets()) widget->setLayoutDirection(Qt::RightToLeft);
+    //Et un second qtranslator pour les traductions specifiques du
+    //logiciel
+    myappTranslator.load("leterrier-tierce_" + lang, "lang");
+    qApp->installTranslator(&myappTranslator);
+    ui->retranslateUi(this);
+}
+
+void MainWindow::setAllButtonsEnabled(bool trueFalse)
+{
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmTop->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        enfant->setEnabled(trueFalse);
+    }
+    foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
+    {
+        if(enfant->whatsThis() != "nombres")
+          enfant->setEnabled(trueFalse);
     }
 }
