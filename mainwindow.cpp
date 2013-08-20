@@ -120,7 +120,7 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
-    ui->frmNiveau->move(ui->frmIcones->x()-ui->frmNiveau->width(),ui->frmIcones->y()+123);
+    ui->frmNiveau->move(ui->frmIcones->x()-ui->frmNiveau->width()+8,ui->frmIcones->y()+19);
     ui->frmNiveau->setVisible(false);
 
     setWindowFlags(Qt::CustomizeWindowHint);
@@ -629,8 +629,8 @@ void MainWindow::on_btnFeuille_clicked()
         ui->frmButtons->setVisible(true);
         ui->frmButtons->raise();
     }
-//    on_btnNombresFermer_clicked();
-    //    on_btnNiveauAnnuler_clicked();
+    on_btnNiveauAnnuler_clicked();
+    on_btnLangueAnnuler_clicked();
 }
 
 void MainWindow::paintEvent(QPaintEvent *)
@@ -714,6 +714,7 @@ void MainWindow::on_btnNiveaux_clicked()
     {
         ui->frmButtons->setVisible(false);
     }
+    on_btnLangueAnnuler_clicked();
 }
 
 void MainWindow::on_btnNiveauAnnuler_clicked()
@@ -754,6 +755,11 @@ void MainWindow::on_btnLanguages_clicked()
 {
     ui->frmChoixLangues->setVisible(true);
     ui->frmChoixLangues->raise();
+    if (ui->frmButtons->isVisible())
+    {
+        ui->frmButtons->setVisible(false);
+    }
+    on_btnNiveauAnnuler_clicked();
 }
 
 void MainWindow::on_btnFr_clicked()
