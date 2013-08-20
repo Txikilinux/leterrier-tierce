@@ -1003,7 +1003,7 @@ border-radius:5px;</string>
              <string notr="true">color:orange</string>
             </property>
             <property name="text">
-             <string>oc</string>
+             <string>Oc</string>
             </property>
            </widget>
           </item>
@@ -1037,7 +1037,7 @@ border-radius:5px;</string>
              <string notr="true">color:black</string>
             </property>
             <property name="text">
-             <string>deutsch</string>
+             <string>Deutsch</string>
             </property>
            </widget>
           </item>
@@ -1071,7 +1071,7 @@ border-radius:5px;</string>
              <string notr="true">color: blue;</string>
             </property>
             <property name="text">
-             <string>French</string>
+             <string>Français</string>
             </property>
            </widget>
           </item>
@@ -1173,7 +1173,7 @@ border-radius:5px;</string>
              <string notr="true">color:green</string>
             </property>
             <property name="text">
-             <string>italiano</string>
+             <string>Italiano</string>
             </property>
            </widget>
           </item>

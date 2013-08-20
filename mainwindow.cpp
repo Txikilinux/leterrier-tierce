@@ -364,7 +364,7 @@ void MainWindow::verifierTout() {
         }
         else
         {
-            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Bien !!"), trUtf8("Encore ")+QString::number(n/3));
+            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Bien !!"), trUtf8("Encore %1").arg(QString::number(n/3)));
             box->setWink();
             box->show();
         }
