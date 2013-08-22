@@ -139,7 +139,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->btnOc->setVisible(false);
     foreach(AbulEduFlatBoutonV1* btn, ui->frmChoixLangues->findChildren<AbulEduFlatBoutonV1*>())
     {
-        connect(btn, SIGNAL(clicked()),SLOT(slotChangeLangue()),Qt::UniqueConnection);
+        if(!btn->whatsThis().isEmpty())
+        {
+            connect(btn, SIGNAL(clicked()),SLOT(slotChangeLangue()),Qt::UniqueConnection);
+        }
     }
 
 #ifdef __ABULEDUTABLETTEV1__MODE__
@@ -830,7 +833,7 @@ void MainWindow::setAllButtonsEnabled(bool trueFalse)
     }
     foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
     {
-        if(enfant->whatsThis() != "nombres")
+        if(enfant->whatsThis() != "nombres" && enfant->whatsThis() != "verification")
           enfant->setEnabled(trueFalse);
     }
 }

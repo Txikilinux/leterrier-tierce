@@ -404,7 +404,7 @@ font-size:24px;
              <string/>
             </property>
             <property name="whatsThis">
-             <string>verification</string>
+             <string notr="true">verification</string>
             </property>
             <property name="text">
              <string>Vérification</string>
@@ -451,7 +451,7 @@ font-size:24px;
              <string/>
             </property>
             <property name="whatsThis">
-             <string>debut</string>
+             <string notr="true">debut</string>
             </property>
             <property name="text">
              <string>Début</string>
@@ -501,7 +501,7 @@ font-size:24px;
              <string/>
             </property>
             <property name="whatsThis">
-             <string>nombres</string>
+             <string notr="true">nombres</string>
             </property>
             <property name="text">
              <string>Nombres</string>
@@ -548,7 +548,7 @@ font-size:24px;
              <string/>
             </property>
             <property name="whatsThis">
-             <string>niveaux</string>
+             <string notr="true">niveaux</string>
             </property>
             <property name="text">
              <string>Niveau</string>
@@ -595,7 +595,7 @@ font-size:24px;
              <string/>
             </property>
             <property name="whatsThis">
-             <string>aide</string>
+             <string notr="true">aide</string>
             </property>
             <property name="text">
              <string>Aide</string>
@@ -636,7 +636,7 @@ font-size:24px;
              <string/>
             </property>
             <property name="whatsThis">
-             <string>solution</string>
+             <string notr="true">solution</string>
             </property>
             <property name="text">
              <string>Solution</string>
@@ -664,8 +664,7 @@ font-size:24px;
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">
-</string>
+          <string notr="true"/>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -712,6 +711,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -743,6 +743,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -774,6 +775,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -805,6 +807,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -836,6 +839,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -870,6 +874,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -958,6 +963,7 @@ border-radius:5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -989,6 +995,7 @@ border-radius:5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1023,6 +1030,7 @@ border-radius:5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1057,6 +1065,7 @@ border-radius:5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1091,6 +1100,7 @@ border-radius:5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1125,6 +1135,7 @@ border-radius:5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1139,7 +1150,7 @@ border-radius:5px;</string>
              <string notr="true">color:#e8e226;</string>
             </property>
             <property name="text">
-             <string>Espanol</string>
+             <string>Español</string>
             </property>
            </widget>
           </item>
@@ -1159,6 +1170,7 @@ border-radius:5px;</string>
             </property>
             <property name="font">
              <font>
+              <family>Andika Basic</family>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1260,6 +1272,11 @@ border-bottom-left-radius: 10px;
             <height>92</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <family>Andika Basic</family>
+           </font>
+          </property>
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -1325,6 +1342,11 @@ border-bottom-left-radius: 10px;
             <height>92</height>
            </size>
           </property>
+          <property name="font">
+           <font>
+            <family>Andika Basic</family>
+           </font>
+          </property>
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
           </property>
@@ -1389,6 +1411,11 @@ border-bottom-left-radius: 10px;
             <width>92</width>
             <height>92</height>
            </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Andika Basic</family>
+           </font>
           </property>
           <property name="cursor">
            <cursorShape>PointingHandCursor</cursorShape>
