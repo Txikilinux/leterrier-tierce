@@ -191,6 +191,7 @@ background-position: top right;
          <widget class="QLabel" name="lblTitre">
           <property name="font">
            <font>
+            <family>Andika Basic</family>
             <pointsize>-1</pointsize>
            </font>
           </property>
@@ -311,15 +312,18 @@ font-size:24px;
          <widget class="AbulEduFlatBoutonV1" name="btnLanguages">
           <property name="minimumSize">
            <size>
-            <width>40</width>
-            <height>40</height>
+            <width>48</width>
+            <height>29</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
-            <width>40</width>
-            <height>40</height>
+            <width>48</width>
+            <height>29</height>
            </size>
+          </property>
+          <property name="cursor">
+           <cursorShape>PointingHandCursor</cursorShape>
           </property>
           <property name="text">
            <string/>
@@ -712,6 +716,7 @@ border-bottom-left-radius: 5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -744,6 +749,7 @@ border-bottom-left-radius: 5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -776,6 +782,7 @@ border-bottom-left-radius: 5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -808,6 +815,7 @@ border-bottom-left-radius: 5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -840,6 +848,7 @@ border-bottom-left-radius: 5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -875,6 +884,7 @@ border-bottom-left-radius: 5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -930,10 +940,10 @@ border-bottom-left-radius: 5px;</string>
         <widget class="QFrame" name="frmChoixLangues">
          <property name="geometry">
           <rect>
-           <x>40</x>
+           <x>33</x>
            <y>20</y>
-           <width>124</width>
-           <height>191</height>
+           <width>131</width>
+           <height>241</height>
           </rect>
          </property>
          <property name="styleSheet">
@@ -964,6 +974,7 @@ border-radius:5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -996,6 +1007,7 @@ border-radius:5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1031,6 +1043,7 @@ border-radius:5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1066,6 +1079,7 @@ border-radius:5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1101,6 +1115,7 @@ border-radius:5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1136,6 +1151,7 @@ border-radius:5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -1171,6 +1187,7 @@ border-radius:5px;</string>
             <property name="font">
              <font>
               <family>Andika Basic</family>
+              <pointsize>11</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>

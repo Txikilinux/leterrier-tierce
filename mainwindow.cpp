@@ -131,12 +131,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->frmButtons->adjustSize();
 
     ui->btnLanguages->setIconeNormale(":/data_flags/fr");
+    ui->btnLanguages->setIconeSurvol(":/data_flags/frHover");
     ui->frmChoixLangues->move(790,0);
     ui->frmChoixLangues->setVisible(false);
-    ui->btnEs->setVisible(false);
     ui->btnIt->setVisible(false);
     ui->btnDe->setVisible(false);
     ui->btnOc->setVisible(false);
+    ui->frmChoixLangues->adjustSize();
     foreach(AbulEduFlatBoutonV1* btn, ui->frmChoixLangues->findChildren<AbulEduFlatBoutonV1*>())
     {
         if(!btn->whatsThis().isEmpty())
@@ -768,36 +769,42 @@ void MainWindow::on_btnLanguages_clicked()
 void MainWindow::on_btnFr_clicked()
 {
     ui->btnLanguages->setIconeNormale(":/data_flags/fr");
+    ui->btnLanguages->setIconeSurvol(":/data_flags/frHover");
     ui->frmChoixLangues->setVisible(false);
 }
 
 void MainWindow::on_btnEn_clicked()
 {
     ui->btnLanguages->setIconeNormale(":/data_flags/en");
+    ui->btnLanguages->setIconeSurvol(":/data_flags/enHover");
     ui->frmChoixLangues->setVisible(false);
 }
 
 void MainWindow::on_btnEs_clicked()
 {
     ui->btnLanguages->setIconeNormale(":/data_flags/es");
+    ui->btnLanguages->setIconeSurvol(":/data_flags/esHover");
     ui->frmChoixLangues->setVisible(false);
 }
 
 void MainWindow::on_btnIt_clicked()
 {
     ui->btnLanguages->setIconeNormale(":/data_flags/it");
+    ui->btnLanguages->setIconeSurvol(":/data_flags/itHover");
     ui->frmChoixLangues->setVisible(false);
 }
 
 void MainWindow::on_btnDe_clicked()
 {
     ui->btnLanguages->setIconeNormale(":/data_flags/de");
+    ui->btnLanguages->setIconeSurvol(":/data_flags/deHover");
     ui->frmChoixLangues->setVisible(false);
 }
 
 void MainWindow::on_btnOc_clicked()
 {
     ui->btnLanguages->setIconeNormale(":/data_flags/oc");
+    ui->btnLanguages->setIconeSurvol(":/data_flags/ocHover");
     ui->frmChoixLangues->setVisible(false);
 }
 
