@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/data_images">
-        <file alias="background">data/images/fubuki-fond.jpg</file>
         <file alias="leafMenu">data/images/fubuki-feuille.jpg</file>
         <file alias="top">data/images/fubuki-top.jpg</file>
         <file alias="aideHover">data/images/aide-hover.png</file>
@@ -39,6 +38,7 @@
         <file alias="fondJuste">data/images/justeSomme.png</file>
         <file alias="aideDisabled">data/images/aide-gris.png</file>
         <file alias="debutDisabled">data/images/refaire-gris.png</file>
+        <file alias="background">data/images/tierce-fond.jpg</file>
     </qresource>
     <qresource prefix="/data_flags">
         <file alias="de">data/images/de.png</file>

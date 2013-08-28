@@ -188,7 +188,7 @@ void MainWindow::initGrille() {
             BtnCase *btnCase = new BtnCase(n, ui->frmAireDeJeu);
             btnCase->setObjectName(QString::number(n)); // On donne un nom : #
             /* Les décalages ci-dessous sont dûs aux bordures "solides" à l'intérieur de la grille. Ces nombres sont en dur (comme d'ailleurs dimCase), pour faire simple puisqu'on ne redimensionne pas !! */
-            btnCase->setGeometry(-7+(dimCase)*j,30+(dimCase)*i,dimCase,dimCase);
+            btnCase->setGeometry(3+(dimCase)*j,20+(dimCase*i),dimCase,dimCase);
             btnCase->setVisible(true);
             m_btnCases.append(btnCase);
             connect(btnCase, SIGNAL(clicked()),this,SLOT(attraperBtnCase())); //on connecte le bouton au slot

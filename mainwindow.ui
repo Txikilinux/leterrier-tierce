@@ -191,7 +191,6 @@ background-position: top right;
          <widget class="QLabel" name="lblTitre">
           <property name="font">
            <font>
-            <family>Andika Basic</family>
             <pointsize>-1</pointsize>
            </font>
           </property>
@@ -661,8 +660,8 @@ font-size:24px;
         <widget class="QFrame" name="frmAireDeJeu">
          <property name="geometry">
           <rect>
-           <x>360</x>
-           <y>40</y>
+           <x>370</x>
+           <y>30</y>
            <width>500</width>
            <height>480</height>
           </rect>
@@ -699,39 +698,6 @@ border-bottom-left-radius: 5px;</string>
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="3" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnNiveauMarron">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:#85582d;</string>
-            </property>
-            <property name="text">
-             <string>Marron</string>
-            </property>
-           </widget>
-          </item>
           <item row="9" column="0">
            <widget class="AbulEduFlatBoutonV1" name="btnNiveauAnnuler">
             <property name="enabled">
@@ -867,6 +833,39 @@ border-bottom-left-radius: 5px;</string>
             </property>
            </widget>
           </item>
+          <item row="3" column="0">
+           <widget class="AbulEduFlatBoutonV1" name="btnNiveauMarron">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Andika Basic</family>
+              <pointsize>11</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color:#85582d;</string>
+            </property>
+            <property name="text">
+             <string>Marron</string>
+            </property>
+           </widget>
+          </item>
           <item row="4" column="0">
            <widget class="AbulEduFlatBoutonV1" name="btnNiveauNoire">
             <property name="minimumSize">
@@ -921,8 +920,8 @@ border-bottom-left-radius: 5px;</string>
         <widget class="QLabel" name="lblGrid">
          <property name="geometry">
           <rect>
-           <x>380</x>
-           <y>40</y>
+           <x>390</x>
+           <y>30</y>
            <width>500</width>
            <height>377</height>
           </rect>
