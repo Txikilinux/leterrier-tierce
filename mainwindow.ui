@@ -698,7 +698,7 @@ border-bottom-left-radius: 5px;</string>
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="9" column="0">
+          <item row="11" column="0">
            <widget class="AbulEduFlatBoutonV1" name="btnNiveauAnnuler">
             <property name="enabled">
              <bool>true</bool>
@@ -734,7 +734,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
            </widget>
           </item>
-          <item row="8" column="0">
+          <item row="10" column="0">
            <widget class="AbulEduFlatBoutonV1" name="btnNiveauJaune">
             <property name="minimumSize">
              <size>
@@ -767,7 +767,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
            </widget>
           </item>
-          <item row="7" column="0">
+          <item row="9" column="0">
            <widget class="AbulEduFlatBoutonV1" name="btnNiveauOrange">
             <property name="minimumSize">
              <size>
@@ -800,7 +800,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
            </widget>
           </item>
-          <item row="6" column="0">
+          <item row="8" column="0">
            <widget class="AbulEduFlatBoutonV1" name="btnNiveauBleu">
             <property name="minimumSize">
              <size>
@@ -866,7 +866,7 @@ border-bottom-left-radius: 5px;</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="0">
+          <item row="0" column="0">
            <widget class="AbulEduFlatBoutonV1" name="btnNiveauNoire">
             <property name="minimumSize">
              <size>
