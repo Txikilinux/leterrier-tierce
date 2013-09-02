@@ -294,6 +294,24 @@ void MainWindow::attraperBtnCase()
 }
 
 void MainWindow::verifier3() {
+    bool contientSomme = false;
+    for (int i = 0; i < 3; i++) {
+        if(m_btnCases[m_3btnCases[i]]->styleSheet().contains("fondSomme"))
+        {
+            contientSomme = true;
+        }
+    }
+    if(!contientSomme)
+    {
+        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Problème !!"), trUtf8("Tu dois associer deux cases claires avec leur somme (nombre foncé), pas trois cases claires..."));
+        box->show();
+        for (int i = 0; i < 3; i++) {
+            m_btnCases[m_3btnCases[i]]->setFont(fontBIG);
+            m_btnCases[m_3btnCases[i]]->setDisabled(false);
+        }
+        m_3btnCases.clear();
+        return;
+    }
 //    qDebug() << "verifier3" << m_3btnCases;
     QList<int> v; // liste des valeurs des 3 boutons
     BtnCase* sum;
@@ -345,7 +363,8 @@ void MainWindow::verifier3() {
 
         m_3btnCases.clear();
         verifierTout();
-    } else {
+    }
+    else {
         for (int i = 0; i < 3; i++) { // restaurer les boutons
             m_btnCases[m_3btnCases[i]]->setFont(fontBIG);
             m_btnCases[m_3btnCases[i]]->setDisabled(false);
