@@ -83,5 +83,5 @@ begin
   SetArrayLength(Strings, 1);
   Strings[0] := 'X-Horizon-WindowsExecPath=' + ExpandConstant('{app}');
 
-  SaveStringsToFile(ExpandConstant('{win}') + '\abuledu-alacarte\data\profile1.applications\leterrier-mulot.desktop', Strings, True);
+  SaveStringsToFile(ExpandConstant('{win}') + '\abuledu-alacarte\data\profile1.applications\leterrier-tierce.desktop', Strings, True);
 end;
