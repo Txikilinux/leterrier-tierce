@@ -36,7 +36,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "..\release\leterrier-tierce.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\debian\*.desktop"; DestDir: "{app}"; Flags: ignoreversion
 ;Source: "..\data\*"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\exemples\*.abe"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
+;Source: "..\exemples\*.abe"; DestDir: "{app}\data"; Flags: ignoreversion recursesubdirs createallsubdirs
 ;Source: "..\conf\*"; DestDir: "{app}\conf"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "../lang/*.qm"; DestDir: "{app}\lang"; Flags: ignoreversion
 Source: "C:/code/quazip.dll"; DestDir: "{app}"; Flags: ignoreversion
