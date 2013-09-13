@@ -81,41 +81,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->menuBar->hide();
 
-    //Une astuce pour eviter de faire 7 boutons * 3 lignes pour activer les icones
-    QList<AbulEduFlatBoutonV1 *> btns = ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>();
-    for(int i = 0; i < btns.count(); i++)
-    {
-        QString composant = btns.at(i)->whatsThis();
-        btns.at(i)->setIconeNormale(QString(":/data_images/%1").arg(composant));
-
-#ifdef __ABULEDUTABLETTEV1__MODE__
-        btns.at(i)->setIconePressed(QString(":/data_images/%1Hover").arg(composant));
-#else
-        btns.at(i)->setIconeSurvol(QString(":/data_images/%1Hover").arg(composant));
-#endif
-        btns.at(i)->setIconeDisabled(QString(":/data_images/%1Disabled").arg(composant));
-        btns.at(i)->setTexteAlignement(Qt::AlignLeft);
-    }
-
 #ifdef __ABULEDUTABLETTEV1__MODE__
     /// 15/01/2012 Icham -> mode tablette, pas de tooltips (pas de survol en mode tactile, et puis ça faisait des trucs bizarres parfois)
     /// 15/01/2013 iCHAM -> icones survol = icones normales
     // on cherche tous les enfants, et on leur met une chaine vide en tooltips (= desactivation)
     foreach (QWidget *obj, findChildren<QWidget*>()) {
         obj->setToolTip("");
-//        if(dynamic_cast<AbulEduFlatBoutonV1*>(obj)){
-//            dynamic_cast<AbulEduFlatBoutonV1*>(obj)->setIconeSurvol(dynamic_cast<AbulEduFlatBoutonV1*>(obj)->getIconeNormale());
-//        }
-    }
 #endif
-    foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
-    {
-        enfant->setCouleurFondPressed(QColor(255,255,255,50));
-        enfant->setCouleurTexteSurvol(Qt::red);
-        enfant->setCouleurTexteNormale(Qt::white);
-        enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
-        enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
-    }
 
     /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
     ui->frmNiveau->move(ui->frmIcones->x()-ui->frmNiveau->width()+8,ui->frmIcones->y()+19);
@@ -441,7 +413,7 @@ void MainWindow::donneReponse()
         QTimer* attendre = new QTimer();
         attendre->setSingleShot(true);
         connect(attendre,SIGNAL(timeout()),this,SLOT(donneReponse()));
-        attendre->start(5000);
+        attendre->start(2000);
     }
     else
     {
@@ -462,12 +434,11 @@ void MainWindow::montreTierce()
         {
             trouve = true;
             btn->setCouleursTexte(QColor(0,108,192,255),QColor(0,108,192,255),QColor(0,108,192,255),QColor(0,108,192,255));
-
         }
     }
-    QTimer::singleShot(1000, trouveBoutonOu(m_listeCouples.at(0)), SLOT(click()));
-    QTimer::singleShot(2000, trouveBoutonOu(m_listeCouples.at(1)), SLOT(click()));
-    QTimer::singleShot(3000, trouveCibleOu(m_listeSommes.at(0)), SLOT(click()));
+    QTimer::singleShot(500, trouveBoutonOu(m_listeCouples.at(0)), SLOT(click()));
+    QTimer::singleShot(1000, trouveBoutonOu(m_listeCouples.at(1)), SLOT(click()));
+    QTimer::singleShot(1500, trouveCibleOu(m_listeSommes.at(0)), SLOT(click()));
 }
 
 BtnCase *MainWindow::trouveBoutonOu(int valeur)
@@ -656,18 +627,6 @@ void MainWindow::on_btnFeuille_clicked()
     on_btnLangueAnnuler_clicked();
 }
 
-void MainWindow::paintEvent(QPaintEvent *)
-{
-    foreach(AbulEduFlatBoutonV1* enfant,ui->frmButtons->findChildren<AbulEduFlatBoutonV1 *>())
-    {
-        enfant->setCouleurTexteSurvol(Qt::red);
-        enfant->setStyleSheet(enfant->styleSheet().replace("border-image","text-align: bottom;background-image"));
-        enfant->setStyleSheet(enfant->styleSheet().replace("image-position: center","background-position: center top"));
-    }
-    ui->btnFeuille->setStyleSheet("QPushButton > *{color:red;}QPushButton{border: none; color:rgba(0,0,0,255);background-repeat: no-repeat;background-color:transparent;}");
-
-}
-
 #ifndef __ABULEDUTABLETTEV1__MODE__
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
@@ -853,10 +812,8 @@ void MainWindow::slotChangeLangue()
 
 void MainWindow::setAllButtonsEnabled(bool trueFalse)
 {
-    foreach(AbulEduFlatBoutonV1* enfant,ui->frmTop->findChildren<AbulEduFlatBoutonV1 *>())
-    {
-        enfant->setEnabled(trueFalse);
-    }
+    ui->btnNouveau->setEnabled(trueFalse);
+    ui->btnAideFeuille->setEnabled(trueFalse);
     foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
     {
         if(enfant->whatsThis() != "nombres" && enfant->whatsThis() != "verification")

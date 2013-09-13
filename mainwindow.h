@@ -53,7 +53,6 @@ public:
     QString getMBtnClique();
 
 protected:
-    void paintEvent(QPaintEvent *);
 #ifndef __ABULEDUTABLETTEV1__MODE__
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);

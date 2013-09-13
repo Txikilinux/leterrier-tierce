@@ -117,7 +117,7 @@ background-position: top right;
             <blue>235</blue>
            </color>
           </property>
-          <property name="iconeNormale" stdset="0">
+          <property name="IconeNormale" stdset="0">
            <string/>
           </property>
          </widget>
@@ -179,7 +179,7 @@ background-position: top right;
             <blue>255</blue>
            </color>
           </property>
-          <property name="iconeNormale" stdset="0">
+          <property name="IconeNormale" stdset="0">
            <string notr="true">:/data_images/showMinimized</string>
           </property>
           <property name="IconeSurvol" stdset="0">
@@ -283,7 +283,7 @@ font-size:24px;
             <blue>255</blue>
            </color>
           </property>
-          <property name="iconeNormale" stdset="0">
+          <property name="IconeNormale" stdset="0">
            <string notr="true">:/data/images/showMaximized</string>
           </property>
           <property name="IconeSurvol" stdset="0">
@@ -421,6 +421,38 @@ font-size:24px;
             <property name="flat">
              <bool>true</bool>
             </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data_images/verification</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data_images/verificationHover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data_images/verificationPressed</string>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data_images/verificationDisabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </property>
            </widget>
           </item>
           <item>
@@ -467,6 +499,38 @@ font-size:24px;
             </property>
             <property name="flat">
              <bool>true</bool>
+            </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data_images/debut</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data_images/debutHover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true"/>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data_images/debutDisabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
             </property>
            </widget>
           </item>
@@ -518,6 +582,38 @@ font-size:24px;
             <property name="flat">
              <bool>true</bool>
             </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data_images/nombres</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data_images/nombresHover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data_images/nombresPressed</string>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data_images/nombresDisabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </property>
            </widget>
           </item>
           <item>
@@ -564,6 +660,38 @@ font-size:24px;
             </property>
             <property name="flat">
              <bool>true</bool>
+            </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data_images/</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data_images/Hover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data_images/Pressed</string>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data_images/Disabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
             </property>
            </widget>
           </item>
@@ -612,6 +740,38 @@ font-size:24px;
             <property name="flat">
              <bool>true</bool>
             </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data_images/</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data_images/Hover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data_images/Pressed</string>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data_images/Disabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </property>
            </widget>
           </item>
           <item>
@@ -652,6 +812,38 @@ font-size:24px;
             </property>
             <property name="flat">
              <bool>true</bool>
+            </property>
+            <property name="IconeNormale" stdset="0">
+             <string notr="true">:/data_images/</string>
+            </property>
+            <property name="IconeSurvol" stdset="0">
+             <string notr="true">:/data_images/Hover</string>
+            </property>
+            <property name="IconePressed" stdset="0">
+             <string notr="true">:/data_images/Pressed</string>
+            </property>
+            <property name="IconeDisabled" stdset="0">
+             <string notr="true">:/data_images/Disabled</string>
+            </property>
+            <property name="BackgroundAlignement" stdset="0">
+             <string notr="true">center top</string>
+            </property>
+            <property name="TexteAlignement" stdset="0">
+             <string notr="true">Qt::AlignBottom</string>
+            </property>
+            <property name="CouleurTexteNormale" stdset="0">
+             <color>
+              <red>255</red>
+              <green>255</green>
+              <blue>255</blue>
+             </color>
+            </property>
+            <property name="CouleurTexteSurvol" stdset="0">
+             <color>
+              <red>255</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
             </property>
            </widget>
           </item>
@@ -1336,7 +1528,7 @@ border-bottom-left-radius: 10px;
             <blue>255</blue>
            </color>
           </property>
-          <property name="iconeNormale" stdset="0">
+          <property name="IconeNormale" stdset="0">
            <string notr="true">:/data_images/nouveau</string>
           </property>
           <property name="IconeSurvol" stdset="0">
@@ -1406,7 +1598,7 @@ border-bottom-left-radius: 10px;
             <blue>255</blue>
            </color>
           </property>
-          <property name="iconeNormale" stdset="0">
+          <property name="IconeNormale" stdset="0">
            <string notr="true">:/data_images/aide</string>
           </property>
           <property name="IconeSurvol" stdset="0">
@@ -1476,7 +1668,7 @@ border-bottom-left-radius: 10px;
             <blue>255</blue>
            </color>
           </property>
-          <property name="iconeNormale" stdset="0">
+          <property name="IconeNormale" stdset="0">
            <string notr="true">:/data_images/sortie</string>
           </property>
           <property name="IconeSurvol" stdset="0">
