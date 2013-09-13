@@ -662,16 +662,16 @@ font-size:24px;
              <bool>true</bool>
             </property>
             <property name="IconeNormale" stdset="0">
-             <string notr="true">:/data_images/</string>
+             <string notr="true">:/data_images/niveaux</string>
             </property>
             <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data_images/Hover</string>
+             <string notr="true">:/data_images/niveauxHover</string>
             </property>
             <property name="IconePressed" stdset="0">
-             <string notr="true">:/data_images/Pressed</string>
+             <string notr="true">:/data_images/niveauxPressed</string>
             </property>
             <property name="IconeDisabled" stdset="0">
-             <string notr="true">:/data_images/Disabled</string>
+             <string notr="true">:/data_images/niveauxDisabled</string>
             </property>
             <property name="BackgroundAlignement" stdset="0">
              <string notr="true">center top</string>
@@ -741,16 +741,16 @@ font-size:24px;
              <bool>true</bool>
             </property>
             <property name="IconeNormale" stdset="0">
-             <string notr="true">:/data_images/</string>
+             <string notr="true">:/data_images/aide</string>
             </property>
             <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data_images/Hover</string>
+             <string notr="true">:/data_images/aideHover</string>
             </property>
             <property name="IconePressed" stdset="0">
-             <string notr="true">:/data_images/Pressed</string>
+             <string notr="true">:/data_images/aidePressed</string>
             </property>
             <property name="IconeDisabled" stdset="0">
-             <string notr="true">:/data_images/Disabled</string>
+             <string notr="true">:/data_images/aideDisabled</string>
             </property>
             <property name="BackgroundAlignement" stdset="0">
              <string notr="true">center top</string>
@@ -814,16 +814,16 @@ font-size:24px;
              <bool>true</bool>
             </property>
             <property name="IconeNormale" stdset="0">
-             <string notr="true">:/data_images/</string>
+             <string notr="true">:/data_images/solution</string>
             </property>
             <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data_images/Hover</string>
+             <string notr="true">:/data_images/solutionHover</string>
             </property>
             <property name="IconePressed" stdset="0">
-             <string notr="true">:/data_images/Pressed</string>
+             <string notr="true">:/data_images/solutionPressed</string>
             </property>
             <property name="IconeDisabled" stdset="0">
-             <string notr="true">:/data_images/Disabled</string>
+             <string notr="true">:/data_images/solutionDisabled</string>
             </property>
             <property name="BackgroundAlignement" stdset="0">
              <string notr="true">center top</string>
