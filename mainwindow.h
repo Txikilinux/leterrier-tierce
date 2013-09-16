@@ -52,13 +52,6 @@ public:
     ~MainWindow();
     QString getMBtnClique();
 
-protected:
-#ifndef __ABULEDUTABLETTEV1__MODE__
-    void mouseMoveEvent(QMouseEvent *event);
-    void mousePressEvent(QMouseEvent *event);
-    void mouseReleaseEvent(QMouseEvent *event);
-#endif
-
 private:
     Ui::MainWindow *ui;
     void actionDIMxDIM(int nLignes, int nColonnes);
@@ -127,20 +120,16 @@ private slots:
     /* A priori scories à détruire
     void on_btnDown_clicked();
     void on_btnUp_clicked();*/
-    void on_btnAide_clicked();
     void on_action5x6_triggered();
     void on_action4x6_triggered();
     void on_action3x5_triggered();
     void on_action3x4_triggered();
-    void on_btnNouveau_clicked();
     void on_btnRecommencer_clicked();
     void attraperBtnCase();
-    void on_btnSortie_clicked();
-    void on_btnAideFeuille_clicked();
     void on_pushButton_clicked();
-    void on_btnFeuille_clicked();
     void on_btnDebut_clicked();
     void on_btnAbandonner_clicked();
+    void on_btnAide_clicked();
     void on_btnNiveauNoire_clicked();
     void on_btnNiveauMarron_clicked();
     void on_btnNiveauOrange_clicked();
@@ -150,17 +139,9 @@ private slots:
 
     void montreTierce();
     void donneReponse();
-    void on_btnMinimized_clicked();
-    void on_btnFullScreen_clicked();
-    void on_btnLanguages_clicked();
-    void on_btnFr_clicked();
-    void on_btnEn_clicked();
-    void on_btnEs_clicked();
-    void on_btnIt_clicked();
-    void on_btnDe_clicked();
-    void on_btnOc_clicked();
-    void on_btnLangueAnnuler_clicked();
-    void slotChangeLangue();
+    void on_abeMenuFeuilleBtnNew_clicked();
+    void on_abeMenuFeuilleBtnQuit_clicked();
+    void on_abeMenuFeuilleBtnHelp_clicked();
 
     /** Permet d'un seul appel de rendre tous les boutons de l'interface actifs ou inactifs */
     void setAllButtonsEnabled(bool trueFalse);

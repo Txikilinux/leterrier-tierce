@@ -51,9 +51,6 @@ MainWindow::MainWindow(QWidget *parent) :
     qDebug()<<"fin setupui";
     qDebug()<<ui->frmAireDeJeu->styleSheet();
     ui->frmAireDeJeu->setStyleSheet("QFrame#frmAireDeJeu {	\nbackground-image: url(:/data_images/cadreNombres);\nbackground-repeat: repeat-no;\nbackground-position: top right;\n}");
-    ui->btnMinimized->setIconeNormale(":/data_images/showMinimized");
-    ui->btnFullScreen->setIconeNormale(":/data_images/showMaximized");
-    ui->verticalSpacer->changeSize(20,3,QSizePolicy::Fixed,QSizePolicy::Fixed);
 
     AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
 
@@ -68,15 +65,10 @@ MainWindow::MainWindow(QWidget *parent) :
     m_nColonnes = 4;
     m_message = QString();
     m_isCanceled = false;
-    qDebug()<<"avant initgrille";
-    qDebug()<<ui->frmAireDeJeu->pos();
     ui->frmAireDeJeu->raise();
     initGrille();
-    qDebug()<<"fin initgrille";
-//    ui->frmAireDeJeu->move(280,30);
     ui->frmAireDeJeu->setGeometry(400,20,500,480);
 
-    qDebug()<<ui->frmAireDeJeu->pos();
     initValeurs();
 
     ui->menuBar->hide();
@@ -94,43 +86,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->frmNiveau->setVisible(false);
 
     setWindowFlags(Qt::CustomizeWindowHint);
-
-    ui->vl_widgetContainer->removeWidget(ui->frmButtons);
-    ui->frmButtons->move(9,40);
-    ui->frmButtons->setVisible(false);
-    ui->frmButtons->adjustSize();
-
-    ui->btnLanguages->setIconeNormale(":/data_flags/fr");
-    ui->btnLanguages->setIconeSurvol(":/data_flags/frHover");
-    ui->frmChoixLangues->move(790,0);
-    ui->frmChoixLangues->setVisible(false);
-    ui->btnIt->setVisible(false);
-    ui->btnDe->setVisible(false);
-    ui->btnOc->setVisible(false);
-    ui->frmChoixLangues->adjustSize();
-    foreach(AbulEduFlatBoutonV1* btn, ui->frmChoixLangues->findChildren<AbulEduFlatBoutonV1*>())
-    {
-        if(!btn->whatsThis().isEmpty())
-        {
-            connect(btn, SIGNAL(clicked()),SLOT(slotChangeLangue()),Qt::UniqueConnection);
-        }
-    }
-
-#ifdef __ABULEDUTABLETTEV1__MODE__
-    ui->btnMinimized->setVisible(false);
-    ui->btnFullScreen->setVisible(false);
-#else
-    ui->btnMinimized->setCouleurFondSurvol(QColor(252,152,41));
-    ui->btnMinimized->setCouleurFondPressed(QColor(252,152,41));
-    ui->btnMinimized->setCouleurFondNormale(QColor(203,106,89));
-    ui->btnMinimized->setAllMargins(8,4,8,12);
-    ui->btnMinimized->setBorderRadius(4);
-    ui->btnFullScreen->setCouleurFondSurvol(QColor(252,152,41));
-    ui->btnFullScreen->setCouleurFondPressed(QColor(252,152,41));
-    ui->btnFullScreen->setCouleurFondNormale(QColor(203,106,89));
-    ui->btnFullScreen->setAllMargins(8,12,8,4);
-    ui->btnFullScreen->setBorderRadius(4);
-#endif
 
     QDesktopWidget *widget = QApplication::desktop();
     int desktop_width = widget->width();
@@ -387,7 +342,7 @@ void MainWindow::on_btnRecommencer_clicked()
     ui->btnAide->setDisabled(false);
 }
 
-void MainWindow::on_btnNouveau_clicked()
+void MainWindow::on_abeMenuFeuilleBtnNew_clicked()
 {
     for (int i = 0; i < m_nLignes * m_nColonnes; i++) {
         m_btnCases[i]->setMValeur(-1);
@@ -582,79 +537,26 @@ void MainWindow::_changeNiveau() {
     on_btnNiveauAnnuler_clicked();
 }
 
-/* A priori scories à détruire
-void MainWindow::on_btnUp_clicked()
-{
-    if (m_niveau < m_niveauMAX) m_niveau++;
-    _changeNiveau();
-}
-
-void MainWindow::on_btnDown_clicked()
-{
-    if (m_niveau > 0) m_niveau--;
-    _changeNiveau();
-} */
-
-void MainWindow::on_btnSortie_clicked()
+void MainWindow::on_abeMenuFeuilleBtnQuit_clicked()
 {
     close();
 }
 
-void MainWindow::on_btnAideFeuille_clicked()
+void MainWindow::on_abeMenuFeuilleBtnHelp_clicked()
 {
     /* En attendant d'avoir avancé sur une nouvelle boite à propos, je vais ici appeler l'autre bouton aide, celui de la télécommande
     ui->stackedWidget->slideInWidget(ui->pageApropos); */
     on_btnAide_clicked();
-    on_btnFeuille_clicked();
 }
 
 void MainWindow::on_pushButton_clicked()
 {
     ui->stackedWidget->slideInWidget(ui->pagePrincipale);
 }
-void MainWindow::on_btnFeuille_clicked()
-{
-    if (ui->frmButtons->isVisible())
-    {
-        ui->frmButtons->setVisible(false);
-    }
-    else
-    {
-        ui->frmButtons->setVisible(true);
-        ui->frmButtons->raise();
-    }
-    on_btnNiveauAnnuler_clicked();
-    on_btnLangueAnnuler_clicked();
-}
-
-#ifndef __ABULEDUTABLETTEV1__MODE__
-void MainWindow::mouseMoveEvent(QMouseEvent *event)
-{
-    if (m_isWindowMoving) {
-        move(event->globalPos() - m_dragPosition);
-        event->accept();
-    }
-}
-
-void MainWindow::mousePressEvent(QMouseEvent *event)
-{
-    if (event->button() == Qt::LeftButton && ui->lblTitre->rect().contains(event->pos())) {
-        m_dragPosition = event->globalPos() - frameGeometry().topLeft();
-        event->accept();
-        m_isWindowMoving = true;
-    }
-}
-
-void MainWindow::mouseReleaseEvent(QMouseEvent *event)
-{
-    Q_UNUSED(event);
-    m_isWindowMoving = false;
-}
-#endif
 
 void MainWindow::on_btnDebut_clicked()
 {
-
+    /** @todo vérifier pourquoi il n'y a rien là ?! */
 }
 
 void MainWindow::on_btnAbandonner_clicked()
@@ -692,11 +594,6 @@ void MainWindow::on_btnNiveaux_clicked()
     ui->frmNiveau->setVisible(true);
     ui->frmNiveau->raise();
     ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("background-color:rgba(0,0,0,0);","border-radius:5px;background-color:#ffffff;"));
-    if (ui->frmButtons->isVisible())
-    {
-        ui->frmButtons->setVisible(false);
-    }
-    on_btnLangueAnnuler_clicked();
 }
 
 void MainWindow::on_btnNiveauAnnuler_clicked()
@@ -705,115 +602,8 @@ void MainWindow::on_btnNiveauAnnuler_clicked()
     ui->btnNiveaux->setStyleSheet(ui->btnNiveaux->styleSheet().replace("border-radius:5px;background-color:#ffffff;","background-color:rgba(0,0,0,0);"));
 }
 
-
-void MainWindow::on_btnMinimized_clicked()
-{
-    showMinimized();
-}
-
-void MainWindow::on_btnFullScreen_clicked()
-{
-    if(isFullScreen())
-    {
-        showNormal();
-        ui->centralWidget->move(0,0);
-        ui->widgetContainer->move(0,0);
-        ui->btnFullScreen->setIconeNormale(":/data_images/showMaximized");
-    }
-    else
-    {
-        QDesktopWidget *widget = QApplication::desktop();
-        int desktop_width = widget->width();
-        int desktop_height = widget->height();
-//        this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
-        ui->centralWidget->move((desktop_width-ui->centralWidget->width())/2, (desktop_height-ui->centralWidget->height())/2);
-        ui->widgetContainer->move((desktop_width-ui->widgetContainer->width())/2, (desktop_height-ui->widgetContainer->height())/2);
-        showFullScreen();
-        ui->btnFullScreen->setIconeNormale(":/data_images/showNormal");
-    }
-}
-
-void MainWindow::on_btnLanguages_clicked()
-{
-    ui->frmChoixLangues->setVisible(true);
-    ui->frmChoixLangues->raise();
-    if (ui->frmButtons->isVisible())
-    {
-        ui->frmButtons->setVisible(false);
-    }
-    on_btnNiveauAnnuler_clicked();
-}
-
-void MainWindow::on_btnFr_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data_flags/fr");
-    ui->btnLanguages->setIconeSurvol(":/data_flags/frHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnEn_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data_flags/en");
-    ui->btnLanguages->setIconeSurvol(":/data_flags/enHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnEs_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data_flags/es");
-    ui->btnLanguages->setIconeSurvol(":/data_flags/esHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnIt_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data_flags/it");
-    ui->btnLanguages->setIconeSurvol(":/data_flags/itHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnDe_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data_flags/de");
-    ui->btnLanguages->setIconeSurvol(":/data_flags/deHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnOc_clicked()
-{
-    ui->btnLanguages->setIconeNormale(":/data_flags/oc");
-    ui->btnLanguages->setIconeSurvol(":/data_flags/ocHover");
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::on_btnLangueAnnuler_clicked()
-{
-    ui->frmChoixLangues->setVisible(false);
-}
-
-void MainWindow::slotChangeLangue()
-{
-    QString lang = static_cast<AbulEduFlatBoutonV1*>(sender())->whatsThis();
-    qApp->removeTranslator(&qtTranslator);
-    qApp->removeTranslator(&myappTranslator);
-
-    //Un 1er qtranslator pour prendre les traductions QT Systeme
-    //c'est d'ailleur grace a ca qu'on est en RTL
-    qtTranslator.load("qt_" + lang, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    qApp->installTranslator(&qtTranslator);
-
-    //foreach (QWidget *widget, QApplication::allWidgets()) widget->setLayoutDirection(Qt::RightToLeft);
-    //Et un second qtranslator pour les traductions specifiques du
-    //logiciel
-    myappTranslator.load("leterrier-tierce_" + lang, "lang");
-    qApp->installTranslator(&myappTranslator);
-    ui->retranslateUi(this);
-}
-
 void MainWindow::setAllButtonsEnabled(bool trueFalse)
 {
-    ui->btnNouveau->setEnabled(trueFalse);
-    ui->btnAideFeuille->setEnabled(trueFalse);
     foreach(AbulEduFlatBoutonV1* enfant,ui->frmIcones->findChildren<AbulEduFlatBoutonV1 *>())
     {
         if(enfant->whatsThis() != "nombres" && enfant->whatsThis() != "verification")
