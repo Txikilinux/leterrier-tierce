@@ -48,8 +48,6 @@ MainWindow::MainWindow(QWidget *parent) :
     qApp->installTranslator(&myappTranslator);
 
     ui->setupUi(this);
-    qDebug()<<"fin setupui";
-    qDebug()<<ui->frmAireDeJeu->styleSheet();
     ui->frmAireDeJeu->setStyleSheet("QFrame#frmAireDeJeu {	\nbackground-image: url(:/data_images/cadreNombres);\nbackground-repeat: repeat-no;\nbackground-position: top right;\n}");
 
     AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
@@ -86,6 +84,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->frmNiveau->setVisible(false);
 
     setWindowFlags(Qt::CustomizeWindowHint);
+    connect(ui->frmMenuFeuille, SIGNAL(signalAbeMenuFeuilleChangeLanguage(QString)),this,SLOT(slotChangeLangue(QString)),Qt::UniqueConnection);
 
     QDesktopWidget *widget = QApplication::desktop();
     int desktop_width = widget->width();
@@ -609,4 +608,22 @@ void MainWindow::setAllButtonsEnabled(bool trueFalse)
         if(enfant->whatsThis() != "nombres" && enfant->whatsThis() != "verification")
           enfant->setEnabled(trueFalse);
     }
+}
+
+void MainWindow::slotChangeLangue(QString lang)
+{
+    qApp->removeTranslator(&qtTranslator);
+    qApp->removeTranslator(&myappTranslator);
+
+    //Un 1er qtranslator pour prendre les traductions QT Systeme
+    //c'est d'ailleur grace a ca qu'on est en RTL
+    qtTranslator.load("qt_" + lang, QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    qApp->installTranslator(&qtTranslator);
+
+    //foreach (QWidget *widget, QApplication::allWidgets()) widget->setLayoutDirection(Qt::RightToLeft);
+    //Et un second qtranslator pour les traductions specifiques du
+    //logiciel
+    myappTranslator.load("leterrier-tierce_" + lang, "lang");
+    qApp->installTranslator(&myappTranslator);
+    ui->retranslateUi(this);
 }

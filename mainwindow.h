@@ -144,6 +144,8 @@ private slots:
 
     /** Permet d'un seul appel de rendre tous les boutons de l'interface actifs ou inactifs */
     void setAllButtonsEnabled(bool trueFalse);
+    void slotChangeLangue(QString lang);
+
 };
 
 #endif // MAINWINDOW_H

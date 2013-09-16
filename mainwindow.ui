@@ -48,7 +48,7 @@ background-color:#813723;
       <number>0</number>
      </property>
      <item>
-      <widget class="AbulEduMenuFeuilleV1" name="abeMenuFeuille">
+      <widget class="AbulEduMenuFeuilleV1" name="frmMenuFeuille">
        <property name="frameShape">
         <enum>QFrame::NoFrame</enum>
        </property>
