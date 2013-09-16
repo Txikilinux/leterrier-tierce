@@ -350,6 +350,11 @@ void MainWindow::on_abeMenuFeuilleBtnNew_clicked()
     initValeurs();
     m_3btnCases.clear();
     ui->btnAide->setDisabled(false);
+    foreach(QTimer* t,findChildren<QTimer*>())
+    {
+        t->deleteLater();
+    }
+    setAllButtonsEnabled(true);
 }
 
 void MainWindow::_deleteBtnCases() {
@@ -365,7 +370,7 @@ void MainWindow::donneReponse()
     {
         setAllButtonsEnabled(false);
         montreTierce();
-        QTimer* attendre = new QTimer();
+        QTimer* attendre = new QTimer(this);
         attendre->setSingleShot(true);
         connect(attendre,SIGNAL(timeout()),this,SLOT(donneReponse()));
         attendre->start(2000);
