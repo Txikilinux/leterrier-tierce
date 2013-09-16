@@ -554,11 +554,6 @@ void MainWindow::on_pushButton_clicked()
     ui->stackedWidget->slideInWidget(ui->pagePrincipale);
 }
 
-void MainWindow::on_btnDebut_clicked()
-{
-    /** @todo vérifier pourquoi il n'y a rien là ?! */
-}
-
 void MainWindow::on_btnAbandonner_clicked()
 {
     on_btnRecommencer_clicked();

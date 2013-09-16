@@ -127,7 +127,6 @@ private slots:
     void on_btnRecommencer_clicked();
     void attraperBtnCase();
     void on_pushButton_clicked();
-    void on_btnDebut_clicked();
     void on_btnAbandonner_clicked();
     void on_btnAide_clicked();
     void on_btnNiveauNoire_clicked();
