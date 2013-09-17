@@ -50,8 +50,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->frmAireDeJeu->setStyleSheet("QFrame#frmAireDeJeu {	\nbackground-image: url(:/data_images/cadreNombres);\nbackground-repeat: repeat-no;\nbackground-position: top right;\n}");
 
-    AbulEduAproposV0 *monAide=new AbulEduAproposV0(this);
-
     fontBIG.setPointSize(35);
     fontMEDIUM.setPointSize(20);
     fontMINUS.setPointSize(10);
@@ -68,8 +66,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->frmAireDeJeu->setGeometry(400,20,500,480);
 
     initValeurs();
-
-    ui->menuBar->hide();
 
 #ifdef __ABULEDUTABLETTEV1__MODE__
     /// 15/01/2012 Icham -> mode tablette, pas de tooltips (pas de survol en mode tactile, et puis ça faisait des trucs bizarres parfois)

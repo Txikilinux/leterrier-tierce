@@ -19,570 +19,88 @@
 background-color:#813723;
 }</string>
    </property>
-   <widget class="QWidget" name="widgetContainer" native="true">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>1024</width>
-      <height>590</height>
-     </rect>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="margin">
+     <number>0</number>
     </property>
-    <property name="minimumSize">
-     <size>
-      <width>1024</width>
-      <height>590</height>
-     </size>
+    <property name="spacing">
+     <number>0</number>
     </property>
-    <property name="maximumSize">
-     <size>
-      <width>1024</width>
-      <height>590</height>
-     </size>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <property name="margin">
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="AbulEduMenuFeuilleV1" name="frmMenuFeuille">
-       <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="AbulEduStackedWidgetV1" name="stackedWidget">
-       <property name="currentIndex">
+    <item row="1" column="0">
+     <spacer name="horizontalSpacerGlobalLeft">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="2">
+     <spacer name="horizontalSpacerGlobalRight">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="verticalSpacerGlobalTop">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="1">
+     <spacer name="verticalSpacerGlobalBottom">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="1">
+     <widget class="QWidget" name="widgetContainer" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>1024</width>
+        <height>590</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>1024</width>
+        <height>590</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
         <number>0</number>
        </property>
-       <widget class="QWidget" name="pagePrincipale">
-        <property name="styleSheet">
-         <string notr="true">QWidget#pagePrincipale {	
-	background-image: url(:/data_images/background);
-	background-repeat: repeat-no;
-   	background-position: top right;
-}</string>
-        </property>
-        <widget class="QFrame" name="frmIcones">
-         <property name="geometry">
-          <rect>
-           <x>923</x>
-           <y>76</y>
-           <width>90</width>
-           <height>458</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>90</width>
-           <height>60</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>100</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="lineWidth">
-          <number>0</number>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <property name="spacing">
-           <number>2</number>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="AbulEduFlatBoutonV1" name="btnVerifier">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>69</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">verification</string>
-            </property>
-            <property name="text">
-             <string>Vérification</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-            <property name="IconeNormale" stdset="0">
-             <string notr="true">:/data_images/verification</string>
-            </property>
-            <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data_images/verificationHover</string>
-            </property>
-            <property name="IconePressed" stdset="0">
-             <string notr="true">:/data_images/verificationPressed</string>
-            </property>
-            <property name="IconeDisabled" stdset="0">
-             <string notr="true">:/data_images/verificationDisabled</string>
-            </property>
-            <property name="BackgroundAlignement" stdset="0">
-             <string notr="true">center top</string>
-            </property>
-            <property name="TexteAlignement" stdset="0">
-             <string notr="true">Qt::AlignBottom</string>
-            </property>
-            <property name="CouleurTexteNormale" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTexteSurvol" stdset="0">
-             <color>
-              <red>255</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="AbulEduFlatBoutonV1" name="btnRecommencer">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">debut</string>
-            </property>
-            <property name="text">
-             <string>Début</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-            <property name="IconeNormale" stdset="0">
-             <string notr="true">:/data_images/debut</string>
-            </property>
-            <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data_images/debutHover</string>
-            </property>
-            <property name="IconePressed" stdset="0">
-             <string notr="true">:/data_images/debutPressed</string>
-            </property>
-            <property name="IconeDisabled" stdset="0">
-             <string notr="true">:/data_images/debutDisabled</string>
-            </property>
-            <property name="BackgroundAlignement" stdset="0">
-             <string notr="true">center top</string>
-            </property>
-            <property name="TexteAlignement" stdset="0">
-             <string notr="true">Qt::AlignBottom</string>
-            </property>
-            <property name="CouleurTexteNormale" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTexteSurvol" stdset="0">
-             <color>
-              <red>255</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="AbulEduFlatBoutonV1" name="btnNombres">
-            <property name="enabled">
-             <bool>false</bool>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>69</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">nombres</string>
-            </property>
-            <property name="text">
-             <string>Nombres</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-            <property name="IconeNormale" stdset="0">
-             <string notr="true">:/data_images/nombres</string>
-            </property>
-            <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data_images/nombresHover</string>
-            </property>
-            <property name="IconePressed" stdset="0">
-             <string notr="true">:/data_images/nombresPressed</string>
-            </property>
-            <property name="IconeDisabled" stdset="0">
-             <string notr="true">:/data_images/nombresDisabled</string>
-            </property>
-            <property name="BackgroundAlignement" stdset="0">
-             <string notr="true">center top</string>
-            </property>
-            <property name="TexteAlignement" stdset="0">
-             <string notr="true">Qt::AlignBottom</string>
-            </property>
-            <property name="CouleurTexteNormale" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTexteSurvol" stdset="0">
-             <color>
-              <red>255</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="AbulEduFlatBoutonV1" name="btnNiveaux">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>56</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">niveaux</string>
-            </property>
-            <property name="text">
-             <string>Niveau</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-            <property name="IconeNormale" stdset="0">
-             <string notr="true">:/data_images/niveaux</string>
-            </property>
-            <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data_images/niveauxHover</string>
-            </property>
-            <property name="IconePressed" stdset="0">
-             <string notr="true">:/data_images/niveauxPressed</string>
-            </property>
-            <property name="IconeDisabled" stdset="0">
-             <string notr="true">:/data_images/niveauxDisabled</string>
-            </property>
-            <property name="BackgroundAlignement" stdset="0">
-             <string notr="true">center top</string>
-            </property>
-            <property name="TexteAlignement" stdset="0">
-             <string notr="true">Qt::AlignBottom</string>
-            </property>
-            <property name="CouleurTexteNormale" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTexteSurvol" stdset="0">
-             <color>
-              <red>255</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="AbulEduFlatBoutonV1" name="btnAide">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>73</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">aide</string>
-            </property>
-            <property name="text">
-             <string>Aide</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-            <property name="IconeNormale" stdset="0">
-             <string notr="true">:/data_images/aide</string>
-            </property>
-            <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data_images/aideHover</string>
-            </property>
-            <property name="IconePressed" stdset="0">
-             <string notr="true">:/data_images/aidePressed</string>
-            </property>
-            <property name="IconeDisabled" stdset="0">
-             <string notr="true">:/data_images/aideDisabled</string>
-            </property>
-            <property name="BackgroundAlignement" stdset="0">
-             <string notr="true">center top</string>
-            </property>
-            <property name="TexteAlignement" stdset="0">
-             <string notr="true">Qt::AlignBottom</string>
-            </property>
-            <property name="CouleurTexteNormale" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTexteSurvol" stdset="0">
-             <color>
-              <red>255</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="AbulEduFlatBoutonV1" name="btnAbandonner">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>70</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
-            <property name="whatsThis">
-             <string notr="true">solution</string>
-            </property>
-            <property name="text">
-             <string>Solution</string>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="flat">
-             <bool>true</bool>
-            </property>
-            <property name="IconeNormale" stdset="0">
-             <string notr="true">:/data_images/solution</string>
-            </property>
-            <property name="IconeSurvol" stdset="0">
-             <string notr="true">:/data_images/solutionHover</string>
-            </property>
-            <property name="IconePressed" stdset="0">
-             <string notr="true">:/data_images/solutionPressed</string>
-            </property>
-            <property name="IconeDisabled" stdset="0">
-             <string notr="true">:/data_images/solutionDisabled</string>
-            </property>
-            <property name="BackgroundAlignement" stdset="0">
-             <string notr="true">center top</string>
-            </property>
-            <property name="TexteAlignement" stdset="0">
-             <string notr="true">Qt::AlignBottom</string>
-            </property>
-            <property name="CouleurTexteNormale" stdset="0">
-             <color>
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
-             </color>
-            </property>
-            <property name="CouleurTexteSurvol" stdset="0">
-             <color>
-              <red>255</red>
-              <green>0</green>
-              <blue>0</blue>
-             </color>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-        <widget class="QFrame" name="frmAireDeJeu">
-         <property name="geometry">
-          <rect>
-           <x>370</x>
-           <y>30</y>
-           <width>500</width>
-           <height>480</height>
-          </rect>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="AbulEduMenuFeuilleV1" name="frmMenuFeuille">
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
          </property>
@@ -590,338 +108,847 @@ background-color:#813723;
           <enum>QFrame::Raised</enum>
          </property>
         </widget>
-        <widget class="QFrame" name="frmNiveau">
-         <property name="geometry">
-          <rect>
-           <x>170</x>
-           <y>170</y>
-           <width>125</width>
-           <height>271</height>
-          </rect>
+       </item>
+       <item>
+        <widget class="AbulEduStackedWidgetV1" name="stackedWidget">
+         <property name="currentIndex">
+          <number>0</number>
          </property>
-         <property name="styleSheet">
-          <string notr="true">background: #ffffff;
+         <widget class="QWidget" name="pagePrincipale">
+          <property name="styleSheet">
+           <string notr="true">QWidget#pagePrincipale {	
+	background-image: url(:/data_images/background);
+	background-repeat: repeat-no;
+   	background-position: top right;
+}</string>
+          </property>
+          <widget class="QFrame" name="frmIcones">
+           <property name="geometry">
+            <rect>
+             <x>923</x>
+             <y>76</y>
+             <width>90</width>
+             <height>458</height>
+            </rect>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>90</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="lineWidth">
+            <number>0</number>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <property name="spacing">
+             <number>2</number>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="AbulEduFlatBoutonV1" name="btnVerifier">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>69</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="whatsThis">
+               <string notr="true">verification</string>
+              </property>
+              <property name="text">
+               <string>Vérification</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+              <property name="IconeNormale" stdset="0">
+               <string notr="true">:/data_images/verification</string>
+              </property>
+              <property name="IconeSurvol" stdset="0">
+               <string notr="true">:/data_images/verificationHover</string>
+              </property>
+              <property name="IconePressed" stdset="0">
+               <string notr="true">:/data_images/verificationPressed</string>
+              </property>
+              <property name="IconeDisabled" stdset="0">
+               <string notr="true">:/data_images/verificationDisabled</string>
+              </property>
+              <property name="BackgroundAlignement" stdset="0">
+               <string notr="true">center top</string>
+              </property>
+              <property name="TexteAlignement" stdset="0">
+               <string notr="true">Qt::AlignBottom</string>
+              </property>
+              <property name="CouleurTexteNormale" stdset="0">
+               <color>
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </property>
+              <property name="CouleurTexteSurvol" stdset="0">
+               <color>
+                <red>255</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="AbulEduFlatBoutonV1" name="btnRecommencer">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="whatsThis">
+               <string notr="true">debut</string>
+              </property>
+              <property name="text">
+               <string>Début</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+              <property name="IconeNormale" stdset="0">
+               <string notr="true">:/data_images/debut</string>
+              </property>
+              <property name="IconeSurvol" stdset="0">
+               <string notr="true">:/data_images/debutHover</string>
+              </property>
+              <property name="IconePressed" stdset="0">
+               <string notr="true">:/data_images/debutPressed</string>
+              </property>
+              <property name="IconeDisabled" stdset="0">
+               <string notr="true">:/data_images/debutDisabled</string>
+              </property>
+              <property name="BackgroundAlignement" stdset="0">
+               <string notr="true">center top</string>
+              </property>
+              <property name="TexteAlignement" stdset="0">
+               <string notr="true">Qt::AlignBottom</string>
+              </property>
+              <property name="CouleurTexteNormale" stdset="0">
+               <color>
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </property>
+              <property name="CouleurTexteSurvol" stdset="0">
+               <color>
+                <red>255</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="AbulEduFlatBoutonV1" name="btnNombres">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>69</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="whatsThis">
+               <string notr="true">nombres</string>
+              </property>
+              <property name="text">
+               <string>Nombres</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+              <property name="IconeNormale" stdset="0">
+               <string notr="true">:/data_images/nombres</string>
+              </property>
+              <property name="IconeSurvol" stdset="0">
+               <string notr="true">:/data_images/nombresHover</string>
+              </property>
+              <property name="IconePressed" stdset="0">
+               <string notr="true">:/data_images/nombresPressed</string>
+              </property>
+              <property name="IconeDisabled" stdset="0">
+               <string notr="true">:/data_images/nombresDisabled</string>
+              </property>
+              <property name="BackgroundAlignement" stdset="0">
+               <string notr="true">center top</string>
+              </property>
+              <property name="TexteAlignement" stdset="0">
+               <string notr="true">Qt::AlignBottom</string>
+              </property>
+              <property name="CouleurTexteNormale" stdset="0">
+               <color>
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </property>
+              <property name="CouleurTexteSurvol" stdset="0">
+               <color>
+                <red>255</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveaux">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>56</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="whatsThis">
+               <string notr="true">niveaux</string>
+              </property>
+              <property name="text">
+               <string>Niveau</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+              <property name="IconeNormale" stdset="0">
+               <string notr="true">:/data_images/niveaux</string>
+              </property>
+              <property name="IconeSurvol" stdset="0">
+               <string notr="true">:/data_images/niveauxHover</string>
+              </property>
+              <property name="IconePressed" stdset="0">
+               <string notr="true">:/data_images/niveauxPressed</string>
+              </property>
+              <property name="IconeDisabled" stdset="0">
+               <string notr="true">:/data_images/niveauxDisabled</string>
+              </property>
+              <property name="BackgroundAlignement" stdset="0">
+               <string notr="true">center top</string>
+              </property>
+              <property name="TexteAlignement" stdset="0">
+               <string notr="true">Qt::AlignBottom</string>
+              </property>
+              <property name="CouleurTexteNormale" stdset="0">
+               <color>
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </property>
+              <property name="CouleurTexteSurvol" stdset="0">
+               <color>
+                <red>255</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="AbulEduFlatBoutonV1" name="btnAide">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>73</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="whatsThis">
+               <string notr="true">aide</string>
+              </property>
+              <property name="text">
+               <string>Aide</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+              <property name="IconeNormale" stdset="0">
+               <string notr="true">:/data_images/aide</string>
+              </property>
+              <property name="IconeSurvol" stdset="0">
+               <string notr="true">:/data_images/aideHover</string>
+              </property>
+              <property name="IconePressed" stdset="0">
+               <string notr="true">:/data_images/aidePressed</string>
+              </property>
+              <property name="IconeDisabled" stdset="0">
+               <string notr="true">:/data_images/aideDisabled</string>
+              </property>
+              <property name="BackgroundAlignement" stdset="0">
+               <string notr="true">center top</string>
+              </property>
+              <property name="TexteAlignement" stdset="0">
+               <string notr="true">Qt::AlignBottom</string>
+              </property>
+              <property name="CouleurTexteNormale" stdset="0">
+               <color>
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </property>
+              <property name="CouleurTexteSurvol" stdset="0">
+               <color>
+                <red>255</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="AbulEduFlatBoutonV1" name="btnAbandonner">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>70</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="whatsThis">
+               <string notr="true">solution</string>
+              </property>
+              <property name="text">
+               <string>Solution</string>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>50</width>
+                <height>50</height>
+               </size>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+              <property name="IconeNormale" stdset="0">
+               <string notr="true">:/data_images/solution</string>
+              </property>
+              <property name="IconeSurvol" stdset="0">
+               <string notr="true">:/data_images/solutionHover</string>
+              </property>
+              <property name="IconePressed" stdset="0">
+               <string notr="true">:/data_images/solutionPressed</string>
+              </property>
+              <property name="IconeDisabled" stdset="0">
+               <string notr="true">:/data_images/solutionDisabled</string>
+              </property>
+              <property name="BackgroundAlignement" stdset="0">
+               <string notr="true">center top</string>
+              </property>
+              <property name="TexteAlignement" stdset="0">
+               <string notr="true">Qt::AlignBottom</string>
+              </property>
+              <property name="CouleurTexteNormale" stdset="0">
+               <color>
+                <red>255</red>
+                <green>255</green>
+                <blue>255</blue>
+               </color>
+              </property>
+              <property name="CouleurTexteSurvol" stdset="0">
+               <color>
+                <red>255</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QFrame" name="frmAireDeJeu">
+           <property name="geometry">
+            <rect>
+             <x>370</x>
+             <y>30</y>
+             <width>500</width>
+             <height>480</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+          </widget>
+          <widget class="QFrame" name="frmNiveau">
+           <property name="geometry">
+            <rect>
+             <x>170</x>
+             <y>170</y>
+             <width>125</width>
+             <height>271</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: #ffffff;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
 border-bottom-left-radius: 5px;</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="11" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnNiveauAnnuler">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:gray;</string>
-            </property>
-            <property name="text">
-             <string>Annuler</string>
-            </property>
-           </widget>
-          </item>
-          <item row="10" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnNiveauJaune">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:#e8e226;</string>
-            </property>
-            <property name="text">
-             <string>Jaune</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnNiveauOrange">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:#f15c28;</string>
-            </property>
-            <property name="text">
-             <string>Orange</string>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnNiveauBleu">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color: #107bfa;</string>
-            </property>
-            <property name="text">
-             <string>Bleue</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnNiveauMarron">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:#85582d;</string>
-            </property>
-            <property name="text">
-             <string>Marron</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="AbulEduFlatBoutonV1" name="btnNiveauNoire">
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Andika Basic</family>
-              <pointsize>11</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">color:black;</string>
-            </property>
-            <property name="text">
-             <string>Noire</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="11" column="0">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauAnnuler">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color:gray;</string>
+              </property>
+              <property name="text">
+               <string>Annuler</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="0">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauJaune">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color:#e8e226;</string>
+              </property>
+              <property name="text">
+               <string>Jaune</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="0">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauOrange">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color:#f15c28;</string>
+              </property>
+              <property name="text">
+               <string>Orange</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauBleu">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: #107bfa;</string>
+              </property>
+              <property name="text">
+               <string>Bleue</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauMarron">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color:#85582d;</string>
+              </property>
+              <property name="text">
+               <string>Marron</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauNoire">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Andika Basic</family>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color:black;</string>
+              </property>
+              <property name="text">
+               <string>Noire</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QLabel" name="lblLevel">
+           <property name="geometry">
+            <rect>
+             <x>927</x>
+             <y>8</y>
+             <width>80</width>
+             <height>64</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="data_images.qrc">:/data_images/belt0</pixmap>
+           </property>
+          </widget>
+          <widget class="QLabel" name="lblGrid">
+           <property name="geometry">
+            <rect>
+             <x>390</x>
+             <y>30</y>
+             <width>500</width>
+             <height>377</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap resource="data_images.qrc">:/data_images/cadreNombres0</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="pageApropos">
+          <widget class="QPushButton" name="pushButton">
+           <property name="geometry">
+            <rect>
+             <x>720</x>
+             <y>410</y>
+             <width>93</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>OK</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>100</y>
+             <width>581</width>
+             <height>311</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Andika Basic</family>
+             <pointsize>20</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Bientôt ici des informations et des liens concernant ce logiciel</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </widget>
         </widget>
-        <widget class="QLabel" name="lblLevel">
-         <property name="geometry">
-          <rect>
-           <x>927</x>
-           <y>8</y>
-           <width>80</width>
-           <height>64</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="data_images.qrc">:/data_images/belt0</pixmap>
-         </property>
-        </widget>
-        <widget class="QLabel" name="lblGrid">
-         <property name="geometry">
-          <rect>
-           <x>390</x>
-           <y>30</y>
-           <width>500</width>
-           <height>377</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="data_images.qrc">:/data_images/cadreNombres0</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="pageApropos">
-        <widget class="QPushButton" name="pushButton">
-         <property name="geometry">
-          <rect>
-           <x>720</x>
-           <y>410</y>
-           <width>93</width>
-           <height>27</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>OK</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label">
-         <property name="geometry">
-          <rect>
-           <x>220</x>
-           <y>100</y>
-           <width>581</width>
-           <height>311</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <family>Andika Basic</family>
-           <pointsize>20</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Bientôt ici des informations et des liens concernant ce logiciel</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </widget>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1024</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFichier">
-    <property name="title">
-     <string>Fichier</string>
-    </property>
-    <addaction name="actionQuitter"/>
-   </widget>
-   <widget class="QMenu" name="menuDimensions">
-    <property name="title">
-     <string>Dimensions</string>
-    </property>
-    <addaction name="action3x4"/>
-    <addaction name="action3x5"/>
-    <addaction name="action4x6"/>
-    <addaction name="action5x6"/>
-   </widget>
-   <addaction name="menuFichier"/>
-   <addaction name="menuDimensions"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <action name="actionQuitter">
    <property name="text">
