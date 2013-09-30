@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    m_localDebug = 0;
     //Langue
     QString locale = QLocale::system().name();
 
@@ -99,8 +100,10 @@ void MainWindow::initGrille() {
     ui->lblGrid->setPixmap(":/data_images/cadreNombres"+QString::number(m_niveau));
     ui->lblGrid->adjustSize();
     int dimCase = (475 / m_nColonnes);   // largeur max des cases
-    qDebug()<<"Init grille";
-    qDebug()<<dimCase;
+    if(m_localDebug) {
+        qDebug()<<"Init grille";
+        qDebug()<<dimCase;
+    }
     for (int i = 0; i < m_nLignes; i++) {
         for (int j = 0; j < m_nColonnes; j++) {
 //            QString n = QString::number(i*m_nColonnes +j);
@@ -232,7 +235,9 @@ void MainWindow::verifier3() {
         m_3btnCases.clear();
         return;
     }
-//    qDebug() << "verifier3" << m_3btnCases;
+    if(m_localDebug) {
+        qDebug() << "verifier3" << m_3btnCases;
+    }
     QList<int> v; // liste des valeurs des 3 boutons
     BtnCase* sum;
     int maxi = -1;
@@ -247,7 +252,9 @@ void MainWindow::verifier3() {
     }
     qSort(v.begin(), v.end());
     if (v[0]+v[1]==v[2]) {
-//        qDebug() << "j'enleve" << v[2] << v[0] << v[1];
+        if(m_localDebug) {
+            qDebug() << "j'enleve" << v[2] << v[0] << v[1];
+        }
         for (int i = 0; i < 3; i++) { // annuler les boutons
             m_btnCases[m_3btnCases[i]]->setFont(fontMEDIUM);
             m_btnCases[m_3btnCases[i]]->setDisabled(true);
@@ -416,7 +423,9 @@ BtnCase *MainWindow::trouveBoutonOu(int valeur)
 
 BtnCase *MainWindow::trouveCibleOu(int valeur)
 {
-    qDebug()<<" trouveCibleOu : "<<valeur;
+    if(m_localDebug) {
+        qDebug()<<" trouveCibleOu : "<<valeur;
+    }
     bool trouve = false;
     BtnCase* leBon = new BtnCase();
     QListIterator<BtnCase*> iter(m_btnCasesSommes);
@@ -450,7 +459,9 @@ void MainWindow::on_btnAide_clicked()
 {
     if(m_message.isEmpty())
     {
-        //    qDebug() << "=== A l'aide ! ===" << m_listeSommes << m_listeCouples;
+        if(m_localDebug) {
+            qDebug() << "=== A l'aide ! ===" << m_listeSommes << m_listeCouples;
+        }
         QList<int> listeSommes;
         QList<int> listeCouples;
         listeSommes = m_listeSommes;
@@ -463,8 +474,10 @@ void MainWindow::on_btnAide_clicked()
         // on veut : !possible ou k = nSommes
         while (possible2 && k < nSommes) {
             v2 = listeSommes[0];
-            //        qDebug() << "possible2 ? " << k << v2 << listeSommes << listeCouples;
-            //
+            if(m_localDebug) {
+                qDebug() << "possible2 ? " << k << v2 << listeSommes << listeCouples;
+            }
+
             // je cherche v2
             //
             //        qDebug() << "je cherche v2 (start)" << v2;

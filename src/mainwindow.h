@@ -69,6 +69,7 @@ private:
     QTranslator qtTranslator;
     QTranslator myappTranslator;
 
+    int m_localDebug;
     // le produit lignes x colonnes doit être multiple de 3
     int m_nLignes;
     int m_nColonnes;
