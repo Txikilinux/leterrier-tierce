@@ -7,8 +7,6 @@
 QT       += core gui webkit sql svg
 system(ccache -V):QMAKE_CXX = ccache g++
 
-CONFIG += debug
-
 TARGET = leterrier-tierce
 TEMPLATE = app
 
@@ -41,7 +39,6 @@ RESOURCES += \
 win32{
   OTHER_FILES += ../windows/windows.rc
   RC_FILE = ../windows/windows.rc
-  LIBS += -lversion
 }
 
 macx {
