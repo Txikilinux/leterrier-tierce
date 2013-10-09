@@ -42,7 +42,6 @@ AbulEduAproposV0::AbulEduAproposV0(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowTitle(trUtf8("A propos de")+" "+ abeApp->getAbeApplicationLongName() +" "+qApp->applicationVersion());
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
     installeMenu(); //Installe le menu Aide dans la menuBar
 
