@@ -1,6 +1,10 @@
 #!/bin/bash
 # application launcher
+EXENAME=leterrier-tierce
 (
-    cd /usr/share/leterrier-tierce
-    exec /usr/lib/leterrier-tierce/leterrier-tierce
+    cd /usr/share/${EXENAME}
+    if [ -f /usr/lib/${EXENAME}/libQtCore.so.4 ]; then
+	export LD_LIBRARY_PATH=/usr/lib/${EXENAME}
+    fi
+    exec /usr/lib/${EXENAME}/${EXENAME} $@
 )
