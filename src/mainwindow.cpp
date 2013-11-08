@@ -74,6 +74,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // on cherche tous les enfants, et on leur met une chaine vide en tooltips (= desactivation)
     foreach (QWidget *obj, findChildren<QWidget*>()) {
         obj->setToolTip("");
+    }
 #endif
 
     /* Positionnement en dur puisque la hauteur de fenêtre "utile" est fixe */
