@@ -227,7 +227,7 @@ void MainWindow::verifier3() {
     }
     if(!contientSomme)
     {
-        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Problème !!"), trUtf8("Tu dois associer deux cases claires avec leur somme (nombre foncé), pas trois cases claires..."));
+        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Problème !!"), trUtf8("Tu dois associer deux cases claires avec leur somme (nombre foncé), pas trois cases claires..."),true,ui->pagePrincipale);
         box->show();
         for (int i = 0; i < 3; i++) {
             m_btnCases[m_3btnCases[i]]->setFont(fontBIG);
@@ -309,13 +309,13 @@ void MainWindow::verifierTout() {
     {
         if (n == 0) {
             ui->btnAide->setDisabled(true);
-            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"), trUtf8("Maintenant tu peux recommencer, choisir une nouvelle grille ou modifier les dimensions de la grille."));
+            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Félicitations !!"), trUtf8("Maintenant tu peux recommencer, choisir une nouvelle grille ou modifier les dimensions de la grille."),true,ui->pagePrincipale);
             box->setWink();
             box->show();
         }
         else
         {
-            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Bien !!"), trUtf8("Encore %1").arg(QString::number(n/3)));
+            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Bien !!"), trUtf8("Encore %1").arg(QString::number(n/3)),true,ui->pagePrincipale);
             box->setWink();
             box->show();
         }
@@ -520,21 +520,21 @@ void MainWindow::on_btnAide_clicked()
         //
         if (possible2) {
             if (m_listeSommes.size() <= m_listeSommesSauve.size()/2) { // pas d'aide si peu de sommes à chercher
-                AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Désolé !!"),trUtf8("Termine sans aide..."));
+                AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Désolé !!"),trUtf8("Termine sans aide..."),true,ui->pagePrincipale);
                 box->show();
             } else {
-                AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"),trUtf8("Essaye ")+QString::number(m_coupDePouce[0])+" = "+QString::number(m_coupDePouce[1])+" + "+QString::number(m_coupDePouce[2]));
+                AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"),trUtf8("Essaye ")+QString::number(m_coupDePouce[0])+" = "+QString::number(m_coupDePouce[1])+" + "+QString::number(m_coupDePouce[2]),true,ui->pagePrincipale);
                 box->show();
             }
         } else {
             //        qDebug() << "Impossible " << listeSommes;
-            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"),trUtf8("Peux-tu faire ")+QString::number(listeSommes.first())+trUtf8(" ?\n\nSi tu ne peux pas, recommence."));
+            AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"),trUtf8("Peux-tu faire ")+QString::number(listeSommes.first())+trUtf8(" ?\n\nSi tu ne peux pas, recommence."),true,ui->pagePrincipale);
             box->show();
         }
     }
     else
     {
-        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"), m_message);
+        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"), m_message,true,ui->pagePrincipale);
         box->show();
         m_message = QString();
     }
