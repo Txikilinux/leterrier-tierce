@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkit sql svg
+QT       += core gui sql svg
 system(ccache -V):QMAKE_CXX = ccache g++
 
 TARGET = leterrier-tierce
