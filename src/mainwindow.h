@@ -35,7 +35,7 @@
 #include <QLibraryInfo>
 #include <QDesktopWidget>
 #include "btncase.h"
-#include "abuleduaproposv0.h"
+#include "abuleduaproposv1.h"
 #include "abuledumessageboxv1.h"
 #include "abuledustackedwidgetv1.h"
 
@@ -146,6 +146,8 @@ private slots:
     /** Permet d'un seul appel de rendre tous les boutons de l'interface actifs ou inactifs */
     void setAllButtonsEnabled(bool trueFalse);
     void slotChangeLangue(QString lang);
+    /** Force l'affichage de la page principale */
+    void slotMainWindowShowMainPage();
 
 };
 

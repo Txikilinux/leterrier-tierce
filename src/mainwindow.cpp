@@ -90,6 +90,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
 
     ui->btnNiveauBleu->hide();
+    connect(ui->pageAbout, SIGNAL(signalAbeAproposBtnCloseClicked()), this, SLOT(slotMainWindowShowMainPage()),Qt::UniqueConnection);
 }
 
 MainWindow::~MainWindow()
@@ -558,9 +559,7 @@ void MainWindow::on_abeMenuFeuilleBtnQuit_clicked()
 
 void MainWindow::on_abeMenuFeuilleBtnHelp_clicked()
 {
-    /* En attendant d'avoir avancé sur une nouvelle boite à propos, je vais ici appeler l'autre bouton aide, celui de la télécommande
-    ui->stackedWidget->slideInWidget(ui->pageApropos); */
-    on_btnAide_clicked();
+    ui->stackedWidget->slideInWidget(ui->pageAbout);
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -636,4 +635,9 @@ void MainWindow::slotChangeLangue(QString lang)
     myappTranslator.load("leterrier-tierce_" + lang, "lang");
     qApp->installTranslator(&myappTranslator);
     ui->retranslateUi(this);
+}
+
+void MainWindow::slotMainWindowShowMainPage()
+{
+    ui->stackedWidget->slideInWidget(ui->pagePrincipale);
 }
