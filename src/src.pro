@@ -5,7 +5,6 @@
 #-------------------------------------------------
 
 QT       += core gui sql svg
-system(ccache -V):QMAKE_CXX = ccache g++
 
 TARGET = leterrier-tierce
 TEMPLATE = app
@@ -61,3 +60,4 @@ include(lib/abuledusingletonv1/abuledusingletonv1.pri)
 include(lib/abuledupluginloaderv1/abuledupluginloaderv1.pri)
 include(lib/abuleduloggerv1/abuleduloggerv1.pri)
 include(lib/abuleduaproposv1/abuleduaproposv1.pri)
+include(lib/abuleduandroidsupportv1/abuleduandroidsupportv1.pri)
