@@ -15,8 +15,8 @@
         <file alias="niveaux">data/images/niveaux.png</file>
         <file alias="verification">data/images/verificationGris.png</file>
         <file alias="belt0">data/images/ceinture-jaune.png</file>
-        <file alias="belt2">data/images/ceinture-marron.png</file>
-        <file alias="belt3">data/images/ceinture-noire.png</file>
+        <file alias="belt3">data/images/ceinture-marron.png</file>
+        <file alias="belt4">data/images/ceinture-noire.png</file>
         <file alias="belt1">data/images/ceinture-orange.png</file>
         <file alias="solutionDisabled">data/images/soluce-gris.png</file>
         <file alias="solutionHover">data/images/soluce-hover.png</file>
@@ -29,16 +29,18 @@
         <file alias="showMaximized">data/images/fenetreGrand.png</file>
         <file alias="fondNormal">data/images/fond-element.png</file>
         <file alias="fondJusteSomme">data/images/juste.png</file>
-        <file alias="cadreNombres2">data/images/cadre-tierce-difficile.png</file>
-        <file alias="cadreNombres0">data/images/cadre-tierce-facile.png</file>
-        <file alias="cadreNombres1">data/images/cadre-tierce-moyen.png</file>
-        <file alias="cadreNombres3">data/images/cadre-tierce-tresdifficile.png</file>
+        <file alias="cadreNombres3">data/images/cadre-tierce-difficile.png</file>
+        <file alias="cadreNombres1">data/images/cadre-tierce-facile.png</file>
+        <file alias="cadreNombres2">data/images/cadre-tierce-moyen.png</file>
+        <file alias="cadreNombres4">data/images/cadre-tierce-tresdifficile.png</file>
         <file alias="fondCorrection">data/images/correction.png</file>
         <file alias="fondCorrectionSomme">data/images/correctionSomme.png</file>
         <file alias="fondJuste">data/images/justeSomme.png</file>
         <file alias="aideDisabled">data/images/aide-gris.png</file>
         <file alias="debutDisabled">data/images/refaire-gris.png</file>
         <file alias="background">data/images/tierce-fond.jpg</file>
+        <file alias="cadreNombres0">data/images/cadre-tierce-tres-facile.png</file>
+        <file alias="belt2">data/images/ceinture-verte.png</file>
     </qresource>
     <qresource prefix="/data_flags">
         <file alias="de">data/images/de.png</file>

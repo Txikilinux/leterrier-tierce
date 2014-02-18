@@ -89,7 +89,6 @@ MainWindow::MainWindow(QWidget *parent) :
     int desktop_height = widget->height();
     this->move((desktop_width-this->width())/2, (desktop_height-this->height())/2);
 
-    ui->btnNiveauBleu->hide();
     connect(ui->pageAbout, SIGNAL(signalAbeAproposBtnCloseClicked()), this, SLOT(slotMainWindowShowMainPage()),Qt::UniqueConnection);
 }
 
@@ -545,8 +544,9 @@ void MainWindow::_changeNiveau() {
     switch (m_niveau) {
         case 0 : actionDIMxDIM(3,4); break;
         case 1 : actionDIMxDIM(3,5); break;
-        case 2 : actionDIMxDIM(4,6); break;
-        case 3 : actionDIMxDIM(5,6); break;
+        case 2 : actionDIMxDIM(3,6); break;
+        case 3 : actionDIMxDIM(4,6); break;
+        case 4 : actionDIMxDIM(5,6); break;
     }
     ui->lblLevel->setPixmap(QPixmap(":/data_images/belt"+QString::number(m_niveau)));
     on_btnNiveauAnnuler_clicked();
@@ -573,25 +573,31 @@ void MainWindow::on_btnAbandonner_clicked()
     donneReponse();
 }
 
-void MainWindow::on_btnNiveauNoire_clicked()
+void MainWindow::on_btnNiveauTresDifficile_clicked()
+{
+    m_niveau = 4;
+    _changeNiveau();
+}
+
+void MainWindow::on_btnNiveauDifficile_clicked()
 {
     m_niveau = 3;
     _changeNiveau();
 }
 
-void MainWindow::on_btnNiveauMarron_clicked()
+void MainWindow::on_btnNiveauMoyen_clicked()
 {
     m_niveau = 2;
     _changeNiveau();
 }
 
-void MainWindow::on_btnNiveauOrange_clicked()
+void MainWindow::on_btnNiveauFacile_clicked()
 {
     m_niveau = 1;
     _changeNiveau();
 }
 
-void MainWindow::on_btnNiveauJaune_clicked()
+void MainWindow::on_btnNiveauTresFacile_clicked()
 {
     m_niveau = 0;
     _changeNiveau();

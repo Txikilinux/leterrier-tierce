@@ -130,10 +130,10 @@ private slots:
     void on_pushButton_clicked();
     void on_btnAbandonner_clicked();
     void on_btnAide_clicked();
-    void on_btnNiveauNoire_clicked();
-    void on_btnNiveauMarron_clicked();
-    void on_btnNiveauOrange_clicked();
-    void on_btnNiveauJaune_clicked();
+    void on_btnNiveauTresDifficile_clicked();
+    void on_btnNiveauDifficile_clicked();
+    void on_btnNiveauFacile_clicked();
+    void on_btnNiveauTresFacile_clicked();
     void on_btnNiveaux_clicked();
     void on_btnNiveauAnnuler_clicked();
 
@@ -149,6 +149,7 @@ private slots:
     /** Force l'affichage de la page principale */
     void slotMainWindowShowMainPage();
 
+    void on_btnNiveauMoyen_clicked();
 };
 
 #endif // MAINWINDOW_H

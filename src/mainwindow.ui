@@ -728,7 +728,7 @@ border-bottom-left-radius: 5px;</string>
              </widget>
             </item>
             <item row="10" column="0">
-             <widget class="AbulEduFlatBoutonV1" name="btnNiveauJaune">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauTresFacile">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -756,12 +756,12 @@ border-bottom-left-radius: 5px;</string>
                <string notr="true">color:#e8e226;</string>
               </property>
               <property name="text">
-               <string>Jaune</string>
+               <string>Très facile</string>
               </property>
              </widget>
             </item>
             <item row="9" column="0">
-             <widget class="AbulEduFlatBoutonV1" name="btnNiveauOrange">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauFacile">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -789,12 +789,12 @@ border-bottom-left-radius: 5px;</string>
                <string notr="true">color:#f15c28;</string>
               </property>
               <property name="text">
-               <string>Orange</string>
+               <string>Facile</string>
               </property>
              </widget>
             </item>
             <item row="8" column="0">
-             <widget class="AbulEduFlatBoutonV1" name="btnNiveauBleu">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauMoyen">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -819,15 +819,15 @@ border-bottom-left-radius: 5px;</string>
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: #107bfa;</string>
+               <string notr="true">color: green;</string>
               </property>
               <property name="text">
-               <string>Bleue</string>
+               <string>Moyen</string>
               </property>
              </widget>
             </item>
             <item row="3" column="0">
-             <widget class="AbulEduFlatBoutonV1" name="btnNiveauMarron">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauDifficile">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -855,12 +855,12 @@ border-bottom-left-radius: 5px;</string>
                <string notr="true">color:#85582d;</string>
               </property>
               <property name="text">
-               <string>Marron</string>
+               <string>Difficile</string>
               </property>
              </widget>
             </item>
             <item row="0" column="0">
-             <widget class="AbulEduFlatBoutonV1" name="btnNiveauNoire">
+             <widget class="AbulEduFlatBoutonV1" name="btnNiveauTresDifficile">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -888,7 +888,7 @@ border-bottom-left-radius: 5px;</string>
                <string notr="true">color:black;</string>
               </property>
               <property name="text">
-               <string>Noire</string>
+               <string>Très difficile</string>
               </property>
              </widget>
             </item>
