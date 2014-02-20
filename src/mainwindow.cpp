@@ -122,6 +122,7 @@ void MainWindow::initGrille() {
 
 void MainWindow::initValeurs() {
     m_isCanceled = false;
+    ui->btnAbandonner->setEnabled(true);
     int nBtn = m_nLignes * m_nColonnes;
     int encore = nBtn;
     QList<int> listeTirage; // ensemble des valeurs v1 et v2 pour éviter les répétitions dans somme = v1 + v2
@@ -622,6 +623,12 @@ void MainWindow::setAllButtonsEnabled(bool trueFalse)
     {
         if(enfant->whatsThis() != "nombres" && enfant->whatsThis() != "verification")
           enfant->setEnabled(trueFalse);
+    }
+    if(m_isCanceled){
+        ui->btnAbandonner->setEnabled(false);
+    }
+    else{
+        ui->btnAbandonner->setEnabled(trueFalse);
     }
 }
 
