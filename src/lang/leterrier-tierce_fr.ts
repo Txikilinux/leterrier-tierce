@@ -6,7 +6,7 @@
     <message>
         <location filename="../abuleduaproposv0.ui" line="14"/>
         <source>A Propos du logiciel</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message utf8="true">
         <location filename="../abuleduaproposv0.ui" line="27"/>
@@ -99,7 +99,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../abuleduaproposv0.ui" line="181"/>
-        <location filename="../abuleduaproposv0.cpp" line="51"/>
+        <location filename="../abuleduaproposv0.cpp" line="50"/>
         <source>Posez votre question sur le forum des utilisateurs ...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -167,68 +167,68 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../abuleduaproposv0.cpp" line="114"/>
+        <location filename="../abuleduaproposv0.cpp" line="113"/>
         <source>&lt;center&gt;%1 %2&lt;/center&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../abuleduaproposv0.cpp" line="124"/>
+        <location filename="../abuleduaproposv0.cpp" line="123"/>
         <source>&amp;Aide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../abuleduaproposv0.cpp" line="132"/>
+        <location filename="../abuleduaproposv0.cpp" line="131"/>
         <source>Aide</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../abuleduaproposv0.cpp" line="142"/>
+        <location filename="../abuleduaproposv0.cpp" line="141"/>
         <source>Aide intégrée...</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../abuleduaproposv0.cpp" line="149"/>
+        <location filename="../abuleduaproposv0.cpp" line="148"/>
         <source>Ressources pédagogiques...</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../abuleduaproposv0.cpp" line="155"/>
+        <location filename="../abuleduaproposv0.cpp" line="154"/>
         <source>Nouveautés...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../abuleduaproposv0.cpp" line="161"/>
+        <location filename="../abuleduaproposv0.cpp" line="160"/>
         <source>Forum des utilisateurs...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../abuleduaproposv0.cpp" line="167"/>
+        <location filename="../abuleduaproposv0.cpp" line="166"/>
         <source>Contribuez...</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../abuleduaproposv0.cpp" line="173"/>
+        <location filename="../abuleduaproposv0.cpp" line="172"/>
         <source>À Propos de ce logiciel...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../abuleduaproposv0.cpp" line="211"/>
-        <location filename="../abuleduaproposv0.cpp" line="243"/>
-        <location filename="../abuleduaproposv0.cpp" line="454"/>
-        <location filename="../abuleduaproposv0.cpp" line="530"/>
+        <location filename="../abuleduaproposv0.cpp" line="210"/>
+        <location filename="../abuleduaproposv0.cpp" line="242"/>
+        <location filename="../abuleduaproposv0.cpp" line="453"/>
+        <location filename="../abuleduaproposv0.cpp" line="529"/>
         <source>Le site n&apos;est pas accessible</source>
         <translation type="unfinished"></translation>
     </message>
     <message utf8="true">
-        <location filename="../abuleduaproposv0.cpp" line="216"/>
-        <location filename="../abuleduaproposv0.cpp" line="248"/>
-        <location filename="../abuleduaproposv0.cpp" line="281"/>
+        <location filename="../abuleduaproposv0.cpp" line="215"/>
+        <location filename="../abuleduaproposv0.cpp" line="247"/>
+        <location filename="../abuleduaproposv0.cpp" line="280"/>
         <source>Téléchargement en cours ... veuillez patienter.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../abuleduaproposv0.cpp" line="276"/>
-        <location filename="../abuleduaproposv0.cpp" line="392"/>
+        <location filename="../abuleduaproposv0.cpp" line="275"/>
+        <location filename="../abuleduaproposv0.cpp" line="391"/>
         <source>Le forum n&apos;est pas accessible</source>
         <translation type="unfinished"></translation>
     </message>
@@ -238,176 +238,173 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <source>Tierce</source>
-        <translation type="unfinished"></translation>
+        <translation>Tierce</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.ui" line="187"/>
+        <location filename="../mainwindow.ui" line="214"/>
         <source>Vérification</source>
-        <translation type="unfinished"></translation>
+        <translation>Vérification</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.ui" line="266"/>
+        <location filename="../mainwindow.ui" line="293"/>
         <source>Début</source>
-        <translation type="unfinished"></translation>
+        <translation>Début</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="348"/>
+        <location filename="../mainwindow.ui" line="375"/>
         <source>Nombres</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombres</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="427"/>
+        <location filename="../mainwindow.ui" line="454"/>
         <source>Niveau</source>
-        <translation type="unfinished"></translation>
+        <translation>Niveau</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="506"/>
+        <location filename="../mainwindow.ui" line="533"/>
         <source>Aide</source>
-        <translation type="unfinished"></translation>
+        <translation>Aide</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="579"/>
+        <location filename="../mainwindow.ui" line="606"/>
         <source>Solution</source>
-        <translation type="unfinished"></translation>
+        <translation>Solution</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../mainwindow.ui" line="759"/>
+        <source>Très facile</source>
+        <translation>Très facile</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="765"/>
-        <source>Orange</source>
-        <translation type="unfinished"></translation>
+        <location filename="../mainwindow.ui" line="792"/>
+        <source>Facile</source>
+        <translation>Facile</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="798"/>
-        <source>Bleue</source>
-        <translation type="unfinished"></translation>
+        <location filename="../mainwindow.ui" line="825"/>
+        <source>Moyen</source>
+        <translation>Moyen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="831"/>
-        <source>Marron</source>
-        <translation type="unfinished"></translation>
+        <location filename="../mainwindow.ui" line="858"/>
+        <source>Difficile</source>
+        <translation>Difficile</translation>
+    </message>
+    <message utf8="true">
+        <location filename="../mainwindow.ui" line="891"/>
+        <source>Très difficile</source>
+        <translation>Très difficile</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="732"/>
-        <source>Jaune</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="864"/>
-        <source>Noire</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="699"/>
+        <location filename="../mainwindow.ui" line="726"/>
         <source>Annuler</source>
-        <translation type="unfinished"></translation>
+        <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="917"/>
-        <source>OK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message utf8="true">
-        <location filename="../mainwindow.ui" line="936"/>
-        <source>Bientôt ici des informations et des liens concernant ce logiciel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="955"/>
+        <location filename="../mainwindow.ui" line="943"/>
         <source>Quitter</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="960"/>
+        <location filename="../mainwindow.ui" line="948"/>
         <source>3x4</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="965"/>
+        <location filename="../mainwindow.ui" line="953"/>
         <source>3x5</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="970"/>
+        <location filename="../mainwindow.ui" line="958"/>
         <source>4x6</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="975"/>
+        <location filename="../mainwindow.ui" line="963"/>
         <source>5x6</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="198"/>
+        <location filename="../mainwindow.cpp" line="205"/>
         <source>Un nombre cible (foncé) est
 somme des deux nombres clairs.
 
 Choisis les nombres par
 groupe de trois de sorte
 qu&apos;il n&apos;en reste plus un seul.</source>
-        <translation type="unfinished"></translation>
+        <translation>Un nombre cible (foncé) est
+somme des deux nombres clairs.
+
+Choisis les nombres par
+groupe de trois de sorte
+qu&apos;il n&apos;en reste plus un seul.</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="226"/>
+        <location filename="../mainwindow.cpp" line="233"/>
         <source>Problème !!</source>
-        <translation type="unfinished"></translation>
+        <translation>Problème !!</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="226"/>
+        <location filename="../mainwindow.cpp" line="233"/>
         <source>Tu dois associer deux cases claires avec leur somme (nombre foncé), pas trois cases claires...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tu dois associer deux cases claires avec leur somme (nombre foncé), pas trois cases claires...</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="304"/>
+        <location filename="../mainwindow.cpp" line="315"/>
         <source>Félicitations !!</source>
-        <translation type="unfinished"></translation>
+        <translation>Félicitations !!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="304"/>
+        <location filename="../mainwindow.cpp" line="315"/>
         <source>Maintenant tu peux recommencer, choisir une nouvelle grille ou modifier les dimensions de la grille.</source>
-        <translation type="unfinished"></translation>
+        <translation>Maintenant tu peux recommencer, choisir une nouvelle grille ou modifier les dimensions de la grille.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="321"/>
         <source>Bien !!</source>
-        <translation type="unfinished"></translation>
+        <translation>Bien !!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="321"/>
         <source>Encore %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Encore %1</translation>
     </message>
     <message utf8="true">
-        <location filename="../mainwindow.cpp" line="509"/>
+        <location filename="../mainwindow.cpp" line="526"/>
         <source>Désolé !!</source>
-        <translation type="unfinished"></translation>
+        <translation>Désolé !!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="509"/>
+        <location filename="../mainwindow.cpp" line="526"/>
         <source>Termine sans aide...</source>
-        <translation type="unfinished"></translation>
+        <translation>Termine sans aide...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="512"/>
-        <location filename="../mainwindow.cpp" line="517"/>
-        <location filename="../mainwindow.cpp" line="523"/>
+        <location filename="../mainwindow.cpp" line="529"/>
+        <location filename="../mainwindow.cpp" line="535"/>
+        <location filename="../mainwindow.cpp" line="542"/>
         <source>Coup de pouce !!</source>
-        <translation type="unfinished"></translation>
+        <translation>Coup de pouce !!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="512"/>
+        <location filename="../mainwindow.cpp" line="529"/>
         <source>Essaye </source>
-        <translation type="unfinished"></translation>
+        <translation>Essaye </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="517"/>
+        <location filename="../mainwindow.cpp" line="535"/>
         <source>Peux-tu faire </source>
-        <translation type="unfinished"></translation>
+        <translation>Peux-tu faire </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="517"/>
+        <location filename="../mainwindow.cpp" line="535"/>
         <source> ?
 
 Si tu ne peux pas, recommence.</source>
-        <translation type="unfinished"></translation>
+        <translation> ?
+
+Si tu ne peux pas, recommence.</translation>
     </message>
 </context>
 </TS>
