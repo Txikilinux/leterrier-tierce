@@ -525,17 +525,20 @@ void MainWindow::on_btnAide_clicked()
                 box->show();
             } else {
                 AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"),trUtf8("Essaye ")+QString::number(m_coupDePouce[0])+" = "+QString::number(m_coupDePouce[1])+" + "+QString::number(m_coupDePouce[2]),true,ui->pagePrincipale);
+                box->setWink();
                 box->show();
             }
         } else {
             //        qDebug() << "Impossible " << listeSommes;
             AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"),trUtf8("Peux-tu faire ")+QString::number(listeSommes.first())+trUtf8(" ?\n\nSi tu ne peux pas, recommence."),true,ui->pagePrincipale);
+            box->setWink();
             box->show();
         }
     }
     else
     {
         AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Coup de pouce !!"), m_message,true,ui->pagePrincipale);
+        box->setWink();
         box->show();
         m_message = QString();
     }
