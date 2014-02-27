@@ -221,16 +221,20 @@ void MainWindow::attraperBtnCase()
 }
 
 void MainWindow::verifier3() {
-    bool contientSomme = false;
+    int nombreTermes = 0;
+    int nombreSommes = 0;
     for (int i = 0; i < 3; i++) {
         if(m_btnCases[m_3btnCases[i]]->styleSheet().contains("fondSomme"))
         {
-            contientSomme = true;
+            nombreSommes++;
+        }
+        else if(m_btnCases[m_3btnCases[i]]->styleSheet().contains("fondNormal")){
+            nombreTermes++;
         }
     }
-    if(!contientSomme)
+    if(nombreSommes != 1 || nombreTermes != 2)
     {
-        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Problème !!"), trUtf8("Tu dois associer deux cases claires avec leur somme (nombre foncé), pas trois cases claires..."),true,ui->pagePrincipale);
+        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Problème !!"), trUtf8("Tu dois associer deux cases claires avec leur somme (nombre foncé), ce n'est pas ce que tu as fait..."),true,ui->pagePrincipale);
         box->show();
         for (int i = 0; i < 3; i++) {
             m_btnCases[m_3btnCases[i]]->setFont(fontBIG);
@@ -243,7 +247,7 @@ void MainWindow::verifier3() {
         qDebug() << "verifier3" << m_3btnCases;
     }
     QList<int> v; // liste des valeurs des 3 boutons
-    BtnCase* sum;
+    BtnCase* sum = 0;
     int maxi = -1;
     for (int i = 0; i < 3; i++)
     {
@@ -296,6 +300,8 @@ void MainWindow::verifier3() {
         verifierTout();
     }
     else {
+        AbulEduMessageBoxV1 *box = new AbulEduMessageBoxV1(trUtf8("Problème !!"), trUtf8("La somme des nombres des cases claires n'est pas le nombre de la case foncée..."),true,ui->pagePrincipale);
+        box->show();
         for (int i = 0; i < 3; i++) { // restaurer les boutons
             m_btnCases[m_3btnCases[i]]->setFont(fontBIG);
             m_btnCases[m_3btnCases[i]]->setDisabled(false);
