@@ -568,11 +568,6 @@ void MainWindow::on_abeMenuFeuilleBtnHelp_clicked()
     ui->stackedWidget->slideInWidget(ui->pageAbout);
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    ui->stackedWidget->slideInWidget(ui->pagePrincipale);
-}
-
 void MainWindow::on_btnAbandonner_clicked()
 {
     on_btnRecommencer_clicked();

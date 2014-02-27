@@ -11,16 +11,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    btncase.cpp \
-    abuleduaproposv0.cpp
+    btncase.cpp
 
 HEADERS  += version.h \
     mainwindow.h \
-    btncase.h \
-    abuleduaproposv0.h
+    btncase.h
 
-FORMS    += mainwindow.ui \
-    abuleduaproposv0.ui
+FORMS    += mainwindow.ui
 
 OTHER_FILES += \
     images/background-1024x600.png \
