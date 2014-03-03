@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     qApp->installTranslator(&myappTranslator);
 
     ui->setupUi(this);
+    ui->frmIcones->raise();
     ui->frmAireDeJeu->setStyleSheet("QFrame#frmAireDeJeu {	\nbackground-image: url(:/data_images/cadreNombres);\nbackground-repeat: repeat-no;\nbackground-position: top right;\n}");
 
     fontBIG.setPointSize(35);
@@ -571,7 +572,7 @@ void MainWindow::on_abeMenuFeuilleBtnQuit_clicked()
 
 void MainWindow::on_abeMenuFeuilleBtnHelp_clicked()
 {
-    ui->stackedWidget->slideInWidget(ui->pageAbout);
+    ui->stackedWidget->abeStackedWidgetSlideInWidget(ui->pageAbout);
 }
 
 void MainWindow::on_btnAbandonner_clicked()
@@ -658,5 +659,5 @@ void MainWindow::slotChangeLangue(QString lang)
 
 void MainWindow::slotMainWindowShowMainPage()
 {
-    ui->stackedWidget->slideInWidget(ui->pagePrincipale);
+    ui->stackedWidget->abeStackedWidgetSlideInWidget(ui->pagePrincipale);
 }
