@@ -100,7 +100,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::initGrille() {
+void MainWindow::initGrille()
+{
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     ui->lblGrid->setPixmap(":/data_images/cadreNombres"+QString::number(m_niveau));
     ui->lblGrid->adjustSize();
     int dimCase = (475 / m_nColonnes);   // largeur max des cases
@@ -123,7 +127,11 @@ void MainWindow::initGrille() {
     }
 }
 
-void MainWindow::initValeurs() {
+void MainWindow::initValeurs()
+{
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     m_isCanceled = false;
     ui->btnAbandonner->setEnabled(true);
     int nBtn = m_nLignes * m_nColonnes;
@@ -311,7 +319,8 @@ void MainWindow::verifier3() {
     }
 }
 
-void MainWindow::verifierTout() {
+void MainWindow::verifierTout()
+{
     int n = m_nLignes * m_nColonnes;
     for (int i = 0; i < m_nLignes * m_nColonnes; i++)
         if (m_btnCases[i]->getMChoisi()) n--;
@@ -334,6 +343,9 @@ void MainWindow::verifierTout() {
 
 void MainWindow::on_btnRecommencer_clicked()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     m_isCanceled = false;
     for (int i = 0; i < m_nLignes * m_nColonnes; i++) {
         m_btnCases[i]->restaure();
@@ -378,6 +390,9 @@ void MainWindow::_deleteBtnCases() {
 
 void MainWindow::donneReponse()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     m_isCanceled = true;
     if(!m_listeSommes.isEmpty() && !m_listeCouples.isEmpty())
     {
@@ -390,6 +405,10 @@ void MainWindow::donneReponse()
     }
     else
     {
+        AbulEduMessageBoxV1* msg = new AbulEduMessageBoxV1(trUtf8("Pas trouvé ?"),trUtf8("Voici un corrigé ! \n\nTu peux choisir une nouvelle grille en cliquant sur la feuille de cerisier ou en changeant de niveau..."),true,ui->pagePrincipale);
+        msg->move(10,150);
+        msg->resize(400,100);
+        msg->show();
         setAllButtonsEnabled(true);
         return;
     }
@@ -468,6 +487,9 @@ void MainWindow::on_action5x6_triggered() { actionDIMxDIM(5,6); }
 
 void MainWindow::on_btnAide_clicked()
 {
+    foreach(AbulEduMessageBoxV1* mbox,ui->pagePrincipale->findChildren<AbulEduMessageBoxV1*>()){
+        mbox->close();
+    }
     if(m_message.isEmpty())
     {
         if(m_localDebug) {
