@@ -232,13 +232,16 @@ void MainWindow::attraperBtnCase()
 void MainWindow::verifier3() {
     int nombreTermes = 0;
     int nombreSommes = 0;
+    QList<int> v; // liste des valeurs des 3 boutons
     for (int i = 0; i < 3; i++) {
         if(m_btnCases[m_3btnCases[i]]->styleSheet().contains("fondSomme"))
         {
             nombreSommes++;
+            v.append(m_btnCases[m_3btnCases[i]]->getMValeur());
         }
         else if(m_btnCases[m_3btnCases[i]]->styleSheet().contains("fondNormal")){
             nombreTermes++;
+            v.prepend(m_btnCases[m_3btnCases[i]]->getMValeur());
         }
     }
     if(nombreSommes != 1 || nombreTermes != 2)
@@ -255,19 +258,18 @@ void MainWindow::verifier3() {
     if(m_localDebug) {
         qDebug() << "verifier3" << m_3btnCases;
     }
-    QList<int> v; // liste des valeurs des 3 boutons
-    BtnCase* sum = 0;
-    int maxi = -1;
-    for (int i = 0; i < 3; i++)
-    {
-        if(m_btnCases[m_3btnCases[i]]->getMValeur() > maxi)
-        {
-            maxi = m_btnCases[m_3btnCases[i]]->getMValeur();
-            sum = m_btnCases[m_3btnCases[i]];
-        }
-        v << m_btnCases[m_3btnCases[i]]->getMValeur();
-    }
-    qSort(v.begin(), v.end());
+//    BtnCase* sum = 0;
+//    int maxi = -1;
+//    for (int i = 0; i < 3; i++)
+//    {
+//        if(m_btnCases[m_3btnCases[i]]->getMValeur() > maxi)
+//        {
+//            maxi = m_btnCases[m_3btnCases[i]]->getMValeur();
+//            sum = m_btnCases[m_3btnCases[i]];
+//        }
+//        v << m_btnCases[m_3btnCases[i]]->getMValeur();
+//    }
+//    qSort(v.begin(), v.end());
     if (v[0]+v[1]==v[2]) {
         if(m_localDebug) {
             qDebug() << "j'enleve" << v[2] << v[0] << v[1];
@@ -278,7 +280,7 @@ void MainWindow::verifier3() {
             m_btnCases[m_3btnCases[i]]->setMChoisi(true);
             if(m_isCanceled)
             {
-                if(m_btnCases[m_3btnCases[i]] == sum)
+                if(m_btnCases[m_3btnCases[i]]->getMValeur() == v[2])
                 {
                     m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondCorrectionSomme");
                 }
@@ -289,7 +291,7 @@ void MainWindow::verifier3() {
             }
             else
             {
-                if(m_btnCases[m_3btnCases[i]] == sum)
+                if(m_btnCases[m_3btnCases[i]]->getMValeur() == v[2])
                 {
                     m_btnCases[m_3btnCases[i]]->setIconeNormale(":/data_images/fondJuste");
                 }
