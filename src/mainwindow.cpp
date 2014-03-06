@@ -258,18 +258,6 @@ void MainWindow::verifier3() {
     if(m_localDebug) {
         qDebug() << "verifier3" << m_3btnCases;
     }
-//    BtnCase* sum = 0;
-//    int maxi = -1;
-//    for (int i = 0; i < 3; i++)
-//    {
-//        if(m_btnCases[m_3btnCases[i]]->getMValeur() > maxi)
-//        {
-//            maxi = m_btnCases[m_3btnCases[i]]->getMValeur();
-//            sum = m_btnCases[m_3btnCases[i]];
-//        }
-//        v << m_btnCases[m_3btnCases[i]]->getMValeur();
-//    }
-//    qSort(v.begin(), v.end());
     if (v[0]+v[1]==v[2]) {
         if(m_localDebug) {
             qDebug() << "j'enleve" << v[2] << v[0] << v[1];
