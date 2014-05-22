@@ -34,19 +34,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     m_localDebug = 0;
-    //Langue
-    QString locale = QLocale::system().name();
 
+
+    /* rq eric 20140522 : La gestion des traductions est maintenant dans abuleduapplicationv1 ... ça fait doublon de les garder ici */
+    //Langue
+    //    QString locale = QLocale::system().name();
     //Un 1er qtranslator pour prendre les traductions QT Systeme
     //c'est d'ailleur grace a ca qu'on est en RTL
-    qtTranslator.load("qt_" + locale,
-            QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    qApp->installTranslator(&qtTranslator);
+    //    qtTranslator.load("qt_" + locale,
+    //            QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    //    qApp->installTranslator(&qtTranslator);
 
     //Et un second qtranslator pour les traductions specifiques du
     //logiciel
-    myappTranslator.load("tierce_" + locale, "lang");
-    qApp->installTranslator(&myappTranslator);
+    //    myappTranslator.load("tierce_" + locale, "lang");
+    //    qApp->installTranslator(&myappTranslator);
 
     ui->setupUi(this);
     ui->frmIcones->raise();
@@ -70,9 +72,9 @@ MainWindow::MainWindow(QWidget *parent) :
     initValeurs();
 
 #ifdef __ABULEDUTABLETTEV1__MODE__
-    /// 15/01/2012 Icham -> mode tablette, pas de tooltips (pas de survol en mode tactile, et puis ça faisait des trucs bizarres parfois)
-    /// 15/01/2013 iCHAM -> icones survol = icones normales
-    // on cherche tous les enfants, et on leur met une chaine vide en tooltips (= desactivation)
+    /* 15/01/2012 Icham -> mode tablette, pas de tooltips (pas de survol en mode tactile, et puis ça faisait des trucs bizarres parfois)
+       15/01/2013 iCHAM -> icones survol = icones normales
+       on cherche tous les enfants, et on leur met une chaine vide en tooltips (= desactivation) */
     foreach (QWidget *obj, findChildren<QWidget*>()) {
         obj->setToolTip("");
     }
