@@ -3,7 +3,7 @@
 
 #define EXECNAME "leterrier-tierce"
 #define ICONNAME "leterrier-tierce"
-#define DIRNAME "tierce"
+#define DIRNAME "leterrier-tierce"
 #define APPNAME "Le Terrier d'AbulEdu - Tierce"
 
 [Setup]
