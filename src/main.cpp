@@ -4,7 +4,7 @@
   * @warning aucun traitement d'erreur n'est pour l'instant implémenté
   * @see https://redmine.ryxeo.com/projects/leterrier-fubuki
   * @author 2011 André Connes <andre.connes@wanadoo.fr>
-  * @author 2011-2012 Eric Seigne <eric.seigne@ryxeo.com>
+  * @author 2011-2015 Eric Seigne <eric.seigne@ryxeo.com>
   * @see The GNU Public License (GPL)
   *
   * This program is free software; you can redistribute it and/or modify
