@@ -64,8 +64,11 @@ Source: "../src/data/icones/{#EXECNAME}-128.png"; DestDir: "{app}"; Flags: ignor
 [Code]
 procedure UpdateDesktopPath();
 var Strings : TArrayOfString;
+var cmdLine : String;
 begin
   SetArrayLength(Strings, 1);
-  Strings[0] := 'X-Horizon-WindowsExecPath=' + ExpandConstant('{app}');
+  cmdLine := ExpandConstant('{app}');
+  StringChangeEx(cmdLine,'\','/',True)
+  Strings[0] := 'X-Horizon-WindowsExecPath=' + cmdLine;
   SaveStringsToFile(ExpandConstant('{win}') + '/abuledu-alacarte/data/profile1.applications/{#EXECNAME}.desktop', Strings, True);
 end;
