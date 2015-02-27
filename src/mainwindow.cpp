@@ -82,7 +82,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->frmNiveau->move(ui->frmIcones->x()-ui->frmNiveau->width()+8,ui->frmIcones->y()+19);
     ui->frmNiveau->setVisible(false);
 
-    setWindowFlags(Qt::CustomizeWindowHint);
+    setWindowFlags(Qt::FramelessWindowHint);
     connect(ui->frmMenuFeuille, SIGNAL(signalAbeMenuFeuilleChangeLanguage(QString)),this,SLOT(slotChangeLangue(QString)),Qt::UniqueConnection);
 
     /* Centrage fenetre avec gestion multi-ecrans */
